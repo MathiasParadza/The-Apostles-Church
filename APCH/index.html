@@ -1,0 +1,3155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Apostles' Church - Welcome to Our Faith Community</title>
+    <meta name="description" content="Join The Apostles' Church community. Discover faith, find support, and grow spiritually through worship, fellowship, and service.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="The Apostles' Church">
+    <meta property="og:description" content="Welcome to our faith community. Discover truth, find peace, and grow spiritually.">
+    <meta property="og:image" content="https://apostleschurch.org/images/og-image.jpg">
+    <meta property="og:url" content="https://apostleschurch.org">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Apostles' Church">
+    <meta name="twitter:description" content="Welcome to our faith community. Discover truth, find peace, and grow spiritually.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+
+        /* Search Modal Styles */
+.search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 250, 248, 0.85);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.search-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-modal-content {
+    background: var(--text-light);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.search-header h3 {
+    color: var(--dark-blue);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.search-close {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--dark-blue);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.search-close:hover {
+    color: var(--accent-gold);
+    background: var(--light-gray);
+}
+
+.search-input-container {
+    position: relative;
+    padding: 2rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.search-modal-input {
+    width: 100%;
+    padding: 1.25rem 4rem 1.25rem 1.5rem;
+    border: 2px solid var(--medium-gray);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.search-modal-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(44, 122, 62, 0.1);
+}
+
+.search-modal-btn {
+    position: absolute;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-green);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-modal-btn:hover {
+    background: var(--secondary-green);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.search-suggestions {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.suggestions-title {
+    color: var(--dark-blue);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.suggestion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.suggestion-tag {
+    background: var(--light-gray);
+    border: 1px solid var(--medium-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-dark);
+}
+
+.suggestion-tag:hover {
+    background: var(--primary-green);
+    color: var(--text-light);
+    border-color: var(--primary-green);
+}
+
+.search-results {
+    padding: 1.5rem 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--medium-gray);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background: var(--light-gray);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.result-category {
+    display: inline-block;
+    background: var(--light-gray);
+    color: var(--primary-green);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.result-title {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.result-snippet {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.result-link {
+    color: var(--primary-green);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.search-footer {
+    padding: 1.5rem 2rem;
+    background: var(--light-gray);
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Search results loading state */
+.search-results.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--light-gray);
+    border-top-color: var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* No results state */
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.no-results i {
+    font-size: 3rem;
+    color: var(--medium-gray);
+    margin-bottom: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .search-modal-content {
+        max-height: 95vh;
+        margin: 0.5rem;
+    }
+    
+    .search-header,
+    .search-input-container,
+    .search-suggestions,
+    .search-results,
+    .search-footer {
+        padding: 1.25rem;
+    }
+    
+    .search-modal-input {
+        padding: 1rem 3.5rem 1rem 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .search-modal-btn {
+        right: 1.75rem;
+        width: 42px;
+        height: 42px;
+    }
+    
+    .suggestion-tags {
+        gap: 0.25rem;
+    }
+    
+    .suggestion-tag {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* Consolidated Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Mega Dropdown Menu */
+        .mega-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-blue);
+            min-width: 800px;
+            padding: 1.5rem;
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .nav-item:hover .mega-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-dropdown-section {
+            padding: 0.5rem 0;
+        }
+
+        .mega-dropdown-title {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(252, 157, 31, 0.3);
+        }
+
+        .mega-dropdown-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mega-dropdown-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .mega-dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .mega-dropdown-link:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+            padding-left: 0.5rem;
+        }
+
+        /* Compact dropdown for smaller menus */
+        .compact-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-blue);
+            min-width: 220px;
+            padding: 0.75rem 0;
+            border-radius: 0 0 8px 8px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .compact-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .compact-dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .compact-dropdown-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-gold);
+            padding-left: 2rem;
+        }
+
+        /* Utility Links */
+        .utility-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .utility-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .utility-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .mega-dropdown {
+                min-width: 700px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+            
+            .journey-wrapper {
+                flex-direction: column;
+            }
+            
+            .journey-sidebar {
+                position: static;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                justify-content: space-between;
+            }
+            
+            .mega-dropdown,
+            .compact-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                box-shadow: none;
+                display: none;
+                width: 100%;
+                min-width: 100%;
+                padding: 0.5rem 0 0.5rem 2rem;
+            }
+            
+            .nav-item:hover .mega-dropdown,
+            .nav-item:hover .compact-dropdown {
+                display: block;
+            }
+            
+            .mega-dropdown {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .utility-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-section {
+                height: auto;
+                min-height: 500px;
+                padding: 2rem 0;
+            }
+            
+            .hero-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .step-card {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(22, 22, 22, 0.411), rgba(22, 22, 22, 0.438)), 
+                         url('temple.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(44, 62, 80, 0.048);
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
+        }
+
+        /* Elders Section */
+        .elders-section {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            border-radius: 2px;
+        }
+
+        .elder-slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .elder-slide {
+            display: none;
+            position: relative;
+        }
+
+        .elder-slide.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .elder-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .elder-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .elder-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .elder-name {
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-btn {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background-color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        /* Journey Section */
+        .journey-section {
+            padding: 5rem 0;
+            background-color: var(--text-light);
+        }
+
+        .journey-wrapper {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .journey-sidebar {
+            flex: 0 0 280px;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            display: block;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-gold);
+            padding-left: 1.5rem;
+        }
+
+        .journey-content {
+            flex: 1;
+        }
+
+        .journey-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e9f7ef 0%, #d4edda 100%);
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .scripture-quote {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .step-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .step-scripture {
+            color: var(--primary-green);
+            font-style: italic;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .step-description {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .resource-card:hover .resource-image {
+            transform: scale(1.05);
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-title {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .resource-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover {
+            color: var(--accent-gold);
+            gap: 0.75rem;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .focus-visible {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            100% { left: 100%; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .step-card {
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+
+/* Circular Floating Navigation Menu - Main items on left in 170° radius */
+.floating-nav {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-nav-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    border: none;
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(44, 122, 62, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    position: relative;
+}
+
+.floating-nav-btn:hover {
+    background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(44, 122, 62, 0.4);
+}
+
+.floating-nav-btn.active {
+    background: linear-gradient(135deg, var(--accent-gold), #ffb347);
+    transform: rotate(45deg);
+}
+
+/* Circular Navigation Menu */
+.circular-nav-menu {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.5) rotate(0deg);
+    transform-origin: bottom right;
+}
+
+.circular-nav-menu.active {
+    width: 320px;
+    height: 320px;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Circular Navigation Items */
+.circular-nav-item {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    border: 2px solid var(--primary-green);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.circular-nav-menu.active .circular-nav-item {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.circular-nav-item:hover {
+    transform: translate(-50%, -50%) scale(1.15) !important;
+    box-shadow: 0 6px 20px rgba(44, 122, 62, 0.3);
+    border-color: var(--accent-gold);
+    z-index: 110;
+}
+
+.circular-nav-item.active {
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    border-color: var(--accent-gold);
+    transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+/* Main items on left side in 170° vertical radius */
+.home-item {
+    top: 20%;  /* Top of the 170° radius */
+    left: 40%; /* Moved left from 45% (≈35px away) */
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    border-color: var(--accent-gold);
+}
+
+.elders-item {
+    top: 30%;  /* Upper middle */
+    left: 30.5%; /* Moved left from 35% (≈35px away) */
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+}
+
+.journey-item {
+    top: 40%;  /* Middle */
+    left: 21.5%; /* Moved left from 34% (≈35px away) */
+    background: linear-gradient(135deg, #2196F3, #03A9F4);
+}
+
+.resources-item {
+    top: 55%;  /* Lower middle */
+    left: 20.5%; /* Moved left from 33% (≈35px away) */
+    background: linear-gradient(135deg, #9C27B0, #E91E63);
+}
+
+.contact-item {
+    top: 60%;  /* Bottom of the 170° radius */
+    left: 35%; /* Moved left from 32% (≈35px away) */
+    background: linear-gradient(135deg, #FF9800, #FF5722);
+}
+
+/* Add two more items if you want full 170° coverage */
+.extra-item-1 {
+    top: 25%;  /* Between home and elders */
+    left: 45%; /* Slightly left */
+    background: linear-gradient(135deg, #FFC107, #FF9800);
+}
+
+.extra-item-2 {
+    top: 55%;  /* Between resources and contact */
+    left: 45%; /* Slightly left */
+    background: linear-gradient(135deg, #009688, #4CAF50);
+}
+
+/* Journey step items - Positioned on right side */
+.step-item {
+    width: 36px;
+    height: 36px;
+    background: var(--light-gray);
+    border: 2px solid var(--medium-gray);
+    z-index: 90;
+}
+
+.step-item:hover {
+    background: var(--primary-green);
+    border-color: var(--accent-gold);
+}
+
+/* Step items positioned on right side in a 170° radius */
+.step-1 { 
+    top: 20%;  /* Top right */
+    left: 65%; /* Right side */
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+}
+
+.step-2 { 
+    top: 25%;  /* Upper right */
+    left: 70%; /* Further right */
+}
+
+.step-3 { 
+    top: 30%;  /* Upper middle right */
+    left: 75%; /* Even further right */
+}
+
+.step-4 { 
+    top: 40%;  /* Middle right */
+    left: 80%; /* Far right */
+}
+
+.step-5 { 
+    top: 50%;  /* Lower middle right */
+    left: 75%; /* Pull back left slightly */
+}
+
+.step-6 { 
+    top: 60%;  /* Lower right */
+    left: 70%; /* Pull back more */
+}
+
+.step-7 { 
+    top: 65%;  /* Bottom right */
+    left: 65%; /* Back toward center */
+}
+
+/* Icons */
+.circular-nav-icon {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon {
+    background: var(--primary-green);
+    color: var(--text-light);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-1 .step-icon {
+    background: var(--accent-gold);
+    color: var(--dark-blue);
+}
+
+.circular-nav-item:hover .circular-nav-icon {
+    color: var(--text-light);
+}
+
+.step-item:hover .step-icon {
+    color: var(--text-light);
+}
+
+/* Tooltips */
+.circular-nav-tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-blue);
+    color: var(--text-light);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.circular-nav-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--dark-blue);
+}
+
+.circular-nav-item:hover .circular-nav-tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -40px;
+}
+
+/* Progress Bar */
+.floating-nav-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--light-gray);
+    z-index: 1000;
+}
+
+.floating-nav-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .floating-nav {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .floating-nav-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+    
+    .circular-nav-menu.active {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .circular-nav-item {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .step-item {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Adjusted positions for mobile - maintaining 170° radius */
+    .home-item { top: 20%; left: 50%; }
+    .elders-item { top: 30%; left: 40%; }
+    .journey-item { top: 40%; left: 35%; }
+    .resources-item { top: 50%; left: 40%; }
+    .contact-item { top: 60%; left: 50%; }
+    .extra-item-1 { top: 25%; left: 45%; }
+    .extra-item-2 { top: 55%; left: 45%; }
+    
+    .step-1 { top: 20%; left: 65%; }
+    .step-2 { top: 25%; left: 70%; }
+    .step-3 { top: 30%; left: 75%; }
+    .step-4 { top: 40%; left: 80%; }
+    .step-5 { top: 50%; left: 75%; }
+    .step-6 { top: 60%; left: 70%; }
+    .step-7 { top: 65%; left: 65%; }
+    
+    .circular-nav-icon {
+        font-size: 1rem;
+    }
+    
+    .step-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 0.8rem;
+    }
+    
+    .circular-nav-tooltip {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-nav {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .floating-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .circular-nav-menu.active {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .circular-nav-item {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .step-item {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Further adjusted positions for small mobile */
+    .home-item { top: 20%; left: 50%; }
+    .elders-item { top: 30%; left: 40%; }
+    .journey-item { top: 40%; left: 35%; }
+    .resources-item { top: 50%; left: 40%; }
+    .contact-item { top: 60%; left: 50%; }
+    .extra-item-1 { top: 25%; left: 45%; }
+    .extra-item-2 { top: 55%; left: 45%; }
+    
+    .step-1 { top: 20%; left: 65%; }
+    .step-2 { top: 25%; left: 70%; }
+    .step-3 { top: 30%; left: 75%; }
+    .step-4 { top: 40%; left: 80%; }
+    .step-5 { top: 50%; left: 75%; }
+    .step-6 { top: 60%; left: 70%; }
+    .step-7 { top: 65%; left: 65%; }
+    
+    .circular-nav-tooltip {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.45rem;
+        top: -30px;
+    }
+    
+    .circular-nav-item:hover .circular-nav-tooltip {
+        top: -35px;
+    }
+}
+
+/* Animation delays */
+.circular-nav-menu.active .home-item { animation: popIn 0.3s ease forwards 0.1s; }
+.circular-nav-menu.active .elders-item { animation: popIn 0.3s ease forwards 0.15s; }
+.circular-nav-menu.active .journey-item { animation: popIn 0.3s ease forwards 0.2s; }
+.circular-nav-menu.active .resources-item { animation: popIn 0.3s ease forwards 0.25s; }
+.circular-nav-menu.active .contact-item { animation: popIn 0.3s ease forwards 0.3s; }
+.circular-nav-menu.active .extra-item-1 { animation: popIn 0.3s ease forwards 0.35s; }
+.circular-nav-menu.active .extra-item-2 { animation: popIn 0.3s ease forwards 0.4s; }
+.circular-nav-menu.active .step-1 { animation: popIn 0.3s ease forwards 0.45s; }
+.circular-nav-menu.active .step-2 { animation: popIn 0.3s ease forwards 0.5s; }
+.circular-nav-menu.active .step-3 { animation: popIn 0.3s ease forwards 0.55s; }
+.circular-nav-menu.active .step-4 { animation: popIn 0.3s ease forwards 0.6s; }
+.circular-nav-menu.active .step-5 { animation: popIn 0.3s ease forwards 0.65s; }
+.circular-nav-menu.active .step-6 { animation: popIn 0.3s ease forwards 0.7s; }
+.circular-nav-menu.active .step-7 { animation: popIn 0.3s ease forwards 0.75s; }
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Skip to Main Content Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus-visible">Skip to main content</a>
+
+    <!-- Consolidated Header with Navigation -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo" width="60" height="60">
+                    <a href="#" class="logo-text"></a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class='bx bx-menu'></i>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                   
+                    
+                    <!-- Church & Community -->
+                    <li class="nav-item" role="none">
+                        <a href="#church" class="nav-link" role="menuitem">
+                            Our Church
+                            <i class='bx bx-chevron-down'></i>
+                        </a>
+                        <div class="mega-dropdown" role="menu">
+                            <!-- About Our Church -->
+                            <div class="mega-dropdown-section">
+                                <h4 class="mega-dropdown-title">About Us</h4>
+                                <ul class="mega-dropdown-links">
+                                    <li class="mega-dropdown-item"><a href="about.html" class="mega-dropdown-link" role="menuitem">About Our Church</a></li>
+                                    <li class="mega-dropdown-item"><a href="about.html#mission" class="mega-dropdown-link" role="menuitem">Mission & Vision</a></li>
+                                    <li class="mega-dropdown-item"><a href="communityHistory.html" class="mega-dropdown-link" role="menuitem">Our History</a></li>
+                                    <li class="mega-dropdown-item"><a href="articles.html" class="mega-dropdown-link" role="menuitem">Doctrine</a></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Community -->
+                            <div class="mega-dropdown-section">
+                                <h4 class="mega-dropdown-title">Community</h4>
+                                <ul class="mega-dropdown-links">
+                                    <li class="mega-dropdown-item"><a href="membership.html" class="mega-dropdown-link" role="menuitem">Membership</a></li>
+                                    <li class="mega-dropdown-item"><a href="communityDelimitation.html" class="mega-dropdown-link" role="menuitem">Delimitation</a></li>
+                                    <li class="mega-dropdown-item"><a href="communityActivities.html" class="mega-dropdown-link" role="menuitem">Activities</a></li>
+                                    <li class="mega-dropdown-item"><a href="#location" class="mega-dropdown-link" role="menuitem">Location</a></li>
+                                    <li class="mega-dropdown-item"><a href="#find-church" class="mega-dropdown-link" role="menuitem">Find a Church</a></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- People -->
+                            <div class="mega-dropdown-section">
+                                <h4 class="mega-dropdown-title">Our People</h4>
+                                <ul class="mega-dropdown-links">
+                                    <li class="mega-dropdown-item"><a href="#leadership" class="mega-dropdown-link" role="menuitem">Leadership</a></li>
+                                    <li class="mega-dropdown-item"><a href="#congregation" class="mega-dropdown-link" role="menuitem">Congregation</a></li>
+                                    <li class="mega-dropdown-item"><a href="#elders-title" class="mega-dropdown-link" role="menuitem">Elders</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Faith & Beliefs -->
+                    <li class="nav-item" role="none">
+                        <a href="#faith" class="nav-link" role="menuitem">
+                            Faith & Beliefs
+                            <i class='bx bx-chevron-down'></i>
+                        </a>
+                        <div class="compact-dropdown" role="menu">
+                            <a href="articles.html" class="compact-dropdown-link" role="menuitem">Articles of Faith</a>
+                            <a href="theName.html" class="compact-dropdown-link" role="menuitem">The Name</a>
+                            <a href="articles.html" class="compact-dropdown-link" role="menuitem">Doctrine</a>
+                            <a href="about.html#mission" class="compact-dropdown-link" role="menuitem">Mission Statement</a>
+                        </div>
+                    </li>
+                    
+                  <!-- media-->
+                    <li class="nav-item" role="none">
+                        <a href="resources.html" class="nav-link" role="menuitem">
+                           Resources
+                           
+                        </a>
+
+                    </li>
+                                        <!-- media-->
+                    <li class="nav-item" role="none">
+                        <a href="digitLibrary.html" class="nav-link" role="menuitem">
+                           Digital Library
+                           
+                        </a>
+
+                    </li>
+                    <!-- Giving -->
+                    <li class="nav-item" role="none">
+                        <a href="giving.html" class="nav-link" role="menuitem">Giving</a>
+                    </li>
+                    
+                    <!-- News -->
+                    <li class="nav-item" role="none">
+                        <a href="news.html" class="nav-link" role="menuitem">News</a>
+                    </li>
+                </ul>
+                
+<!-- Replace the utility links section with this -->
+<div class="utility-links">
+    <button class="utility-link search-trigger" aria-label="Search website" id="searchTrigger">
+        <i class='bx bx-search'></i>
+    </button>
+
+</div>
+
+<!-- Add this search modal after the utility links (inside the same container) -->
+<div class="search-modal" id="searchModal" aria-hidden="true">
+    <div class="search-modal-content">
+        <div class="search-header">
+            <h3>Search The Apostles' Church</h3>
+            <button class="search-close" id="searchClose" aria-label="Close search">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        
+        <div class="search-input-container">
+            <input type="text" 
+                   class="search-modal-input" 
+                   id="searchModalInput" 
+                   placeholder="Search for topics, scriptures, events, or resources..."
+                   aria-label="Search input">
+            <button class="search-modal-btn" id="searchModalBtn" aria-label="Perform search">
+                <i class='bx bx-search'></i>
+            </button>
+        </div>
+        
+        <div class="search-suggestions">
+            <div class="suggestions-title">Popular Searches:</div>
+            <div class="suggestion-tags">
+                <button class="suggestion-tag" data-search="baptism">Baptism</button>
+                <button class="suggestion-tag" data-search="prayer">Prayer</button>
+                <button class="suggestion-tag" data-search="sermons">Sermons</button>
+                <button class="suggestion-tag" data-search="events">Upcoming Events</button>
+                <button class="suggestion-tag" data-search="giving">Online Giving</button>
+                <button class="suggestion-tag" data-search="bible study">Bible Study</button>
+            </div>
+        </div>
+        
+        <div class="search-results" id="searchResults">
+            <!-- Search results will be populated here -->
+        </div>
+        
+        <div class="search-footer">
+            <p>Search through our website content, sermons, resources, and events.</p>
+        </div>
+    </div>
+</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">THE APOSTLES' CHURCH</h1>
+                    <p class="hero-subtitle">
+                        Discover the truth and wisdom found in God's Word, and experience the peace and purpose He has planned for you. 
+                        Take the first step towards a life of faith, healing, and hope by starting your journey today.
+                    </p>
+                    <button class="cta-button" onclick="window.location.href='#journey-title'" aria-label="Begin your spiritual journey">START YOUR JOURNEY HERE</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elders Section -->
+        <section class="elders-section" aria-labelledby="elders-title">
+            <div class="container">
+                <h2 id="elders-title" class="section-title">Wisdom from Our Elders</h2>
+                <p class="text-center lead mb-5" style="max-width: 800px; margin: 0 auto;">
+                    Our church elders have been the foundation of wisdom, faith, and guidance for generations. 
+                    Their experiences, prayers, and teachings have shaped our spiritual journey and strengthened our community.
+                </p>
+                
+                <div class="elder-slider-container">
+                    <div class="elder-slide active" role="group" aria-label="Elder 1 of 3">
+                        <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Elder John sharing wisdom with congregation" class="elder-image" loading="lazy">
+                        <div class="elder-caption">
+                            <p class="elder-quote">"Faith is not just believing—it's trusting God's plan even when you cannot see the path ahead."</p>
+                            <p class="elder-name">— Elder John</p>
+                        </div>
+                    </div>
+                    
+                    <div class="elder-slide" role="group" aria-label="Elder 2 of 3">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Elder Mary praying with community members" class="elder-image" loading="lazy">
+                        <div class="elder-caption">
+                            <p class="elder-quote">"In prayer, we find strength; in community, we find support; in faith, we find peace."</p>
+                            <p class="elder-name">— Elder Mary</p>
+                        </div>
+                    </div>
+                    
+                    <div class="elder-slide" role="group" aria-label="Elder 3 of 3">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Elder James teaching from the scriptures" class="elder-image" loading="lazy">
+                        <div class="elder-caption">
+                            <p class="elder-quote">"God's Word is the compass that guides us through every storm of life."</p>
+                            <p class="elder-name">— Elder James</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn" aria-label="Previous elder">
+                            <i class='bx bx-chevron-left'></i>
+                        </button>
+                        <button class="slider-btn next-btn" aria-label="Next elder">
+                            <i class='bx bx-chevron-right'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section class="journey-section" aria-labelledby="journey-title">
+            <div class="container">
+                <div class="journey-intro">
+                    <blockquote class="scripture-quote">
+                        "Come, follow me," Jesus said, "and I will make you fishers of men." 
+                        <cite>— Matthew 4:19</cite>
+                    </blockquote>
+                    <p class="mb-0">Begin your transformational journey with Christ in seven meaningful steps.</p>
+                </div>
+                
+                <div class="journey-wrapper">
+                    <!-- Sidebar -->
+                    <aside class="journey-sidebar" aria-label="Journey navigation">
+                        <h3 class="sidebar-title">Your Journey Map</h3>
+                        <ul class="sidebar-menu" role="list">
+                            <li class="sidebar-item"><a href="#step1" class="sidebar-link active">Step 1: Believe</a></li>
+                            <li class="sidebar-item"><a href="#step2" class="sidebar-link">Step 2: Repent</a></li>
+                            <li class="sidebar-item"><a href="#step3" class="sidebar-link">Step 3: Walk in His Word</a></li>
+                            <li class="sidebar-item"><a href="#step4" class="sidebar-link">Step 4: Join</a></li>
+                            <li class="sidebar-item"><a href="#step5" class="sidebar-link">Step 5: Share the Good News</a></li>
+                            <li class="sidebar-item"><a href="#step6" class="sidebar-link">Step 6: Serve with Love</a></li>
+                            <li class="sidebar-item"><a href="#step7" class="sidebar-link">Step 7: Stay Faithful</a></li>
+                        </ul>
+                    </aside>
+                    
+                    <!-- Main Content -->
+                    <div class="journey-content">
+                        <h2 id="journey-title" class="section-title text-start mb-4">Begin Your Journey with Christ</h2>
+                        <p class="lead mb-5">In Seven Transformative Steps</p>
+                        
+                        <!-- Step Cards -->
+                        <article id="step1" class="step-card" aria-labelledby="step1-title">
+                            <div class="step-number">1</div>
+                            <h3 id="step1-title" class="step-title">Believe in Him</h3>
+                            <blockquote class="step-scripture">
+                                "For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish but have eternal life." 
+                                <cite>— John 3:16</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                Faith in Jesus is the foundation of your journey. It starts with believing that He is the Son of God who came to save us from sin. 
+                                His love is unconditional, and His grace is freely given. When you put your trust in Him, you receive the gift of salvation and eternal life. 
+                                No matter your past, Jesus welcomes you with open arms.
+                            </p>
+                        </article>
+                        
+                        <article id="step2" class="step-card" aria-labelledby="step2-title">
+                            <div class="step-number">2</div>
+                            <h3 id="step2-title" class="step-title">Repent and Be Baptized</h3>
+                            <blockquote class="step-scripture">
+                                "Repent, then, and turn to God, so that your sins may be wiped out, that times of refreshing may come from the Lord." 
+                                <cite>— Acts 3:19</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                Repentance is turning away from sin and choosing to follow Christ. It is not just about feeling sorry for mistakes but making a heart-driven decision to live according to God's will. 
+                                Baptism is a powerful declaration of your faith, symbolizing the washing away of sin and the start of a new life in Christ. It is a step of obedience, sealing your commitment to Him.
+                            </p>
+                        </article>
+                        
+                        <article id="step3" class="step-card" aria-labelledby="step3-title">
+                            <div class="step-number">3</div>
+                            <h3 id="step3-title" class="step-title">Walk in His Word</h3>
+                            <blockquote class="step-scripture">
+                                "Your word is a lamp to my feet and a light to my path." 
+                                <cite>— Psalm 119:105</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                God's Word is our guide through life. The Bible teaches, corrects, and encourages us, helping us grow spiritually. 
+                                Daily prayer and study of the Scriptures strengthen your faith and deepen your relationship with God. 
+                                When you seek His guidance and live by His Word, you will experience peace, wisdom, and direction in every step you take.
+                            </p>
+                        </article>
+                        
+                        <article id="step4" class="step-card" aria-labelledby="step4-title">
+                            <div class="step-number">4</div>
+                            <h3 id="step4-title" class="step-title">Join Our Church Family</h3>
+                            <blockquote class="step-scripture">
+                                "They devoted themselves to the apostles' teaching and to fellowship, to the breaking of bread and to prayer." 
+                                <cite>— Acts 2:42</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                Faith is strengthened in community. God designed the church to be a family of believers who support, uplift, and encourage one another. 
+                                Through worship, fellowship, and service, you will find a place where you belong. 
+                                Being part of a church allows you to grow in faith, discover your spiritual gifts, and experience the joy of walking with fellow believers.
+                            </p>
+                        </article>
+                        
+                        <article id="step5" class="step-card" aria-labelledby="step5-title">
+                            <div class="step-number">5</div>
+                            <h3 id="step5-title" class="step-title">Share the Gospel</h3>
+                            <blockquote class="step-scripture">
+                                "Go into all the world and preach the gospel to all creation." 
+                                <cite>— Mark 16:15</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                Faith is not meant to be kept to yourself. As believers, we are called to spread the good news of Jesus Christ. 
+                                Share your testimony with friends, family, and those around you. Let your actions reflect God's love and grace, 
+                                showing others the transformative power of faith through both words and deeds.
+                            </p>
+                        </article>
+                        
+                        <article id="step6" class="step-card" aria-labelledby="step6-title">
+                            <div class="step-number">6</div>
+                            <h3 id="step6-title" class="step-title">Serve Others with Love</h3>
+                            <blockquote class="step-scripture">
+                                "Each of you should use whatever gift you have received to serve others, as faithful stewards of God's grace in its various forms." 
+                                <cite>— 1 Peter 4:10</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                True discipleship is demonstrated through service. Whether through acts of kindness, volunteering, or ministry, serving others is a powerful way to reflect Christ's love. 
+                                Find ways to give back within your church and community, using your unique gifts to bless those in need and embody the servant heart of Jesus.
+                            </p>
+                        </article>
+                        
+                        <article id="step7" class="step-card" aria-labelledby="step7-title">
+                            <div class="step-number">7</div>
+                            <h3 id="step7-title" class="step-title">Remain Faithful and Endure</h3>
+                            <blockquote class="step-scripture">
+                                "But the one who stands firm to the end will be saved." 
+                                <cite>— Matthew 24:13</cite>
+                            </blockquote>
+                            <p class="step-description">
+                                The Christian journey is not always easy, but perseverance in faith brings eternal rewards. Stay strong in your walk with Christ through prayer, worship, and continued spiritual growth. 
+                                Surround yourself with a faith-filled community that encourages and uplifts you, and always trust in God's promises, knowing that He is faithful to complete the work He began in you.
+                            </p>
+                        </article>
+                        
+                        <!-- Call to Action -->
+                        <div class="text-center mt-5 pt-4 border-top">
+                            <h3 class="mb-3">Are you ready to take the next step?</h3>
+                            <p class="mb-4">Join us this Sunday or reach out to learn how to begin your journey with Christ.</p>
+                            <button class="cta-button" aria-label="Join our church community today">JOIN US TODAY</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section" aria-labelledby="resources-title">
+            <div class="container">
+                <h2 id="resources-title" class="section-title">Explore Our Resources</h2>
+                <p class="text-center lead mb-5" style="max-width: 800px; margin: 0 auto;">
+                    Discover articles, studies, and materials to strengthen your faith and understanding of God's Word.
+                </p>
+                
+                <div class="resource-grid">
+                    <!-- Featured Resources -->
+<article class="resource-card" id="coming-christ-card">
+    <img src="https://images.unsplash.com/photo-1542662565-7e4b66bae529?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+         alt="Ancient Bible open on wooden table with light illuminating scripture" class="resource-image" loading="lazy">
+    <div class="resource-content">
+        <h3 class="resource-title">What Is the Coming of Christ?</h3>
+        <div class="resource-summary">
+            <p>Understanding biblical prophecy about Christ's return and what it means for believers today.</p>
+        </div>
+        
+        <div class="resource-details" id="coming-christ-details" aria-hidden="true" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--medium-gray);">
+            <p>The Coming of Christ refers to the promised return of Jesus Christ to consummate God's redemptive plan for humanity and creation. The Holy Bible teaches that Jesus, who ascended bodily into heaven, will return personally, visibly, and gloriously—"this same Jesus" (Acts 1:9–11).</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">The Nature of Christ's Coming</p>
+            <p>The return of Christ will not be symbolic or spiritual only, but literal and bodily. As He rose from the dead and ascended into heaven, so He will return in power and glory (Matthew 24:30; Revelation 1:7).</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">Key Aspects of the Coming of Christ</p>
+            <p style="margin-bottom: 0.5rem;">According to Scripture and the doctrine of The Apostles' Church, the Coming of Christ includes:</p>
+            <ul class="aspects-list" style="padding-left: 1.5rem; margin: 0.75rem 0; list-style-type: none;">
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The Rapture of the Church</strong> – Jesus will return for His Church, and all true believers—both living and dead—will be caught up to meet Him in the air (1 Thessalonians 4:16–17; 1 Corinthians 15:51–52).
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The Great Tribulation</strong> – A period of unprecedented suffering and judgment upon the earth, during which the man of sin will be revealed (Matthew 24:21–22; 2 Thessalonians 2:3–9).
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The Judgment of the Nations</strong> – All people will appear before the judgment seat of Christ to give account of their lives and receive their eternal reward or condemnation (Matthew 25:31–32; 2 Corinthians 5:10).
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The Return of Christ with His Saints</strong> – Christ will return to earth with His redeemed people to establish His righteous reign (1 Thessalonians 3:13; Jude 1:14).
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The Millennial Reign and Eternal State</strong> – Jesus Christ will reign upon the earth, followed by the final judgment and the everlasting blessedness of believers with the Lord (Revelation 20; 1 Thessalonians 4:17).
+                </li>
+            </ul>
+            
+            <div class="call-to-readiness" style="margin-top: 1.5rem; padding: 1.25rem; background: linear-gradient(135deg, rgba(44, 122, 62, 0.08) 0%, rgba(252, 157, 31, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent-gold);">
+                <p class="subheading" style="font-weight: 600; margin-bottom: 0.75rem; color: var(--accent-gold);">A Call to Readiness</p>
+                <p style="margin-bottom: 0;">
+                    The Coming of Christ calls believers to live holy, watchful, and faithful lives. It is a message of hope for the righteous and a solemn warning to those who reject God's grace (Matthew 24:42–44; Titus 2:11–13).
+                </p>
+            </div>
+        </div>
+        
+        <button class="resource-link toggle-btn" onclick="toggleComingChristDetails()" aria-expanded="false" aria-controls="coming-christ-details" style="background: none; border: none; color: var(--primary-green); text-decoration: none; font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition); cursor: pointer; padding: 0; font-family: inherit; font-size: inherit;">
+            <span id="toggle-text">Read More</span> 
+            <i class='bx bx-chevron-right' id="toggle-icon" style="transition: transform 0.3s ease;"></i>
+        </button>
+    </div>
+</article>
+
+<script>
+function toggleComingChristDetails() {
+    const details = document.getElementById('coming-christ-details');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const toggleBtn = document.querySelector('.toggle-btn');
+    
+    const isHidden = details.style.display === 'none' || details.style.display === '';
+    
+    if (isHidden) {
+        // Show details
+        details.style.display = 'block';
+        details.setAttribute('aria-hidden', 'false');
+        toggleText.textContent = 'Show Less';
+        toggleIcon.style.transform = 'rotate(90deg)';
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        
+        // Scroll into view if needed
+        const card = document.getElementById('coming-christ-card');
+        if (card.getBoundingClientRect().bottom > window.innerHeight) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    } else {
+        // Hide details
+        details.style.display = 'none';
+        details.setAttribute('aria-hidden', 'true');
+        toggleText.textContent = 'Read More';
+        toggleIcon.style.transform = 'rotate(0deg)';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Optional: Add keyboard support for better accessibility
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.toggle-btn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleComingChristDetails();
+            }
+        });
+    }
+});
+</script>
+
+<script>
+function toggleComingChristDetails() {
+    const details = document.getElementById('coming-christ-details');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleIcon = document.getElementById('toggle-icon');
+    
+    if (details.style.display === 'none') {
+        details.style.display = 'block';
+        toggleText.textContent = 'Show Less';
+        toggleIcon.style.transform = 'rotate(90deg)';
+    } else {
+        details.style.display = 'none';
+        toggleText.textContent = 'Read More';
+        toggleIcon.style.transform = 'rotate(0deg)';
+    }
+}
+</script>
+                    
+<article class="resource-card" id="healing-hope-card">
+    <img src="https://images.unsplash.com/photo-1551376347-075b0121a65b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+         alt="Person's hands with visible scars, representing healing and restoration" class="resource-image" loading="lazy">
+    <div class="resource-content">
+        <h3 class="resource-title">Finding Healing and Hope</h3>
+        <div class="resource-summary">
+            <p>A compassionate guide to overcoming self-harm through faith, community, and God's healing love.</p>
+        </div>
+        
+        <div class="resource-details" id="healing-hope-details" aria-hidden="true" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--medium-gray);">
+            <p class="subheading" style="font-weight: 600; margin-bottom: 1rem; color: var(--primary-green);">Healing and Hope in the Gospel</p>
+            <p>Healing and hope are central to the Gospel of Jesus Christ. The Apostles' Church believes that Jehovah God is both willing and able to bring healing—spiritual, emotional, and physical—according to His divine will and purpose.</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">God as the Source of Healing</p>
+            <p>God reveals Himself in Scripture as a compassionate healer: "I am the Lord that healeth thee" (Exodus 15:26). Healing flows from God's love, power, and redemptive work through Jesus Christ, whose atoning sacrifice addressed the brokenness caused by sin (Isaiah 53:4–5; Matthew 8:16–17).</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">Healing Through Jesus Christ</p>
+            <p>Jesus' earthly ministry demonstrated God's heart for the suffering. He healed the sick, restored the broken, delivered the oppressed, and brought hope to the hopeless (Luke 4:18–19). Today, Christ continues to heal through:</p>
+            <ul class="aspects-list" style="padding-left: 1.5rem; margin: 0.75rem 0; list-style-type: none;">
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>Prayer and faith</strong> – Bringing our burdens to God in sincere prayer and trusting in His power to heal and restore.
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The ministry of the Holy Spirit</strong> – The Comforter who brings peace, wisdom, and strength in times of distress.
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--accent-gold);">•</span>
+                    <strong>The support and care of the Church community</strong> – Walking alongside one another in love, bearing each other's burdens.
+                </li>
+            </ul>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">Spiritual Healing and Salvation</p>
+            <p>The greatest healing is salvation, the restoration of humanity's broken relationship with God. Through repentance and faith in Jesus Christ, individuals receive forgiveness, new life, and eternal hope (Romans 5:1; 2 Corinthians 5:17).</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">Hope in Every Circumstance</p>
+            <p>Our hope as Children of God is not based on circumstances but on God's unchanging promises. Even in suffering, believers are assured that God is present, working all things for good, and leading them toward eternal glory (Romans 8:18, 28; Revelation 21:4).</p>
+            
+            <div class="call-to-action" style="margin-top: 1.5rem; padding: 1.25rem; background: linear-gradient(135deg, rgba(252, 157, 31, 0.08) 0%, rgba(44, 122, 62, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                <p style="font-weight: 600; margin-bottom: 0.75rem; color: var(--primary-green);">The Church's Role in Healing</p>
+                <p style="margin-bottom: 0;">
+                    The Church is called to walk alongside those in pain, offering prayer, compassion, practical support, and the assurance that no situation is beyond God's redeeming power.
+                </p>
+            </div>
+        </div>
+        
+        <button class="resource-link toggle-btn" onclick="toggleHealingHopeDetails()" aria-expanded="false" aria-controls="healing-hope-details" style="background: none; border: none; color: var(--primary-green); text-decoration: none; font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition); cursor: pointer; padding: 0; font-family: inherit; font-size: inherit;">
+            <span id="healing-toggle-text">Read More</span> 
+            <i class='bx bx-chevron-right' id="healing-toggle-icon" style="transition: transform 0.3s ease;"></i>
+        </button>
+    </div>
+</article>
+
+<script>
+function toggleHealingHopeDetails() {
+    const details = document.getElementById('healing-hope-details');
+    const toggleText = document.getElementById('healing-toggle-text');
+    const toggleIcon = document.getElementById('healing-toggle-icon');
+    const toggleBtn = document.querySelector('[onclick="toggleHealingHopeDetails()"]');
+    
+    const isHidden = details.style.display === 'none' || details.style.display === '';
+    
+    if (isHidden) {
+        // Show details
+        details.style.display = 'block';
+        details.setAttribute('aria-hidden', 'false');
+        toggleText.textContent = 'Show Less';
+        toggleIcon.style.transform = 'rotate(90deg)';
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        
+        // Scroll into view if needed
+        const card = document.getElementById('healing-hope-card');
+        if (card.getBoundingClientRect().bottom > window.innerHeight) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    } else {
+        // Hide details
+        details.style.display = 'none';
+        details.setAttribute('aria-hidden', 'true');
+        toggleText.textContent = 'Read More';
+        toggleIcon.style.transform = 'rotate(0deg)';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Optional: Add keyboard support for better accessibility
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('[onclick="toggleHealingHopeDetails()"]');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleHealingHopeDetails();
+            }
+        });
+    }
+});
+</script>
+                    
+<article class="resource-card" id="equality-card">
+    <img src="https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+         alt="Diverse hands joined together in unity, representing biblical equality" class="resource-image" loading="lazy">
+    <div class="resource-content">
+        <h3 class="resource-title">Biblical Perspective on Equality</h3>
+        <div class="resource-summary">
+            <p>What the Bible teaches about human dignity, justice, and our call to love all people equally.</p>
+        </div>
+        
+        <div class="resource-details" id="equality-details" aria-hidden="true" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--medium-gray);">
+            <p>The Apostles' Church affirms that all human beings are equal in worth and dignity before Jehovah God, having been created in His image (Genesis 1:26–27). Biblical equality is rooted in creation, redemption, and God's righteous character.</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">Equality in Creation</p>
+            <p>The Bible teaches that God created humanity, male and female, in His image. This establishes the inherent value of every person, regardless of race, ethnicity, gender, nationality, or social status (Genesis 1:27; Psalm 139:13–16).</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--accent-gold);">Equality in Sin and Salvation</p>
+            <p>All people share a common condition of sin and a common need for salvation (Romans 3:23). Likewise, salvation in Jesus Christ is offered equally to all:</p>
+            <blockquote style="margin: 1rem 0; padding: 1.25rem; background: linear-gradient(135deg, rgba(44, 122, 62, 0.08) 0%, rgba(252, 157, 31, 0.05) 100%); border-left: 4px solid var(--accent-gold); font-style: italic; border-radius: 0 8px 8px 0;">
+                <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">"There is neither Jew nor Greek, slave nor free, male nor female, for you are all one in Christ Jesus."</p>
+                <cite style="display: block; text-align: right; font-size: 0.9rem; color: var(--dark-blue); font-weight: 500;">— Galatians 3:28</cite>
+            </blockquote>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--primary-green);">Equality in the Church</p>
+            <p>The Church is the Ekklesia of God, composed of believers from every tribe, tongue, race, and nation. In Christ, all believers are members of one body, equally loved, gifted, and called to serve according to God's purpose (1 Corinthians 12:12–13; Revelation 7:9).</p>
+            
+            <p class="subheading" style="font-weight: 600; margin-top: 1rem; color: var(--accent-gold);">Equality and Responsibility</p>
+            <p>Biblical equality does not erase God-ordained roles, responsibilities, or moral standards. Rather, it calls believers to:</p>
+            <ul class="responsibilities-list" style="padding-left: 1.5rem; margin: 0.75rem 0; list-style-type: none;">
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-green);">•</span>
+                    <strong>Love one another sacrificially</strong> – Following Christ's example of self-giving love that values others above self (John 13:34–35).
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-green);">•</span>
+                    <strong>Reject discrimination, oppression, and injustice</strong> – Standing against all forms of prejudice and working for justice as God's representatives (Proverbs 31:8–9).
+                </li>
+                <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-green);">•</span>
+                    <strong>Uphold holiness, truth, and righteousness</strong> – Maintaining biblical standards while extending grace, recognizing that true equality flows from God's character (Micah 6:8).
+                </li>
+            </ul>
+            <p>True equality is expressed through mutual respect, justice, compassion, and obedience to God's Word (Micah 6:8; James 2:1–9).</p>
+            
+            <div class="witness-section" style="margin-top: 1.5rem; padding: 1.25rem; background: linear-gradient(135deg, rgba(44, 122, 62, 0.08) 0%, rgba(252, 157, 31, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                <p class="subheading" style="font-weight: 600; margin-bottom: 0.75rem; color: var(--primary-green);">The Church's Witness</p>
+                <p style="margin-bottom: 0;">
+                    By living out biblical equality, the Church bears witness to the Kingdom of God and demonstrates the reconciling power of the Gospel in a divided world (John 17:21). Our unity in Christ becomes a powerful testimony to God's love for all people.
+                </p>
+            </div>
+            
+            <div class="practical-application" style="margin-top: 1.5rem; padding: 1.25rem; background: var(--light-gray); border-radius: 8px;">
+                <p class="subheading" style="font-weight: 600; margin-bottom: 0.75rem; color: var(--dark-blue);">Living Out Biblical Equality</p>
+                <ul style="padding-left: 1.5rem; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;">Welcome people from all backgrounds into fellowship</li>
+                    <li style="margin-bottom: 0.5rem;">Address needs without partiality or favoritism</li>
+                    <li style="margin-bottom: 0.5rem;">Speak against injustice in our communities</li>
+                    <li style="margin-bottom: 0.5rem;">Cultivate diverse leadership that reflects God's family</li>
+                    <li>Pray for and work toward reconciliation where divisions exist</li>
+                </ul>
+            </div>
+        </div>
+        
+        <button class="resource-link toggle-btn" onclick="toggleEqualityDetails()" aria-expanded="false" aria-controls="equality-details" style="background: none; border: none; color: var(--primary-green); text-decoration: none; font-weight: 600; margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition); cursor: pointer; padding: 0; font-family: inherit; font-size: inherit;">
+            <span id="equality-toggle-text">Read More</span> 
+            <i class='bx bx-chevron-right' id="equality-toggle-icon" style="transition: transform 0.3s ease;"></i>
+        </button>
+    </div>
+</article>
+
+<script>
+function toggleEqualityDetails() {
+    const details = document.getElementById('equality-details');
+    const toggleText = document.getElementById('equality-toggle-text');
+    const toggleIcon = document.getElementById('equality-toggle-icon');
+    const toggleBtn = document.querySelector('[onclick="toggleEqualityDetails()"]');
+    
+    const isHidden = details.style.display === 'none' || details.style.display === '';
+    
+    if (isHidden) {
+        // Show details
+        details.style.display = 'block';
+        details.setAttribute('aria-hidden', 'false');
+        toggleText.textContent = 'Show Less';
+        toggleIcon.style.transform = 'rotate(90deg)';
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        
+        // Scroll into view if needed
+        const card = document.getElementById('equality-card');
+        if (card.getBoundingClientRect().bottom > window.innerHeight) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    } else {
+        // Hide details
+        details.style.display = 'none';
+        details.setAttribute('aria-hidden', 'true');
+        toggleText.textContent = 'Read More';
+        toggleIcon.style.transform = 'rotate(0deg)';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Optional: Add keyboard support for better accessibility
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('[onclick="toggleEqualityDetails()"]');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleEqualityDetails();
+            }
+        });
+    }
+});
+</script>
+                </div>
+                
+<!-- Updated Quick Links Grid with proper links -->
+<div class="mt-5 pt-5 border-top">
+    <h3 class="text-center mb-4">Select a Topic That Interests You</h3>
+    <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+            <div class="resource-card h-100">
+                <div class="resource-content">
+                    <h3 class="resource-title">Bible Questions Answered</h3>
+                    <p>Clear answers to common questions about scripture and Christian living.</p>
+                    <a href="D:\programming\modern\APCH\resources\bible-questions.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="resource-card h-100">
+                <div class="resource-content">
+                    <h3 class="resource-title">Peace & Happiness</h3>
+                    <p>Biblical principles for finding true peace and lasting joy in Christ.</p>
+                    <a href="D:\programming\modern\APCH\resources\peace-happiness.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="resource-card h-100">
+                <div class="resource-content">
+                    <h3 class="resource-title">Faith in God</h3>
+                    <p>Strengthening your trust and developing a deeper relationship with God.</p>
+                    <a href="D:\programming\modern\APCH\resources\faith-god.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="resource-card h-100">
+                <div class="resource-content">
+                    <h3 class="resource-title">Marriage & Family</h3>
+                    <p>Biblical guidance for building strong, God-centered relationships.</p>
+                    <a href="D:\programming\modern\APCH\resources\marriage-family.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="resource-card h-100">
+                <div class="resource-content">
+                    <h3 class="resource-title">Youth & Young Adults</h3>
+                    <p>Resources specifically for teens and young adults navigating faith.</p>
+                    <a href="D:\programming\modern\APCH\resources\/youth.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="resource-card h-100">
+                <div class="resource-content">
+                    <h3 class="resource-title">Science & the Bible</h3>
+                    <p>Exploring the harmony between scientific discovery and biblical truth.</p>
+                    <a href="D:\programming\modern\APCH\resources\science-bible.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                <!-- Get Involved Section -->
+                <div class="mt-5 pt-5 border-top">
+                    <h3 class="text-center mb-4">Get Involved in Our Community</h3>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="resource-card text-center h-100">
+                                <div class="resource-content">
+                                    <i class='bx bx-book-open' style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                                    <h3 class="resource-title">Try Our Bible Course</h3>
+                                    <p>Join our free interactive Bible study program tailored for all knowledge levels.</p>
+                                    <a href="#bible-course" class="resource-link">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="resource-card text-center h-100">
+                                <div class="resource-content">
+                                    <i class='bx bx-calendar-event' style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                                    <h3 class="resource-title">Attend a Meeting</h3>
+                                    <p>Join us for worship, fellowship, and spiritual growth at our weekly services.</p>
+                                    <a href="#meetings" class="resource-link">View Schedule</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="resource-card text-center h-100">
+                                <div class="resource-content">
+                                    <i class='bx bx-group' style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+                                    <h3 class="resource-title">Request a Visit</h3>
+                                    <p>Have one of our members visit you for prayer, conversation, or Bible study.</p>
+                                    <a href="#visit" class="resource-link">Schedule Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="journey-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1508964942454-1a56651d54ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Diverse church congregation worshiping together" class="img-fluid rounded shadow" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="section-title text-start mb-4">The Apostles' Church—Who Are We?</h2>
+                        <p class="lead mb-4">
+                            We come from hundreds of ethnic and language backgrounds, yet we are united by common goals. 
+                            Above all, we want to honor God, follow the teachings of Jesus Christ, and share His love with the world.
+                        </p>
+                        <p class="mb-4">
+                            Our community is built on the foundation of apostolic teaching, sincere faith, and genuine fellowship. 
+                            We believe in the transforming power of the Gospel and strive to live out our faith in practical, meaningful ways.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="resources/Practical-commitments.html" class="cta-button">Learn About Our Practical Commitments</a>
+                            <a href="https://thekingsbible.com/" class="btn btn-outline-primary btn-lg">Read the Bible Online</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#sermons">Sermons & Teachings</a></li>
+                        <li><a href="#events">Events Calendar</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#prayer-requests">Prayer Requests</a></li>
+                        <li><a href="giving.html">Online Giving</a></li>
+                        <li><a href="#volunteer">Volunteer Opportunities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for daily inspiration, updates, and community news.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Visit our Facebook page">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Visit our Instagram profile">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Visit our Twitter profile">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.linkedin.com" class="social-link" aria-label="Visit our LinkedIn page">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="Visit our YouTube channel">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                        <a href="https://web.whatsapp.com" class="social-link" aria-label="Message us on WhatsApp">
+                            <i class='bx bxl-whatsapp'></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Subscribe to Our Newsletter</h4>
+                        <form class="d-flex gap-2" style="max-width: 300px;">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#sitemap" style="color: rgba(255, 255, 255, 0.7);">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+       <!-- JavaScript -->
+   <script>
+    // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            });
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.main-nav') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                
+                // Also close any open dropdowns
+                document.querySelectorAll('.mega-dropdown, .compact-dropdown').forEach(dropdown => {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
+        
+        // Mobile dropdown toggle
+        const mobileDropdownLinks = document.querySelectorAll('.nav-link');
+        mobileDropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    const parent = this.parentElement;
+                    const dropdown = parent.querySelector('.mega-dropdown, .compact-dropdown');
+                    
+                    if (dropdown) {
+                        e.preventDefault();
+                        const isVisible = dropdown.style.display === 'block';
+                        
+                        // Close all other dropdowns
+                        document.querySelectorAll('.mega-dropdown, .compact-dropdown').forEach(d => {
+                            d.style.display = 'none';
+                        });
+                        
+                        // Toggle this dropdown
+                        dropdown.style.display = isVisible ? 'none' : 'block';
+                    }
+                }
+            });
+        });
+        
+        // Image Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.elder-slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        function showSlide(index) {
+            // Remove active class from all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.setAttribute('aria-hidden', 'true');
+            });
+            
+            // Handle wrap-around
+            if (index >= totalSlides) currentSlide = 0;
+            if (index < 0) currentSlide = totalSlides - 1;
+            
+            // Show current slide
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].setAttribute('aria-hidden', 'false');
+            
+            // Update ARIA labels
+            slides.forEach((slide, i) => {
+                slide.setAttribute('aria-label', `Elder ${i + 1} of ${totalSlides}`);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 6 seconds
+        let slideInterval = setInterval(nextSlide, 6000);
+        
+        // Pause on hover
+        const sliderContainer = document.querySelector('.elder-slider-container');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 6000);
+            });
+        }
+        
+        // Button controls
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+        
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Form validation for newsletter
+        const newsletterForm = document.querySelector('form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (emailInput.value && emailInput.checkValidity()) {
+                    // In a real application, you would submit to a server here
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                } else {
+                    emailInput.focus();
+                }
+            });
+        }
+        
+        // Initialize first slide
+        showSlide(currentSlide);
+        
+        // Add focus styles for keyboard navigation
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'Tab') {
+                document.documentElement.classList.add('focus-visible');
+            }
+        });
+        
+        document.addEventListener('click', function() {
+            document.documentElement.classList.remove('focus-visible');
+        });
+        
+        // ========== CIRCULAR FLOATING NAVIGATION CODE ==========
+        
+        // Circular Floating Navigation Menu
+        const floatingNavBtn = document.getElementById('floatingNavBtn');
+        const floatingNavMenu = document.getElementById('floatingNavMenu');
+        const circularNavItems = document.querySelectorAll('.circular-nav-item');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Check if elements exist
+        if (floatingNavBtn && floatingNavMenu) {
+            console.log('Circular floating nav elements found');
+            
+            // Toggle circular nav menu
+            floatingNavBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                floatingNavMenu.classList.toggle('active');
+                this.classList.toggle('active');
+                const isExpanded = floatingNavMenu.classList.contains('active');
+                this.setAttribute('aria-expanded', isExpanded);
+                console.log('Circular nav toggled, expanded:', isExpanded);
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.floating-nav') && !e.target.closest('.circular-nav-item')) {
+                    floatingNavMenu.classList.remove('active');
+                    floatingNavBtn.classList.remove('active');
+                    floatingNavBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Close menu when clicking a link
+            circularNavItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    setTimeout(() => {
+                        floatingNavMenu.classList.remove('active');
+                        floatingNavBtn.classList.remove('active');
+                        floatingNavBtn.setAttribute('aria-expanded', 'false');
+                    }, 300);
+                });
+            });
+            
+            // Keyboard navigation for floating menu
+            floatingNavBtn.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    floatingNavMenu.classList.remove('active');
+                    this.classList.remove('active');
+                    this.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Smooth scroll for circular nav links
+            circularNavItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (!targetId || targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        } else {
+            console.log('Circular floating nav elements NOT found');
+            console.log('floatingNavBtn:', floatingNavBtn);
+            console.log('floatingNavMenu:', floatingNavMenu);
+        }
+        
+        // Active section detection
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('section[id], article[id], h2[id], h3[id]');
+            const scrollPosition = window.scrollY + 100;
+            
+            // Update progress bar
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+            if (progressBar) {
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Find current section
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.id;
+                }
+            });
+            
+            // Update active links
+            circularNavItems.forEach(item => {
+                item.classList.remove('active');
+                const href = item.getAttribute('href');
+                if (href) {
+                    const section = href.replace('#', '');
+                    if (section === currentSection) {
+                        item.classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        // Debounce scroll function
+        function debounce(func, wait = 100) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Update on scroll
+        window.addEventListener('scroll', debounce(updateActiveSection, 50));
+        
+        // Initialize on load
+        setTimeout(updateActiveSection, 100);
+        
+        console.log('Circular floating navigation script loaded');
+
+        // Search Functionality
+const searchTrigger = document.getElementById('searchTrigger');
+const searchModal = document.getElementById('searchModal');
+const searchClose = document.getElementById('searchClose');
+const searchModalInput = document.getElementById('searchModalInput');
+const searchModalBtn = document.getElementById('searchModalBtn');
+const searchResults = document.getElementById('searchResults');
+const suggestionTags = document.querySelectorAll('.suggestion-tag');
+
+// Sample search data (in a real app, this would come from your backend)
+const searchData = [
+    {
+        id: 1,
+        title: "Begin Your Journey with Christ",
+        snippet: "Start your transformational journey with Christ in seven meaningful steps...",
+        category: "Journey",
+        url: "#journey-title",
+        tags: ["journey", "christ", "faith", "beginner"]
+    },
+    {
+        id: 2,
+        title: "Wisdom from Our Elders",
+        snippet: "Our church elders have been the foundation of wisdom, faith, and guidance...",
+        category: "Elders",
+        url: "#elders-title",
+        tags: ["elders", "wisdom", "guidance", "community"]
+    },
+    {
+        id: 3,
+        title: "What Is the Coming of Christ?",
+        snippet: "Understanding biblical prophecy about Christ's return and what it means...",
+        category: "Resources",
+        url: "#coming-christ",
+        tags: ["prophecy", "christ return", "bible study"]
+    },
+    {
+        id: 4,
+        title: "Finding Healing and Hope",
+        snippet: "A compassionate guide to overcoming self-harm through faith, community...",
+        category: "Resources",
+        url: "#healing-hope",
+        tags: ["healing", "hope", "mental health", "support"]
+    },
+    {
+        id: 5,
+        title: "Our Mission Statement",
+        snippet: "Learn about our church's mission to honor God and follow Christ's teachings...",
+        category: "About",
+        url: "about.html#mission",
+        tags: ["mission", "about", "purpose", "vision"]
+    },
+    {
+        id: 6,
+        title: "Online Giving",
+        snippet: "Support our ministry through secure online donations and tithes...",
+        category: "Giving",
+        url: "#giving",
+        tags: ["giving", "donate", "tithe", "support"]
+    },
+    {
+        id: 7,
+        title: "Bible Study Course",
+        snippet: "Join our free interactive Bible study program tailored for all knowledge levels...",
+        category: "Resources",
+        url: "#bible-course",
+        tags: ["bible study", "course", "learning", "scripture"]
+    },
+    {
+        id: 8,
+        title: "Prayer Requests",
+        snippet: "Submit your prayer requests and join our prayer community...",
+        category: "Community",
+        url: "#prayer-requests",
+        tags: ["prayer", "requests", "community", "support"]
+    }
+];
+
+// Open search modal
+if (searchTrigger) {
+    searchTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        searchModal.classList.add('active');
+        searchModal.setAttribute('aria-hidden', 'false');
+        setTimeout(() => {
+            searchModalInput.focus();
+        }, 300);
+        
+        // Clear previous results
+        clearResults();
+    });
+}
+
+// Close search modal
+if (searchClose) {
+    searchClose.addEventListener('click', function() {
+        closeSearchModal();
+    });
+}
+
+// Close modal when clicking outside
+searchModal.addEventListener('click', function(e) {
+    if (e.target === searchModal) {
+        closeSearchModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+        closeSearchModal();
+    }
+    
+    // Focus search when Ctrl/Cmd + K is pressed
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchTrigger.click();
+    }
+});
+
+// Perform search on button click
+if (searchModalBtn) {
+    searchModalBtn.addEventListener('click', function() {
+        performSearch();
+    });
+}
+
+// Perform search on Enter key
+if (searchModalInput) {
+    searchModalInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    // Live search as user types (optional - debounced)
+    let searchTimeout;
+    searchModalInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        if (this.value.trim().length > 2) {
+            searchTimeout = setTimeout(() => {
+                performSearch();
+            }, 300);
+        } else if (this.value.trim().length === 0) {
+            clearResults();
+        }
+    });
+}
+
+// Suggestion tag clicks
+suggestionTags.forEach(tag => {
+    tag.addEventListener('click', function() {
+        const searchTerm = this.getAttribute('data-search');
+        searchModalInput.value = searchTerm;
+        performSearch();
+    });
+});
+
+function closeSearchModal() {
+    searchModal.classList.remove('active');
+    searchModal.setAttribute('aria-hidden', 'true');
+    searchModalInput.value = '';
+    clearResults();
+}
+
+function clearResults() {
+    searchResults.innerHTML = '';
+    searchResults.classList.remove('loading');
+}
+
+function performSearch() {
+    const searchTerm = searchModalInput.value.trim().toLowerCase();
+    
+    if (!searchTerm) {
+        clearResults();
+        return;
+    }
+    
+    // Show loading state
+    searchResults.innerHTML = '<div class="loading-spinner"></div>';
+    searchResults.classList.add('loading');
+    
+    // Simulate API delay
+    setTimeout(() => {
+        const results = searchData.filter(item => {
+            return item.title.toLowerCase().includes(searchTerm) ||
+                   item.snippet.toLowerCase().includes(searchTerm) ||
+                   item.category.toLowerCase().includes(searchTerm) ||
+                   item.tags.some(tag => tag.includes(searchTerm));
+        });
+        
+        displayResults(results);
+    }, 300);
+}
+
+function displayResults(results) {
+    searchResults.classList.remove('loading');
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = `
+            <div class="no-results">
+                <i class='bx bx-search-alt'></i>
+                <h4>No results found</h4>
+                <p>Try different keywords or check out our popular searches above.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let resultsHTML = '';
+    
+    results.forEach(item => {
+        resultsHTML += `
+            <div class="search-result-item" data-url="${item.url}">
+                <div class="result-category">${item.category}</div>
+                <h4 class="result-title">${highlightText(item.title, searchModalInput.value)}</h4>
+                <p class="result-snippet">${highlightText(item.snippet.substring(0, 150) + '...', searchModalInput.value)}</p>
+                <span class="result-link">View <i class='bx bx-chevron-right'></i></span>
+            </div>
+        `;
+    });
+    
+    searchResults.innerHTML = resultsHTML;
+    
+    // Add click events to result items
+    const resultItems = document.querySelectorAll('.search-result-item');
+    resultItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const url = this.getAttribute('data-url');
+            if (url.startsWith('#')) {
+                // Internal anchor link
+                const targetElement = document.querySelector(url);
+                if (targetElement) {
+                    closeSearchModal();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                // External page
+                closeSearchModal();
+                window.location.href = url;
+            }
+        });
+    });
+}
+
+function highlightText(text, searchTerm) {
+    if (!searchTerm) return text;
+    
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    return text.replace(regex, '<span style="background: rgba(252, 157, 31, 0.2); padding: 0 2px; border-radius: 2px;">$1</span>');
+}
+
+// Add keyboard shortcuts help
+document.addEventListener('keydown', function(e) {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        searchTrigger.click();
+    }
+});
+    });
+</script>
+    
+<!-- Floating nav HTML with this circular version -->
+<div class="floating-nav">
+    <button class="floating-nav-btn" id="floatingNavBtn" aria-label="Page navigation menu" aria-expanded="false">
+        <i class='bx bx-navigation'></i>
+    </button>
+    
+    <!-- Circular Navigation Menu -->
+    <div class="circular-nav-menu" id="floatingNavMenu">
+        <!-- Main sections positioned around the circle -->
+        <a href="#main-content" class="circular-nav-item home-item" data-section="hero" aria-label="Home">
+            <span class="circular-nav-icon">
+                <i class='bx bx-home'></i>
+            </span>
+            <span class="circular-nav-tooltip">Home</span>
+        </a>
+        
+        <a href="#elders-title" class="circular-nav-item elders-item" data-section="elders" aria-label="Elders">
+            <span class="circular-nav-icon">
+                <i class='bx bx-group'></i>
+            </span>
+            <span class="circular-nav-tooltip">Wisdom</span>
+        </a>
+        
+        <a href="#journey-title" class="circular-nav-item journey-item" data-section="journey" aria-label="Journey">
+            <span class="circular-nav-icon">
+                <i class='bx bx-trip'></i>
+            </span>
+            <span class="circular-nav-tooltip">Journey</span>
+        </a>
+        
+        <a href="resources.html" class="circular-nav-item resources-item" data-section="resources" aria-label="Resources">
+            <span class="circular-nav-icon">
+                <i class='bx bx-book'></i>
+            </span>
+            <span class="circular-nav-tooltip">Resources</span>
+        </a>
+        
+        <a href="#contact" class="circular-nav-item contact-item" data-section="footer" aria-label="Contact">
+            <span class="circular-nav-icon">
+                <i class='bx bx-phone'></i>
+            </span>
+            <span class="circular-nav-tooltip">Contact</span>
+        </a>
+        
+        
+    </div>
+</div>
+    <!-- Progress Bar -->
+    <div class="floating-nav-progress" id="pageProgress">
+        <div class="floating-nav-progress-bar" id="progressBar"></div>
+    </div>
+</body>
+</html>

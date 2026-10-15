@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Commitments - The Apostles' Church</title>
+    <meta name="description" content="The practical commitments and biblical foundations of The Apostles' Church: The Name, Sanctity of Marriage, Holy Convocation, and more.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Practical Commitments - The Apostles' Church">
+    <meta property="og:description" content="The practical commitments and biblical foundations of The Apostles' Church.">
+    <meta property="og:image" content="https://apostleschurch.org/images/og-image.jpg">
+    <meta property="og:url" content="https://apostleschurch.org/commitments">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Practical Commitments - The Apostles' Church">
+    <meta name="twitter:description" content="The practical commitments and biblical foundations of The Apostles' Church.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Search Modal Styles */
+        .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 250, 248, 0.85);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .search-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-modal-content {
+            background: var(--text-light);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .search-header h3 {
+            color: var(--dark-blue);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .search-close {
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .search-close:hover {
+            color: var(--accent-gold);
+            background: var(--light-gray);
+        }
+
+        .search-input-container {
+            position: relative;
+            padding: 2rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .search-modal-input {
+            width: 100%;
+            padding: 1.25rem 4rem 1.25rem 1.5rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .search-modal-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(44, 122, 62, 0.1);
+        }
+
+        .search-modal-btn {
+            position: absolute;
+            right: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-green);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-modal-btn:hover {
+            background: var(--secondary-green);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .search-suggestions {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .suggestions-title {
+            color: var(--dark-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .suggestion-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .suggestion-tag {
+            background: var(--light-gray);
+            border: 1px solid var(--medium-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .suggestion-tag:hover {
+            background: var(--primary-green);
+            color: var(--text-light);
+            border-color: var(--primary-green);
+        }
+
+        .search-results {
+            padding: 1.5rem 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .search-result-item:hover {
+            background: var(--light-gray);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-category {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--primary-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-title {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .result-snippet {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .result-link {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        .search-footer {
+            padding: 1.5rem 2rem;
+            background: var(--light-gray);
+            border-radius: 0 0 12px 12px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Search results loading state */
+        .search-results.loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--light-gray);
+            border-top-color: var(--primary-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* No results state */
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive search styles */
+        @media (max-width: 768px) {
+            .search-modal-content {
+                max-height: 95vh;
+                margin: 0.5rem;
+            }
+            
+            .search-header,
+            .search-input-container,
+            .search-suggestions,
+            .search-results,
+            .search-footer {
+                padding: 1.25rem;
+            }
+            
+            .search-modal-input {
+                padding: 1rem 3.5rem 1rem 1.25rem;
+                font-size: 1rem;
+            }
+            
+            .search-modal-btn {
+                right: 1.75rem;
+                width: 42px;
+                height: 42px;
+            }
+            
+            .suggestion-tags {
+                gap: 0.25rem;
+            }
+            
+            .suggestion-tag {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Mega Dropdown Menu */
+        .mega-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-blue);
+            min-width: 800px;
+            padding: 1.5rem;
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .nav-item:hover .mega-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-dropdown-section {
+            padding: 0.5rem 0;
+        }
+
+        .mega-dropdown-title {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(252, 157, 31, 0.3);
+        }
+
+        .mega-dropdown-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mega-dropdown-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .mega-dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .mega-dropdown-link:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+            padding-left: 0.5rem;
+        }
+
+        /* Compact dropdown for smaller menus */
+        .compact-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-blue);
+            min-width: 220px;
+            padding: 0.75rem 0;
+            border-radius: 0 0 8px 8px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .compact-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .compact-dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .compact-dropdown-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-gold);
+            padding-left: 2rem;
+        }
+
+        /* Utility Links */
+        .utility-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .utility-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .utility-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Article Page Specific Styles */
+        .article-page {
+            padding: 4rem 0;
+        }
+
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--dark-blue);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .article-header h1 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Commitment Cards */
+        .commitment-section {
+            margin-bottom: 3rem;
+        }
+
+        .commitment-card {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .commitment-card:nth-child(even) {
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .commitment-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .commitment-card h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .commitment-card:nth-child(odd) h2 {
+            color: var(--primary-green);
+        }
+
+        .commitment-card:nth-child(even) h2 {
+            color: var(--accent-gold);
+        }
+
+        .commitment-card p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .scripture-ref {
+            display: inline-block;
+            background: var(--primary-green);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .scripture-ref.gold {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+        }
+
+        .scripture-block {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-gold);
+            font-style: italic;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .scripture-block cite {
+            display: block;
+            margin-top: 0.5rem;
+            text-align: right;
+            color: var(--dark-blue);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Subsection styling */
+        .subsection {
+            margin-top: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px dashed var(--medium-gray);
+        }
+
+        .subsection h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .subsection h3 i {
+            color: var(--primary-green);
+            margin-right: 0.5rem;
+        }
+
+        .abstinence-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .abstinence-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .abstinence-list li:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .abstinence-list li strong {
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .abstinence-list li:nth-child(even) {
+            border-left-color: var(--accent-gold);
+        }
+
+        .abstinence-list li:nth-child(even) strong {
+            color: var(--accent-gold);
+        }
+
+        .scripture-tags {
+            margin-top: 0.5rem;
+        }
+
+        /* Decorative elements */
+        .section-icon {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .commitment-card:nth-child(even) .section-icon {
+            color: var(--accent-gold);
+        }
+
+        /* Summary section */
+        .summary-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .summary-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .summary-box p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .focus-visible {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .article-content {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                justify-content: space-between;
+            }
+            
+            .mega-dropdown,
+            .compact-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                box-shadow: none;
+                display: none;
+                width: 100%;
+                min-width: 100%;
+                padding: 0.5rem 0 0.5rem 2rem;
+            }
+            
+            .nav-item:hover .mega-dropdown,
+            .nav-item:hover .compact-dropdown {
+                display: block;
+            }
+            
+            .mega-dropdown {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .utility-links {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .article-content {
+                padding: 1.5rem;
+            }
+            
+            .article-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .commitment-card {
+                padding: 1.5rem;
+            }
+            
+            .commitment-card h2 {
+                font-size: 1.5rem;
+            }
+            
+            .subsection {
+                padding-left: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 1rem;
+            }
+            
+            .commitment-card {
+                padding: 1rem;
+            }
+            
+            .commitment-card h2 {
+                font-size: 1.3rem;
+            }
+            
+            .subsection h3 {
+                font-size: 1.1rem;
+            }
+            
+            .abstinence-list li {
+                padding: 0.8rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .article-content {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+
+        /* Progress Bar */
+        .floating-nav-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--light-gray);
+            z-index: 1000;
+        }
+
+        .floating-nav-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Main Content Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus-visible">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo" width="60" height="60">
+                    <a href="index.html" class="logo-text"></a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class='bx bx-menu'></i>
+                </button>
+               <ul class="nav-menu" role="menubar">
+    <!-- Home -->
+    <li class="nav-item" role="none">
+        <a href="../index.html" class="nav-link" role="menuitem">
+            <i class='bx bx-home'></i> Home
+        </a>
+    </li>
+    
+    <!-- Our Church (simplified - no dropdown) -->
+    <li class="nav-item" role="none">
+        <a href="../about.html" class="nav-link" role="menuitem">
+            Our Church
+        </a>
+    </li>
+    
+    <!-- Faith & Beliefs (simplified - no dropdown) -->
+    <li class="nav-item" role="none">
+        <a href="../articles.html" class="nav-link" role="menuitem">
+            Faith & Beliefs
+        </a>
+    </li>
+    
+    <!-- Resources -->
+    <li class="nav-item" role="none">
+        <a href="../resources.html" class="nav-link" role="menuitem">
+           Resources
+        </a>
+    </li>
+    
+    <!-- Digital Library -->
+    <li class="nav-item" role="none">
+        <a href="../digitLibrary.html" class="nav-link" role="menuitem">
+           Digital Library
+        </a>
+    </li>
+    
+    <!-- Giving -->
+    <li class="nav-item" role="none">
+        <a href="../giving.html" class="nav-link" role="menuitem">Giving</a>
+    </li>
+    
+    <!-- News -->
+    <li class="nav-item" role="none">
+        <a href="../news.html" class="nav-link" role="menuitem">News</a>
+    </li>
+</ul>
+
+                <!-- Search Modal -->
+                <div class="search-modal" id="searchModal" aria-hidden="true">
+                    <div class="search-modal-content">
+                        <div class="search-header">
+                            <h3>Search The Apostles' Church</h3>
+                            <button class="search-close" id="searchClose" aria-label="Close search">
+                                <i class='bx bx-x'></i>
+                            </button>
+                        </div>
+                        
+                        <div class="search-input-container">
+                            <input type="text" 
+                                   class="search-modal-input" 
+                                   id="searchModalInput" 
+                                   placeholder="Search for topics, scriptures, events, or resources..."
+                                   aria-label="Search input">
+                            <button class="search-modal-btn" id="searchModalBtn" aria-label="Perform search">
+                                <i class='bx bx-search'></i>
+                            </button>
+                        </div>
+                        
+                        <div class="search-suggestions">
+                            <div class="suggestions-title">Popular Searches:</div>
+                            <div class="suggestion-tags">
+                                <button class="suggestion-tag" data-search="baptism">Baptism</button>
+                                <button class="suggestion-tag" data-search="prayer">Prayer</button>
+                                <button class="suggestion-tag" data-search="sermons">Sermons</button>
+                                <button class="suggestion-tag" data-search="events">Upcoming Events</button>
+                                <button class="suggestion-tag" data-search="giving">Online Giving</button>
+                                <button class="suggestion-tag" data-search="bible study">Bible Study</button>
+                            </div>
+                        </div>
+                        
+                        <div class="search-results" id="searchResults">
+                            <!-- Search results will be populated here -->
+                        </div>
+                        
+                        <div class="search-footer">
+                            <p>Search through our website content, sermons, resources, and events.</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="article-page" role="main">
+        <div class="container">
+            <article class="article-content">
+                <header class="article-header">
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <a href="index.html">Home</a> &gt; 
+                        <a href="about.html">About Us</a> &gt; 
+                        <span aria-current="page">Practical Commitments</span>
+                    </nav>
+                    
+                    <h1>The Apostles' Church: Who Are We</h1>
+                    <p class="lead">
+                        Our practical commitments flow from our faith in Jesus Christ and our desire to live according to His Word, 
+                        guided by the apostles' teaching and the leading of the Holy Spirit.
+                    </p>
+                </header>
+                
+                <div class="commitment-section">
+                    <!-- The Name -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-church'></i>
+                        </div>
+                        <h2>The Name</h2>
+                        <p>We commit to the name Apostles as given by the Lord Jesus Christ Himself, who is the Chief Apostle (Luke 6:12–13; Hebrews 3:1). In His divine purpose, He called and named His disciples apostles, setting them apart as a chosen people to seek first the Kingdom of God and His righteousness (Matthew 6:33). This calling fulfils the prophetic word spoken by Isaiah, that the Gentiles would see God's righteousness and that His servants would be called by a new name, given by the mouth of the LORD (Isaiah 62:2; 65:15; John 17:6–12).</p>
+                        
+                        <p>The Lord Jesus Christ identifies Himself as the One sent by the Father and teaches that whoever receives Him, listens to Him, and submits to Him must also receive and honour the Father who sent Him (Matthew 10:40; Mark 9:37; Luke 10:16; John 5:23), to whom He returned after completing His work (John 16:5). In the fullness of His wisdom, Christ declared that He would send His servants into the world as apostles and prophets (Luke 11:49).</p>
+                        
+                        <p>By naming His disciples apostles, Jesus Christ united them with Himself through His name and extended this unity to all who would believe through their testimony (John 17:20–23). On the Day of Pentecost, as the apostles preached the gospel of Jesus Christ, many believed and were added to them (Acts 2:37–44). We therefore affirm that no person has the authority to give another name to the Body of Christ, for salvation and identity are found in no other name but that of the Lord Jesus Christ (Acts 4:10–12).</p>
+                        
+                        <div class="scripture-block">
+                            <p>"And they continued stedfastly in the apostles' doctrine and fellowship, and in breaking of bread, and in prayers."</p>
+                            <cite>— Acts 2:42</cite>
+                        </div>
+                    </div>
+                    
+                    <!-- Sanctity of Marriage -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-heart-circle'></i>
+                        </div>
+                        <h2>Sanctity of Marriage</h2>
+                        <p>We uphold the sanctity of marriage as a lifelong covenant between one man and one woman, which is not to be separated except by death. Accordingly, a person living with a spouse other than their first spouse while the former spouse is still living, whether through polygamy or divorce and remarriage, does not qualify for church leadership.</p>
+                        
+                        <p>An exception applies only where such remarriage occurred before the individual became a baptised member of the APCH. Likewise, a person who marries a divorcee whose former spouse is still living does not qualify for leadership, except where the marriage took place prior to baptism into the APCH (Matthew 19:7–9; Mark 10:11; Luke 16:18; 1 Corinthians 7:2, 10–11).</p>
+                        
+                        <div class="scripture-tags">
+                            <span class="scripture-ref">Matthew 19:7-9</span>
+                            <span class="scripture-ref gold">Mark 10:11</span>
+                            <span class="scripture-ref">Luke 16:18</span>
+                            <span class="scripture-ref gold">1 Corinthians 7:2</span>
+                            <span class="scripture-ref">1 Corinthians 7:10-11</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Holy Convocation -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-calendar-star'></i>
+                        </div>
+                        <h2>Holy Convocation</h2>
+                        <p>We commit to holy fellowship with the saints through prayer, the sharing of psalms, and the study of the Word of God on the eighth day, also known as the first day of the week, which is observed as the Church's Main Divine Service. On this day, believers gather with offerings and tithes.</p>
+                        
+                        <p>This is the day on which God first commanded light to shine and separated light from darkness (Genesis 1:3–4), and on which the redemption of Israel, foreshadowing the redemption of the world through the Lord Jesus Christ, was instituted (John 3:16; Exodus 12:16). It is also the day when the resurrection of the Lord Jesus Christ was first proclaimed and He was worshipped (Matthew 28:16).</p>
+                        
+                        <p>The early Church met on this day to expound the Scriptures, break bread, and collect offerings (Acts 20:7; 1 Corinthians 16:1). Scripture identifies this day as the Lord's Day (Revelation 1:10), and God commanded it to be observed as a holy convocation (Exodus 12:16; Leviticus 23:7; Numbers 29:1).</p>
+                    </div>
+                    
+                    <!-- Solemn Feasts -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-calendar'></i>
+                        </div>
+                        <h2>Solemn Feasts</h2>
+                        <p>We commit to holding General Conferences three times each year in April, July, and October observing them not with the leaven of malice and wickedness, but with the unleavened bread of sincerity and truth, which is Jesus Christ (1 Corinthians 5:7–8; Leviticus 23).</p>
+                    </div>
+                    
+                    <!-- Head Covering -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-woman'></i>
+                        </div>
+                        <h2>Head Covering</h2>
+                        <p>We adhere to the scriptural instruction that women are to cover their heads during worship, in obedience to the order and teaching set forth in the Scriptures (1 Corinthians 11:14–15).</p>
+                    </div>
+                    
+                    <!-- Modest Appearance -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-user-check'></i>
+                        </div>
+                        <h2>Modest Appearance</h2>
+                        <p>We commit to dressing in accordance with New Testament teaching, maintaining conformity to Scripture concerning outward adornment. This includes restraint in the use of jewellery and cosmetics that create an unnatural appearance, so that conduct and appearance reflect holiness and devotion to God (1 John 2:15–16; 1 Peter 3:3–5; 1 Timothy 2:9–10; Romans 12:1–2).</p>
+                    </div>
+                    
+                    <!-- Total Abstinence -->
+                    <div class="commitment-card">
+                        <div class="section-icon">
+                            <i class='bx bx-shield'></i>
+                        </div>
+                        <h2>Total Abstinence</h2>
+                        <p>We commit to total abstinence from the following:</p>
+                        
+                        <ul class="abstinence-list">
+                            <li>
+                                <strong>Unclean foods and blood</strong>
+                                <span>Acts 15:28–29; Romans 14:2–3, 17; 1 Corinthians 8:8; 1 Timothy 4:1–5</span>
+                            </li>
+                            <li>
+                                <strong>All liquor and strong drink</strong>
+                                <span>Proverbs 20:1; 23:29–32; Isaiah 28:7; 1 Corinthians 5:11; 6:10</span>
+                            </li>
+                            <li>
+                                <strong>The use of tobacco in any form, opium, morphine, and other harmful drugs</strong>
+                                <span>Isaiah 55:2; 1 Corinthians 10:31–32; 2 Corinthians 7:1; Ephesians 5:3–8; James 1:21</span>
+                            </li>
+                            <li>
+                                <strong>Ungodly amusements, social outings, dances, and media entertainment that contradict biblical holiness</strong>
+                                <span>1 John 2:15–16; Romans 13:14; 6:13; 1 Thessalonians 5:22; Philippians 4:8; 2 Corinthians 6:14, 19–20; 7:1; 1 Timothy 2:9; 2 Peter 1:4; Galatians 5:19</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="subsection">
+                            <h3><i class='bx bx-book-open'></i> Biblical Foundation</h3>
+                            <div class="scripture-block">
+                                <p>"Having therefore these promises, dearly beloved, let us cleanse ourselves from all filthiness of the flesh and spirit, perfecting holiness in the fear of God."</p>
+                                <cite>— 2 Corinthians 7:1</cite>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary Box -->
+                    <div class="summary-box">
+                        <h3>Our Commitment to Holiness</h3>
+                        <p>These practical commitments reflect our desire to live in obedience to God's Word, to honor Jesus Christ in all things, and to be a people set apart for His purposes. We invite all who share these convictions to join us in this journey of faith.</p>
+                        <p style="margin-top: 1rem; font-style: italic;">"But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people; that ye should shew forth the praises of him who hath called you out of darkness into his marvellous light." — 1 Peter 2:9</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#sermons">Sermons & Teachings</a></li>
+                        <li><a href="#events">Events Calendar</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#prayer-requests">Prayer Requests</a></li>
+                        <li><a href="giving.html">Online Giving</a></li>
+                        <li><a href="#volunteer">Volunteer Opportunities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for daily inspiration, updates, and community news.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Visit our Facebook page">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Visit our Instagram profile">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Visit our Twitter profile">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.linkedin.com" class="social-link" aria-label="Visit our LinkedIn page">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="Visit our YouTube channel">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                        <a href="https://web.whatsapp.com" class="social-link" aria-label="Message us on WhatsApp">
+                            <i class='bx bxl-whatsapp'></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4 style="color: var(--accent-gold); font-size: 1rem;">Subscribe to Our Newsletter</h4>
+                        <form class="d-flex gap-2" style="max-width: 300px;" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription" required>
+                            <button type="submit" class="btn" style="background: var(--accent-gold); color: var(--dark-blue); border: none; padding: 0.5rem 1rem; border-radius: 4px;">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#sitemap" style="color: rgba(255, 255, 255, 0.7);">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Progress Bar -->
+    <div class="floating-nav-progress" id="pageProgress">
+        <div class="floating-nav-progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.main-nav') && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    
+                    document.querySelectorAll('.mega-dropdown, .compact-dropdown').forEach(dropdown => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+            });
+            
+            // Mobile dropdown toggle
+            const mobileDropdownLinks = document.querySelectorAll('.nav-link');
+            mobileDropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        const parent = this.parentElement;
+                        const dropdown = parent.querySelector('.mega-dropdown, .compact-dropdown');
+                        
+                        if (dropdown) {
+                            e.preventDefault();
+                            const isVisible = dropdown.style.display === 'block';
+                            
+                            document.querySelectorAll('.mega-dropdown, .compact-dropdown').forEach(d => {
+                                d.style.display = 'none';
+                            });
+                            
+                            dropdown.style.display = isVisible ? 'none' : 'block';
+                        }
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+            
+            // Search Functionality
+            const searchTrigger = document.getElementById('searchTrigger');
+            const searchModal = document.getElementById('searchModal');
+            const searchClose = document.getElementById('searchClose');
+            const searchModalInput = document.getElementById('searchModalInput');
+            const searchResults = document.getElementById('searchResults');
+            const suggestionTags = document.querySelectorAll('.suggestion-tag');
+            
+            // Sample search data
+            const searchData = [
+                { id: 1, title: "The Name", snippet: "We commit to the name Apostles as given by the Lord Jesus Christ Himself...", category: "Commitments", url: "#", tags: ["name", "apostles", "identity"] },
+                { id: 2, title: "Sanctity of Marriage", snippet: "We uphold the sanctity of marriage as a lifelong covenant between one man and one woman...", category: "Commitments", url: "#", tags: ["marriage", "covenant", "family"] },
+                { id: 3, title: "Holy Convocation", snippet: "We commit to holy fellowship with the saints through prayer, the sharing of psalms...", category: "Commitments", url: "#", tags: ["worship", "sabbath", "fellowship"] },
+                { id: 4, title: "Total Abstinence", snippet: "We commit to total abstinence from unclean foods, alcohol, tobacco, and ungodly amusements...", category: "Commitments", url: "#", tags: ["holiness", "abstinence", "purity"] },
+                { id: 5, title: "Online Giving", snippet: "Support our ministry through secure online donations...", category: "Giving", url: "giving.html", tags: ["giving", "donate", "tithe"] },
+                { id: 6, title: "Bible Study Course", snippet: "Join our free interactive Bible study program...", category: "Resources", url: "#bible-course", tags: ["bible study", "course"] }
+            ];
+            
+            if (searchTrigger) {
+                searchTrigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    searchModal.classList.add('active');
+                    searchModal.setAttribute('aria-hidden', 'false');
+                    setTimeout(() => searchModalInput.focus(), 300);
+                    clearResults();
+                });
+            }
+            
+            if (searchClose) {
+                searchClose.addEventListener('click', closeSearchModal);
+            }
+            
+            searchModal.addEventListener('click', function(e) {
+                if (e.target === searchModal) closeSearchModal();
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+                    closeSearchModal();
+                }
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    searchTrigger.click();
+                }
+                if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    searchTrigger.click();
+                }
+            });
+            
+            document.getElementById('searchModalBtn').addEventListener('click', performSearch);
+            
+            searchModalInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') performSearch();
+            });
+            
+            let searchTimeout;
+            searchModalInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                if (this.value.trim().length > 2) {
+                    searchTimeout = setTimeout(performSearch, 300);
+                } else if (this.value.trim().length === 0) {
+                    clearResults();
+                }
+            });
+            
+            suggestionTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    searchModalInput.value = this.getAttribute('data-search');
+                    performSearch();
+                });
+            });
+            
+            function closeSearchModal() {
+                searchModal.classList.remove('active');
+                searchModal.setAttribute('aria-hidden', 'true');
+                searchModalInput.value = '';
+                clearResults();
+            }
+            
+            function clearResults() {
+                searchResults.innerHTML = '';
+                searchResults.classList.remove('loading');
+            }
+            
+            function performSearch() {
+                const searchTerm = searchModalInput.value.trim().toLowerCase();
+                
+                if (!searchTerm) {
+                    clearResults();
+                    return;
+                }
+                
+                searchResults.innerHTML = '<div class="loading-spinner"></div>';
+                searchResults.classList.add('loading');
+                
+                setTimeout(() => {
+                    const results = searchData.filter(item => {
+                        return item.title.toLowerCase().includes(searchTerm) ||
+                               item.snippet.toLowerCase().includes(searchTerm) ||
+                               item.category.toLowerCase().includes(searchTerm) ||
+                               item.tags.some(tag => tag.includes(searchTerm));
+                    });
+                    
+                    displayResults(results);
+                }, 300);
+            }
+            
+            function displayResults(results) {
+                searchResults.classList.remove('loading');
+                
+                if (results.length === 0) {
+                    searchResults.innerHTML = `
+                        <div class="no-results">
+                            <i class='bx bx-search-alt'></i>
+                            <h4>No results found</h4>
+                            <p>Try different keywords or check out our popular searches above.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let resultsHTML = '';
+                results.forEach(item => {
+                    resultsHTML += `
+                        <div class="search-result-item" data-url="${item.url}">
+                            <div class="result-category">${item.category}</div>
+                            <h4 class="result-title">${highlightText(item.title, searchModalInput.value)}</h4>
+                            <p class="result-snippet">${highlightText(item.snippet.substring(0, 150) + '...', searchModalInput.value)}</p>
+                            <span class="result-link">View <i class='bx bx-chevron-right'></i></span>
+                        </div>
+                    `;
+                });
+                
+                searchResults.innerHTML = resultsHTML;
+                
+                document.querySelectorAll('.search-result-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const url = this.getAttribute('data-url');
+                        if (url.startsWith('#')) {
+                            const targetElement = document.querySelector(url);
+                            if (targetElement) {
+                                closeSearchModal();
+                                window.scrollTo({ top: targetElement.offsetTop - 100, behavior: 'smooth' });
+                            }
+                        } else {
+                            closeSearchModal();
+                            window.location.href = url;
+                        }
+                    });
+                });
+            }
+            
+            function highlightText(text, searchTerm) {
+                if (!searchTerm) return text;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                return text.replace(regex, '<span style="background: rgba(252, 157, 31, 0.2); padding: 0 2px; border-radius: 2px;">$1</span>');
+            }
+            
+            // Progress Bar
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                window.addEventListener('scroll', function() {
+                    const totalHeight = document.body.scrollHeight - window.innerHeight;
+                    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+                    progressBar.style.width = `${progress}%`;
+                });
+            }
+            
+            // Focus styles for keyboard navigation
+            document.addEventListener('keyup', function(e) {
+                if (e.key === 'Tab') {
+                    document.documentElement.classList.add('focus-visible');
+                }
+            });
+            
+            document.addEventListener('click', function() {
+                document.documentElement.classList.remove('focus-visible');
+            });
+            
+            // Form validation
+            const newsletterForm = document.querySelector('form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="email"]');
+                    if (emailInput.value && emailInput.checkValidity()) {
+                        alert('Thank you for subscribing to our newsletter!');
+                        emailInput.value = '';
+                    } else {
+                        emailInput.focus();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

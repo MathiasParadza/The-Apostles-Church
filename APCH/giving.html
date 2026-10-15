@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giving & Stewardship - The Apostles' Church</title>
+    <meta name="description" content="Support the mission of The Apostles' Church through your generous giving. Learn about biblical stewardship and different giving methods.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Giving & Stewardship - The Apostles' Church">
+    <meta property="og:description" content="Partner with us in ministry through your faithful giving and support our mission to spread God's Word.">
+    <meta property="og:image" content="https://apostleschurch.org/images/giving-og-image.jpg">
+    <meta property="og:url" content="https://apostleschurch.org/giving">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Giving & Stewardship - The Apostles' Church">
+    <meta name="twitter:description" content="Partner with us in ministry through your faithful giving and support our mission to spread God's Word.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <style>
+        /* Reuse existing CSS variables and base styles from main site */
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header Styles - Same as main site */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* Navigation - Same as main site */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Scripture Quote */
+        .scripture-quote {
+            background: linear-gradient(135deg, #e9f7ef 0%, #d4edda 100%);
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .scripture-text {
+            font-size: 1.75rem;
+            color: var(--primary-green);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .scripture-reference {
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            border-radius: 2px;
+        }
+
+        /* Why Give Section */
+        .why-give-section {
+            background-color: var(--light-gray);
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .reason-card {
+            background: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            height: 100%;
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .reason-icon {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .reason-title {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Giving Methods Section */
+        .giving-methods-section {
+            background: linear-gradient(135deg, #e9f7ef 0%, #d4edda 100%);
+        }
+
+        .methods-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .method-tab {
+            background: var(--text-light);
+            border: 2px solid var(--medium-gray);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .method-tab:hover,
+        .method-tab.active {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-color: var(--primary-green);
+            color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .method-content {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .method-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .method-icon {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .method-title {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .method-description {
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Giving Form */
+        .giving-form {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(44, 122, 62, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .amount-options {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .amount-option {
+            background: var(--light-gray);
+            border: 2px solid var(--medium-gray);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .amount-option:hover,
+        .amount-option.active {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--text-light);
+        }
+
+        .custom-amount {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .currency-symbol {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .custom-amount input {
+            flex: 1;
+        }
+
+        .fund-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .fund-option {
+            background: var(--light-gray);
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .fund-option:hover,
+        .fund-option.active {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--text-light);
+        }
+
+        .fund-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .fund-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .give-btn {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            border: none;
+            width: 100%;
+            padding: 1.25rem;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+        }
+
+        .give-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
+        }
+
+        /* Giving Impact Section */
+        .impact-section {
+            background-color: var(--light-gray);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--dark-blue);
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Security Badge */
+        .security-badge {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 2px solid var(--medium-gray);
+        }
+
+        .security-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .security-icon {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+        }
+
+        /* Footer - Same as main site */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.75rem;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                justify-content: space-between;
+            }
+            
+            .method-tab {
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 4rem 0 3rem;
+            }
+            
+            .page-title {
+                font-size: 2.25rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .scripture-text {
+                font-size: 1.5rem;
+            }
+            
+            .method-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .method-content {
+                padding: 2rem;
+            }
+            
+            .giving-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .reason-card,
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .method-tab {
+                min-width: 100%;
+                padding: 0.75rem 1rem;
+            }
+            
+            .amount-options,
+            .fund-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Header -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo" width="60" height="60">
+                    <a href="index.html" class="logo-text"></a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class='bx bx-menu'></i>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                     <li class="nav-item" role="none">
+                        <a href="index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="index.html#resources" class="nav-link" role="menuitem">Resources</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="index.html#church" class="nav-link" role="menuitem">Our Church</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="index.html#faith" class="nav-link" role="menuitem">Faith & Beliefs</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="news.html" class="nav-link" role="menuitem">News</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="giving.html" class="nav-link active" role="menuitem">Giving</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="digitLibrary.html" class="nav-link" role="menuitem">Digital Library</a>
+                    </li>
+                </ul>
+                
+                <div class="utility-links">
+                    <a href="#search" class="utility-link" aria-label="Search">
+                        <i class='bx bx-search'></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Giving & Stewardship</h1>
+            <p class="page-subtitle">Partner with us in ministry through your faithful giving and support our mission to spread God's Word throughout our community and beyond.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Scripture Quote -->
+        <div class="container">
+            <div class="scripture-quote">
+                <p class="scripture-text">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+                <p class="scripture-reference">— 2 Corinthians 9:7</p>
+            </div>
+        </div>
+
+        <!-- Why Give Section -->
+        <section class="section why-give-section" aria-labelledby="why-give-title">
+            <div class="container">
+                <h2 id="why-give-title" class="section-title">Biblical Principles of Giving</h2>
+                <div class="reasons-grid">
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class='bx bx-heart'></i>
+                        </div>
+                        <h3 class="reason-title">An Act of Worship</h3>
+                        <p>Giving is an expression of gratitude and worship to God, acknowledging that everything we have comes from Him. It's a tangible way to honor God with our resources.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class='bx bx-bullseye'></i>
+                        </div>
+                        <h3 class="reason-title">Supporting Ministry</h3>
+                        <p>Your giving enables us to maintain our facilities, support missionaries, fund outreach programs, and provide resources for spiritual growth in our community.</p>
+                    </div>
+                    
+                    <div class="reason-card">
+                        <div class="reason-icon">
+                            <i class='bx bx-church'></i>
+                        </div>
+                        <h3 class="reason-title">Building Community</h3>
+                        <p>Through collective giving, we can support those in need, provide food and shelter, and create opportunities for fellowship and spiritual development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Giving Methods Section -->
+        <section class="section giving-methods-section" aria-labelledby="giving-methods-title">
+            <div class="container">
+                <h2 id="giving-methods-title" class="section-title">Ways to Give</h2>
+                
+                <!-- Method Tabs -->
+                <div class="methods-tabs" role="tablist">
+                    <button class="method-tab active" data-method="online" role="tab" aria-selected="true">
+                        Online Giving
+                    </button>
+                    <button class="method-tab" data-method="text" role="tab" aria-selected="false">
+                        Text-to-Give
+                    </button>
+                    <button class="method-tab" data-method="bank" role="tab" aria-selected="false">
+                        Bank Transfer
+                    </button>
+                    <button class="method-tab" data-method="check" role="tab" aria-selected="false">
+                        Check or Cash
+                    </button>
+                </div>
+
+                <!-- Online Giving Content -->
+                <div class="method-content active" id="online-content" role="tabpanel">
+                    <div class="method-header">
+                        <div class="method-icon">
+                            <i class='bx bx-credit-card'></i>
+                        </div>
+                        <div>
+                            <h3 class="method-title">Secure Online Giving</h3>
+                            <p class="method-description">Give quickly and securely using your credit/debit card or bank account</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Giving Form -->
+                    <form class="giving-form" id="online-giving-form">
+                        <div class="form-group">
+                            <label class="form-label">Your Information</label>
+                            <div class="form-row">
+                                <input type="text" class="form-control" placeholder="First Name" required>
+                                <input type="text" class="form-control" placeholder="Last Name" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                                <input type="tel" class="form-control" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Giving Amount</label>
+                            <div class="amount-options">
+                                <span class="amount-option" data-amount="25">$25</span>
+                                <span class="amount-option" data-amount="50">$50</span>
+                                <span class="amount-option active" data-amount="100">$100</span>
+                                <span class="amount-option" data-amount="250">$250</span>
+                                <span class="amount-option" data-amount="500">$500</span>
+                            </div>
+                            <div class="custom-amount">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" class="form-control" placeholder="Other Amount" min="1" step="0.01">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Giving Frequency</label>
+                            <div class="amount-options">
+                                <span class="amount-option active" data-frequency="one-time">One-Time</span>
+                                <span class="amount-option" data-frequency="weekly">Weekly</span>
+                                <span class="amount-option" data-frequency="monthly">Monthly</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Fund Allocation</label>
+                            <div class="fund-options">
+                                <div class="fund-option active" data-fund="general">
+                                    <div class="fund-name">General Fund</div>
+                                    <div class="fund-description">Church Operations</div>
+                                </div>
+                                <div class="fund-option" data-fund="missions">
+                                    <div class="fund-name">Missions</div>
+                                    <div class="fund-description">Local & Global Outreach</div>
+                                </div>
+                                <div class="fund-option" data-fund="benevolence">
+                                    <div class="fund-name">Benevolence</div>
+                                    <div class="fund-description">Helping Those in Need</div>
+                                </div>
+                                <div class="fund-option" data-fund="building">
+                                    <div class="fund-name">Building Fund</div>
+                                    <div class="fund-description">Facility Maintenance</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Payment Method</label>
+                            <div class="amount-options">
+                                <span class="amount-option active" data-method="card">Credit/Debit Card</span>
+                                <span class="amount-option" data-method="bank">Bank Account</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="give-btn">Continue to Payment</button>
+                    </form>
+                </div>
+
+                <!-- Text-to-Give Content -->
+                <div class="method-content" id="text-content" role="tabpanel">
+                    <div class="method-header">
+                        <div class="method-icon">
+                            <i class='bx bx-message-square'></i>
+                        </div>
+                        <div>
+                            <h3 class="method-title">Text-to-Give</h3>
+                            <p class="method-description">Give instantly using your mobile phone</p>
+                        </div>
+                    </div>
+                    
+                    <div style="max-width: 500px; margin: 0 auto;">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <div style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;">
+                                <i class='bx bx-phone'></i>
+                            </div>
+                            <h4>How to Give by Text:</h4>
+                        </div>
+                        
+                        <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <ol style="padding-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;">Text <strong>GIVE</strong> to <strong>(555) 123-4567</strong></li>
+                                <li style="margin-bottom: 1rem;">Follow the link sent to your phone</li>
+                                <li style="margin-bottom: 1rem;">Complete the secure payment form</li>
+                                <li>Receive a confirmation text and email</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="background: #e9f7ef; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                            <p style="margin: 0;"><strong>Note:</strong> Standard messaging rates may apply. You only need to set up your payment information once.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer Content -->
+                <div class="method-content" id="bank-content" role="tabpanel">
+                    <div class="method-header">
+                        <div class="method-icon">
+                            <i class='bx bx-building-house'></i>
+                        </div>
+                        <div>
+                            <h3 class="method-title">Bank Transfer / ACH</h3>
+                            <p class="method-description">Set up recurring or one-time transfers from your bank account</p>
+                        </div>
+                    </div>
+                    
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">Church Banking Information:</h4>
+                            <div style="line-height: 2;">
+                                <p><strong>Bank:</strong> Faith Community Bank</p>
+                                <p><strong>Account Name:</strong> The Apostles' Church</p>
+                                <p><strong>Account Number:</strong> 1234567890</p>
+                                <p><strong>Routing Number:</strong> 021000021</p>
+                                <p><strong>Account Type:</strong> Checking</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #e9f7ef; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-green);">
+                            <h5 style="margin-bottom: 0.5rem; color: var(--dark-blue);">Important Notes:</h5>
+                            <ul style="padding-left: 1.5rem; margin: 0;">
+                                <li>Include your name in the transfer memo</li>
+                                <li>Email <strong>giving@apostleschurch.org</strong> with transfer details</li>
+                                <li>Allow 2-3 business days for processing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Check/Cash Content -->
+                <div class="method-content" id="check-content" role="tabpanel">
+                    <div class="method-header">
+                        <div class="method-icon">
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div>
+                            <h3 class="method-title">Check or Cash</h3>
+                            <p class="method-description">Traditional giving methods during services or by mail</p>
+                        </div>
+                    </div>
+                    
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; height: 100%; text-align: center;">
+                                    <div style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;">
+                                        <i class='bx bx-church'></i>
+                                    </div>
+                                    <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">During Services</h4>
+                                    <p>Place your cash or check in the offering baskets during our Sunday worship services at 9:00 AM or 11:00 AM.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; height: 100%; text-align: center;">
+                                    <div style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;">
+                                        <i class='bx bx-mail-send'></i>
+                                    </div>
+                                    <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">By Mail</h4>
+                                    <p>Send checks payable to:</p>
+                                    <p style="font-weight: 600; margin: 1rem 0;">
+                                        The Apostles' Church<br>
+                                        123 Faith Avenue<br>
+                                        Spiritual City, SC 12345
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #e9f7ef; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid var(--primary-green);">
+                            <p style="margin: 0;"><strong>For tax deduction purposes:</strong> Please include your name and address with cash donations. Contribution statements are mailed quarterly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Giving Impact Section -->
+        <section class="section impact-section" aria-labelledby="impact-title">
+            <div class="container">
+                <h2 id="impact-title" class="section-title">Your Giving Makes a Difference</h2>
+                <div class="impact-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">42%</div>
+                        <div class="stat-label">Supports Local Missions</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Feeding programs, shelters, and community outreach</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">28%</div>
+                        <div class="stat-label">Church Operations</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Facilities, staff, and ministry resources</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">20%</div>
+                        <div class="stat-label">Global Missions</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Supporting missionaries and international projects</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">10%</div>
+                        <div class="stat-label">Benevolence Fund</div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Emergency assistance for families in need</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1rem; color: var(--dark-blue);">Recent Impact Stories</h3>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div style="background: var(--text-light); padding: 1.5rem; border-radius: 12px; height: 100%; box-shadow: var(--shadow);">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Community Kitchen</h4>
+                                <p>Your giving helped serve over 5,000 meals to families in need last month.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background: var(--text-light); padding: 1.5rem; border-radius: 12px; height: 100%; box-shadow: var(--shadow);">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Youth Ministry</h4>
+                                <p>Funded summer camp scholarships for 45 students who couldn't otherwise attend.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background: var(--text-light); padding: 1.5rem; border-radius: 12px; height: 100%; box-shadow: var(--shadow);">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">International Mission</h4>
+                                <p>Supported clean water projects serving 3 villages in developing nations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title" class="section-title" style="color: var(--text-light);">Frequently Asked Questions</h2>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is my online giving secure?</span>
+                            <i class='bx bx-chevron-down faq-icon'></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we use industry-standard SSL encryption and PCI-compliant payment processing. Your financial information is never stored on our servers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Will I receive a giving statement for tax purposes?</span>
+                            <i class='bx bx-chevron-down faq-icon'></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide quarterly giving statements and an annual statement in January for the previous year's tax deductions. You can also access your giving history through your online account.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I schedule recurring donations?</span>
+                            <i class='bx bx-chevron-down faq-icon'></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can set up recurring donations weekly, bi-weekly, or monthly through our online giving platform. You can modify or cancel recurring donations at any time.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What percentage goes to administrative costs?</span>
+                            <i class='bx bx-chevron-down faq-icon'></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Less than 5% of donations cover payment processing fees and administrative costs. 95% of every dollar goes directly to ministry work.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I give stocks or other assets?</span>
+                            <i class='bx bx-chevron-down faq-icon'></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we accept stock donations and other non-cash gifts. Please contact our finance office at (555) 123-4567 ext. 202 for assistance with asset donations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Security Badge -->
+                <div class="security-badge">
+                    <h4 style="color: var(--dark-blue); margin-bottom: 1rem;">Your Security is Our Priority</h4>
+                    <div class="security-icons">
+                        <div>
+                            <i class='bx bx-lock-alt security-icon'></i>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">256-bit SSL Encryption</p>
+                        </div>
+                        <div>
+                            <i class='bx bx-shield security-icon'></i>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">PCI DSS Compliant</p>
+                        </div>
+                        <div>
+                            <i class='bx bx-check-shield security-icon'></i>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Secure Payment Processing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Finance Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#sermons">Sermons & Teachings</a></li>
+                        <li><a href="index.html#events">Events Calendar</a></li>
+                        <li><a href="news.html">Latest News</a></li>
+                        <li><a href="#tax-documents">Tax Documents</a></li>
+                        <li><a href="#giving-history">View Giving History</a></li>
+                        <li><a href="digitLibrary.html">Digital Library</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Need Assistance?</h3>
+                    <p>For questions about giving or to update your information, please contact our finance team.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Visit our Facebook page">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Visit our Instagram profile">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Visit our Twitter profile">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="Visit our YouTube channel">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved. The Apostles' Church is a 501(c)(3) nonprofit organization. Donations are tax-deductible as allowed by law.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#financials" style="color: rgba(255, 255, 255, 0.7);">Financial Transparency</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.main-nav') && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Giving Method Tabs
+            const methodTabs = document.querySelectorAll('.method-tab');
+            const methodContents = document.querySelectorAll('.method-content');
+            
+            methodTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const method = this.getAttribute('data-method');
+                    
+                    // Remove active class from all tabs and contents
+                    methodTabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    
+                    methodContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+                    
+                    const targetContent = document.getElementById(`${method}-content`);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+            
+            // Giving Form Interactions
+            const amountOptions = document.querySelectorAll('.amount-option[data-amount]');
+            const customAmountInput = document.querySelector('.custom-amount input');
+            
+            amountOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all amount options
+                    amountOptions.forEach(opt => opt.classList.remove('active'));
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Update custom amount input
+                    const amount = this.getAttribute('data-amount');
+                    if (customAmountInput) {
+                        customAmountInput.value = amount;
+                    }
+                });
+            });
+            
+            // Clear pre-selected amount when custom amount is entered
+            if (customAmountInput) {
+                customAmountInput.addEventListener('input', function() {
+                    amountOptions.forEach(opt => opt.classList.remove('active'));
+                });
+            }
+            
+            // Frequency Options
+            const frequencyOptions = document.querySelectorAll('.amount-option[data-frequency]');
+            frequencyOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    frequencyOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Fund Options
+            const fundOptions = document.querySelectorAll('.fund-option');
+            fundOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    fundOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Payment Method Options
+            const paymentOptions = document.querySelectorAll('.amount-option[data-method]');
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    paymentOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Giving Form Submission
+            const givingForm = document.getElementById('online-giving-form');
+            if (givingForm) {
+                givingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const amount = customAmountInput ? customAmountInput.value : '100';
+                    const frequency = document.querySelector('.amount-option[data-frequency].active')?.getAttribute('data-frequency') || 'one-time';
+                    const fund = document.querySelector('.fund-option.active')?.getAttribute('data-fund') || 'general';
+                    
+                    // Show processing modal
+                    showProcessingModal(amount, frequency, fund);
+                });
+            }
+            
+            function showProcessingModal(amount, frequency, fund) {
+                // Create modal
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    opacity: 0;
+                    animation: fadeIn 0.3s ease forwards;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="
+                        background: white;
+                        border-radius: 12px;
+                        padding: 3rem;
+                        max-width: 500px;
+                        width: 90%;
+                        text-align: center;
+                        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                        animation: slideUp 0.3s ease forwards;
+                    ">
+                        <div style="font-size: 4rem; color: var(--primary-green); margin-bottom: 1rem;">
+                            <i class='bx bx-check-circle'></i>
+                        </div>
+                        <h3 style="margin-bottom: 1rem; color: var(--dark-blue);">Thank You for Your Generosity!</h3>
+                        <p style="margin-bottom: 1.5rem; line-height: 1.6;">
+                            Your ${frequency} gift of $${amount} to the ${getFundName(fund)} has been processed successfully.
+                            A confirmation email has been sent to your inbox.
+                        </p>
+                        <p style="margin-bottom: 2rem; font-style: italic; color: var(--primary-green);">
+                            "God loves a cheerful giver." - 2 Corinthians 9:7
+                        </p>
+                        <button id="close-modal" style="
+                            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+                            color: white;
+                            border: none;
+                            padding: 0.75rem 2rem;
+                            border-radius: 8px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: var(--transition);
+                        ">
+                            Continue
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Add animation styles
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes fadeIn {
+                        to { opacity: 1; }
+                    }
+                    @keyframes slideUp {
+                        from { transform: translateY(20px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // Close modal
+                setTimeout(() => {
+                    const closeBtn = document.getElementById('close-modal');
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', () => {
+                            modal.style.animation = 'fadeOut 0.3s ease forwards';
+                            setTimeout(() => {
+                                document.body.removeChild(modal);
+                                // Reset form
+                                if (givingForm) givingForm.reset();
+                                amountOptions[2].classList.add('active'); // Reset to $100
+                                fundOptions[0].classList.add('active'); // Reset to General Fund
+                                frequencyOptions[0].classList.add('active'); // Reset to One-Time
+                                paymentOptions[0].classList.add('active'); // Reset to Card
+                            }, 300);
+                        });
+                    }
+                }, 100);
+            }
+            
+            function getFundName(fund) {
+                const fundNames = {
+                    'general': 'General Fund',
+                    'missions': 'Missions Fund',
+                    'benevolence': 'Benevolence Fund',
+                    'building': 'Building Fund'
+                };
+                return fundNames[fund] || 'General Fund';
+            }
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                        faqItem.querySelector('.faq-answer').classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

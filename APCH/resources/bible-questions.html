@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Apostles' Church - Welcome to Our Faith Community</title>
+    <meta name="description" content="Join The Apostles' Church community. Discover faith, find support, and grow spiritually through worship, fellowship, and service.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="The Apostles' Church">
+    <meta property="og:description" content="Welcome to our faith community. Discover truth, find peace, and grow spiritually.">
+    <meta property="og:image" content="https://apostleschurch.org/images/og-image.jpg">
+    <meta property="og:url" content="https://apostleschurch.org">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Apostles' Church">
+    <meta name="twitter:description" content="Welcome to our faith community. Discover truth, find peace, and grow spiritually.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        /* Consolidated Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Mega Dropdown Menu */
+        .mega-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-blue);
+            min-width: 800px;
+            padding: 1.5rem;
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .nav-item:hover .mega-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-dropdown-section {
+            padding: 0.5rem 0;
+        }
+
+        .mega-dropdown-title {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(252, 157, 31, 0.3);
+        }
+
+        .mega-dropdown-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mega-dropdown-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .mega-dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .mega-dropdown-link:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+            padding-left: 0.5rem;
+        }
+
+        /* Compact dropdown for smaller menus */
+        .compact-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark-blue);
+            min-width: 220px;
+            padding: 0.75rem 0;
+            border-radius: 0 0 8px 8px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .compact-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .compact-dropdown-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .compact-dropdown-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-gold);
+            padding-left: 2rem;
+        }
+
+        /* Utility Links */
+        .utility-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .utility-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .utility-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .mega-dropdown {
+                min-width: 700px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+            
+            .journey-wrapper {
+                flex-direction: column;
+            }
+            
+            .journey-sidebar {
+                position: static;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                justify-content: space-between;
+            }
+            
+            .mega-dropdown,
+            .compact-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background-color: rgba(0, 0, 0, 0.2);
+                box-shadow: none;
+                display: none;
+                width: 100%;
+                min-width: 100%;
+                padding: 0.5rem 0 0.5rem 2rem;
+            }
+            
+            .nav-item:hover .mega-dropdown,
+            .nav-item:hover .compact-dropdown {
+                display: block;
+            }
+            
+            .mega-dropdown {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .utility-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-section {
+                height: auto;
+                min-height: 500px;
+                padding: 2rem 0;
+            }
+            
+            .hero-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .step-card {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Main Content Styles */
+        .article-page {
+            padding: 2rem 0;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .article-header h1 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .question-section {
+            margin-bottom: 4rem;
+        }
+
+        .question-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .scripture-box {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-left: 3px solid var(--primary-green);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
+            color: var(--dark-blue);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
+                    <a href="index.html" class="logo-text">The Apostles' Church</a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class='bx bx-menu'></i>
+                </button>
+              <ul class="nav-menu" role="menubar">
+    <!-- Home -->
+    <li class="nav-item" role="none">
+        <a href="../index.html" class="nav-link" role="menuitem">
+            <i class='bx bx-home'></i> Home
+        </a>
+    </li>
+    
+    <!-- Our Church (simplified - no dropdown) -->
+    <li class="nav-item" role="none">
+        <a href="../about.html" class="nav-link" role="menuitem">
+            Our Church
+        </a>
+    </li>
+    
+    <!-- Faith & Beliefs (simplified - no dropdown) -->
+    <li class="nav-item" role="none">
+        <a href="../articles.html" class="nav-link" role="menuitem">
+            Faith & Beliefs
+        </a>
+    </li>
+    
+    <!-- Resources -->
+    <li class="nav-item" role="none">
+        <a href="../resources.html" class="nav-link" role="menuitem">
+           Resources
+        </a>
+    </li>
+    
+    <!-- Digital Library -->
+    <li class="nav-item" role="none">
+        <a href="../digitLibrary.html" class="nav-link" role="menuitem">
+           Digital Library
+        </a>
+    </li>
+    
+    <!-- Giving -->
+    <li class="nav-item" role="none">
+        <a href="../giving.html" class="nav-link" role="menuitem">Giving</a>
+    </li>
+    
+    <!-- News -->
+    <li class="nav-item" role="none">
+        <a href="../news.html" class="nav-link" role="menuitem">News</a>
+    </li>
+</ul>
+
+                
+                <div class="utility-links">
+                    <a href="#search" class="utility-link" aria-label="Search">
+                        <i class='bx bx-search'></i>
+                    </a>
+                    <a href="#login" class="utility-link" aria-label="Login">
+                        <i class='bx bx-user'></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="article-page" role="main">
+        <div class="container">
+            <article class="article-content">
+                <header class="article-header">
+                    <nav class="breadcrumb">
+                        <a href="resources.html">Resources</a> &gt; 
+                        <span>Bible Questions Answered</span>
+                    </nav>
+                    
+                    <h1>Bible Questions Answered</h1>
+                    <p class="lead" style="font-size: 1.25rem; color: var(--text-dark); max-width: 800px; margin: 1.5rem auto 0;">
+                        The Bible addresses the deepest questions of life, faith, purpose, and eternity. At The Apostles' Church, 
+                        we believe the Holy Scriptures are the inspired and authoritative Word of Jehovah God and provide trustworthy 
+                        answers for every generation.
+                    </p>
+                </header>
+                
+                <div class="question-section" style="margin-bottom: 4rem;">
+                    <div class="question-card" style="border-left: 4px solid var(--primary-green);">
+                        <h2 style="color: var(--primary-green); margin-bottom: 1rem;">Who Is God?</h2>
+                        <p>God is the eternal Creator of heaven and earth. He is holy, loving, just, and faithful. The Bible reveals one true God who desires a relationship with humanity and who governs all creation with wisdom and compassion (Genesis 1:1; Psalm 145:8–9).</p>
+                        <div class="scripture-box">
+                            <p>"In the beginning God created the heavens and the earth."</p>
+                            <cite>— Genesis 1:1</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="question-card" style="border-left: 4px solid var(--accent-gold);">
+                        <h2 style="color: var(--accent-gold); margin-bottom: 1rem;">Who Is Jesus Christ?</h2>
+                        <p>Jesus Christ is the eternal Son of God who became human without ceasing to be divine. He lived a sinless life, died on the cross for the forgiveness of sins, rose bodily from the dead, and ascended into heaven. He will return again in glory as Lord and King (John 1:1–14; 1 Corinthians 15:3–4).</p>
+                    </div>
+                    
+                    <div class="question-card" style="border-left: 4px solid var(--primary-green);">
+                        <h2 style="color: var(--primary-green); margin-bottom: 1rem;">What Is Salvation?</h2>
+                        <p>Salvation is God's free gift of eternal life, received by grace through faith in Jesus Christ. It brings forgiveness of sins, reconciliation with God, and transformation of life. Salvation cannot be earned by human effort but is received through repentance and faith (Ephesians 2:8–9; Romans 10:9–10).</p>
+                    </div>
+                    
+                    <div class="question-card" style="border-left: 4px solid var(--accent-gold);">
+                        <h2 style="color: var(--accent-gold); margin-bottom: 1rem;">Why Does God Allow Suffering?</h2>
+                        <p>The Bible teaches that suffering entered the world through sin, yet God remains present and active in human pain. He uses suffering to draw people to Himself, to shape character, and to reveal His glory. In Christ, suffering is not the end; hope and restoration are promised (Romans 8:18; John 16:33).</p>
+                    </div>
+                    
+                    <div class="question-card" style="border-left: 4px solid var(--primary-green);">
+                        <h2 style="color: var(--primary-green); margin-bottom: 1rem;">What Happens After Death?</h2>
+                        <p>Death does not end existence. The Bible teaches a bodily resurrection and a final judgement. Those who belong to Christ will enjoy eternal life with God, while those who reject Him face eternal separation (1 Corinthians 15; Revelation 21:1–8).</p>
+                    </div>
+                </div>
+                
+                <div class="cta-section" style="text-align: center; padding: 3rem; background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%); border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="color: var(--dark-blue); margin-bottom: 1rem;">Have More Questions?</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">We'd love to help you find biblical answers to your questions.</p>
+                    <a href="/contact.html" class="cta-button">Contact Us</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#sermons">Sermons & Teachings</a></li>
+                        <li><a href="#events">Events Calendar</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#prayer-requests">Prayer Requests</a></li>
+                        <li><a href="giving.html">Online Giving</a></li>
+                        <li><a href="#volunteer">Volunteer Opportunities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for daily inspiration, updates, and community news.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Visit our Facebook page">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Visit our Instagram profile">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Visit our Twitter profile">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.linkedin.com" class="social-link" aria-label="Visit our LinkedIn page">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="Visit our YouTube channel">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                        <a href="https://web.whatsapp.com" class="social-link" aria-label="Message us on WhatsApp">
+                            <i class='bx bxl-whatsapp'></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Subscribe to Our Newsletter</h4>
+                        <form class="d-flex gap-2" style="max-width: 300px;">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#sitemap" style="color: rgba(255, 255, 255, 0.7);">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            });
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.main-nav') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                
+                // Also close any open dropdowns
+                document.querySelectorAll('.mega-dropdown, .compact-dropdown').forEach(dropdown => {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
+        
+        // Mobile dropdown toggle
+        const mobileDropdownLinks = document.querySelectorAll('.nav-link');
+        mobileDropdownLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    const parent = this.parentElement;
+                    const dropdown = parent.querySelector('.mega-dropdown, .compact-dropdown');
+                    
+                    if (dropdown) {
+                        e.preventDefault();
+                        const isVisible = dropdown.style.display === 'block';
+                        
+                        // Close all other dropdowns
+                        document.querySelectorAll('.mega-dropdown, .compact-dropdown').forEach(d => {
+                            d.style.display = 'none';
+                        });
+                        
+                        // Toggle this dropdown
+                        dropdown.style.display = isVisible ? 'none' : 'block';
+                    }
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        });
+        
+        // Form validation for newsletter
+        const newsletterForm = document.querySelector('form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (emailInput.value && emailInput.checkValidity()) {
+                    // In a real application, you would submit to a server here
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                } else {
+                    emailInput.focus();
+                }
+            });
+        }
+        
+        // Add focus styles for keyboard navigation
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'Tab') {
+                document.documentElement.classList.add('focus-visible');
+            }
+        });
+        
+        document.addEventListener('click', function() {
+            document.documentElement.classList.remove('focus-visible');
+        });
+    });
+    </script>
+</body>
+</html>

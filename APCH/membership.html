@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - The Apostles' Church</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header Styles - Matching Main Page */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation - Matching Main Page */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb-nav {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--text-light);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        /* Hero Banner */
+        .membership-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        center/cover no-repeat;
+            color: var(--text-light);
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content Container */
+        .membership-container {
+            padding: 3rem 0;
+        }
+
+        /* Content Card */
+        .content-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-green);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-green), var(--secondary-green));
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--medium-gray);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--medium-gray);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        /* Card Content */
+        .card-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .card-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Requirements List */
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .requirements-list li {
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            background: var(--light-gray);
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-green);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .requirements-list li:hover {
+            background: var(--medium-gray);
+            transform: translateX(5px);
+        }
+
+        .requirement-number {
+            background: var(--primary-green);
+            color: var(--text-light);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .requirement-text {
+            flex: 1;
+        }
+
+        /* Membership Types */
+        .membership-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .type-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .type-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .type-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .type-title {
+            color: var(--dark-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .type-description {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Rights and Responsibilities */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .right-card {
+            background: linear-gradient(135deg, #e9f7ef 0%, #d4edda 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .right-title {
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Scripture Box */
+        .scripture-box {
+            background: linear-gradient(135deg, #f8f0e3 0%, #f4e9d8 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-gold);
+            font-style: italic;
+            color: var(--dark-blue);
+        }
+
+        .scripture-box cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-align: right;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            background: transparent;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--text-light);
+            color: var(--dark-blue);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(44, 122, 62, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            box-shadow: 0 6px 20px rgba(44, 122, 62, 0.4);
+        }
+
+        /* Footer - Matching Main Page */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .content-card {
+                padding: 2rem;
+            }
+            
+            .card-title {
+                font-size: 2rem;
+            }
+            
+            .membership-types {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            .card-title {
+                font-size: 1.75rem;
+            }
+            
+            .membership-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .btn-outline-light {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .content-card {
+                padding: 1.25rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card, .type-card, .right-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Matching Main Page -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
+                    <a href="index.html" class="logo-text"></a>
+                </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="articles.html" class="nav-link" role="menuitem">Articles of Faith</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About Us</a></li>
+                    <li role="none"><a href="membership.html#membership" class="nav-link active" role="menuitem">Membership</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="about.html">About The APCH</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Membership</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="membership-hero">
+        <div class="container">
+            <h1 class="page-title">Church Membership</h1>
+            <p class="page-subtitle">Joining our community of faith, growing together in Christ, and serving God's purpose.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="membership-container">
+        <div class="container">
+            <!-- Introduction -->
+            <article id="membership" class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-group'></i>
+                    </div>
+                    <h2 class="card-title">Church Membership</h2>
+                </div>
+                <div class="card-content">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class='bx bx-info-circle'></i>
+                        </div>
+                        <h3 class="section-title">Description</h3>
+                    </div>
+                    
+                    <p>Membership in The Apostles' Church consists of all persons who have met the requirements for membership, having been approved by the congregation and are listed on the membership role. We maintain separate registers for different stages of spiritual journey:</p>
+                    
+                    <div class="membership-types">
+                        <div class="type-card">
+                            <div class="type-icon">
+                                <i class='bx bx-child'></i>
+                            </div>
+                            <h3 class="type-title">Children's Register</h3>
+                            <p class="type-description">Children consecrated in the church are listed here until age 18. Each child receives a Certificate of Consecration.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <div class="type-icon">
+                                <i class='bx bx-water'></i>
+                            </div>
+                            <h3 class="type-title">Baptism Register</h3>
+                            <p class="type-description">All baptized members receive a Certificate of Baptism and are formally recorded in our membership database.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <div class="type-icon">
+                                <i class='bx bx-user-check'></i>
+                            </div>
+                            <h3 class="type-title">Active Membership</h3>
+                            <p class="type-description">Fully committed members who participate in church life, voting, and leadership roles as appropriate.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p><strong>Note:</strong> Children reaching age 18 without meeting full membership requirements are removed from the children's register and treated as visitors until they complete membership qualifications.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Qualification Section -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-check-shield'></i>
+                    </div>
+                    <h2 class="card-title">Qualifications for Membership</h2>
+                </div>
+                <div class="card-content">
+                    <p>To become a full member of The Apostles' Church, individuals must meet the following requirements:</p>
+                    
+                    <ul class="requirements-list">
+                        <li>
+                            <div class="requirement-number">1</div>
+                            <div class="requirement-text">A personal commitment of faith in Jesus Christ for salvation</div>
+                        </li>
+                        <li>
+                            <div class="requirement-number">2</div>
+                            <div class="requirement-text">Baptism by triune immersion as a testimony of salvation</div>
+                        </li>
+                        <li>
+                            <div class="requirement-number">3</div>
+                            <div class="requirement-text">Registered at any church branch of The Apostles' Church</div>
+                        </li>
+                        <li>
+                            <div class="requirement-number">4</div>
+                            <div class="requirement-text">Completion of foundational lessons on church doctrines, aims, objectives, and Statement of Faith</div>
+                        </li>
+                        <li>
+                            <div class="requirement-number">5</div>
+                            <div class="requirement-text">Consecration and dedication of children to Jehovah God (for child membership)</div>
+                        </li>
+                        <li>
+                            <div class="requirement-number">6</div>
+                            <div class="requirement-text">Adoption from another Church whose basis of faith conforms with ours</div>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Membership Transfer -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-transfer-alt'></i>
+                    </div>
+                    <h2 class="card-title">Membership Transfer</h2>
+                </div>
+                <div class="card-content">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class='bx bx-church'></i>
+                        </div>
+                        <h3 class="section-title">From Another APCH Branch</h3>
+                    </div>
+                    <p>Members moving between our congregations require a transfer letter detailing their spiritual standing, leadership involvement, and fulfillment of responsibilities. The new branch enlists them while removing them from their previous branch's active roll.</p>
+                    
+                    <div class="section-header mt-4">
+                        <div class="section-icon">
+                            <i class='bx bx-handshake'></i>
+                        </div>
+                        <h3 class="section-title">From a Compatible Church</h3>
+                    </div>
+                    <p>Individuals from churches with compatible doctrines can join with a recommendation letter confirming good standing and acceptance at the Lord's Table. Additional instruction and confirmation of acceptance of our Statement of Faith may be required.</p>
+                    
+                    <div class="section-header mt-4">
+                        <div class="section-icon">
+                            <i class='bx bx-water'></i>
+                        </div>
+                        <h3 class="section-title">From an Incompatible Church</h3>
+                    </div>
+                    <p>Those coming from churches with doctrinal differences must be baptized in The Apostles' Church to be accepted as members, regardless of previous baptism.</p>
+                </div>
+            </article>
+
+            <!-- Rights and Responsibilities -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-task'></i>
+                    </div>
+                    <h2 class="card-title">Members' Rights & Responsibilities</h2>
+                </div>
+                <div class="card-content">
+                    <p>Consistent with our Constitution, every member enjoys specific rights and carries important responsibilities:</p>
+                    
+                    <div class="rights-grid">
+                        <div class="right-card">
+                            <h4 class="right-title">Participation Rights</h4>
+                            <p>Every active member has the right to participate in all church matters including financial affairs and administration.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h4 class="right-title">Worship Commitment</h4>
+                            <p>Responsibility to attend divine services, worship gatherings, and the Lord's Table regularly.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h4 class="right-title">Voting Privileges</h4>
+                            <p>Each member has full voting rights in business meetings and elections (one vote per member, no proxy voting).</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h4 class="right-title">Financial Support</h4>
+                            <p>Support the church through tithes, offerings, donations, and honoring financial commitments.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h4 class="right-title">Spiritual Growth</h4>
+                            <p>Take full advantage of teaching programs and opportunities for spiritual development.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h4 class="right-title">Service Commitment</h4>
+                            <p>Carry out duties assigned by church leadership to advance our biblical aims and objectives.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membership Management -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-cog'></i>
+                    </div>
+                    <h2 class="card-title">Membership Management</h2>
+                </div>
+                <div class="card-content">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class='bx bx-user-x'></i>
+                        </div>
+                        <h3 class="section-title">Exclusion from Membership</h3>
+                    </div>
+                    <p>Members may be removed from the church roll for:</p>
+                    <ul style="padding-left: 1.5rem; margin: 1rem 0;">
+                        <li style="margin-bottom: 0.5rem;">Gross indiscipline</li>
+                        <li style="margin-bottom: 0.5rem;">Transfer to a different church</li>
+                        <li style="margin-bottom: 0.5rem;">Apostasy (abandonment of faith)</li>
+                        <li style="margin-bottom: 0.5rem;">Death</li>
+                    </ul>
+                    
+                    <div class="section-header mt-4">
+                        <div class="section-icon">
+                            <i class='bx bx-refresh'></i>
+                        </div>
+                        <h3 class="section-title">Restoration of Members</h3>
+                    </div>
+                    <p>Former members can be restored by vote of the assembly from which they were dismissed or unanimous agreement of church officers, following the biblical principle of restoration found in:</p>
+                    
+                    <div class="scripture-box">
+                        "Now instead, you ought to forgive and comfort him, so that he will not be overwhelmed by excessive sorrow. I urge you, therefore, to reaffirm your love for him."
+                        <cite>— 2 Corinthians 2:5-11</cite>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <div class="container">
+                    <h2 class="cta-title">Ready to Join Our Community?</h2>
+                    <p class="lead" style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem; opacity: 0.9;">
+                        Become part of a vibrant faith community dedicated to worship, service, and spiritual growth.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="cta-button" onclick="location.href='index.html#journey-title'">
+                            <i class='bx bx-user-plus'></i> Begin Membership Process
+                        </button>
+                        <button class="btn-outline-light" onclick="location.href='#contact'">
+                            <i class='bx bx-envelope'></i> Contact Membership Office
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class='bx bx-chevron-up'></i>
+    </a>
+
+    <!-- Footer - Matching Main Page -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                <div class="footer-section" id="contact">
+                    <h3>Membership Office</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Membership Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#membership">Membership Requirements</a></li>
+                        <li><a href="#baptism">Baptism Information</a></li>
+                        <li><a href="#transfer">Transfer Process</a></li>
+                        <li><a href="#classes">Membership Classes</a></li>
+                        <li><a href="#rights">Member Rights & Duties</a></li>
+                        <li><a href="#faq">Membership FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Facebook">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="YouTube">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Next Membership Class</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Starting: First Sunday of each month</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Time: 2:00 PM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#membership" style="color: rgba(255, 255, 255, 0.7);">Membership Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's the back to top button
+                    if (href === '#top') return;
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        // Scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add animation to type cards on scroll
+            const typeCards = document.querySelectorAll('.type-card, .right-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            typeCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles of Faith - The Apostles' Church</title>
+    <meta name="description" content="Our foundational beliefs that guide our faith and practice as followers of Christ.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header Styles - Matching Main Page */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation - Matching Main Page */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb-nav {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 1rem 0;
+            margin-bottom: 0;
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+            padding: 0;
+        }
+
+        .breadcrumb-item {
+            display: inline;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "/";
+            color: var(--accent-gold);
+            padding: 0 8px;
+        }
+
+        /* Hero Banner */
+        .name-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1520106212299-d99c443e4568?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        center/cover no-repeat;
+            color: var(--text-light);
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            color: var(--text-light);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Layout */
+        .articles-container {
+            padding: 3rem 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Sidebar Navigation */
+        .faith-sidebar {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .sidebar-nav::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-nav::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .sidebar-nav::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 3px;
+        }
+
+        .sidebar-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            display: block;
+            transition: var(--transition);
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-gold);
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1.25rem;
+        }
+
+        /* Article Cards */
+        .article-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-green);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-green), var(--secondary-green));
+        }
+
+        .article-title {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--medium-gray);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .article-title::before {
+            content: '✦';
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .article-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .scripture-reference {
+            background: linear-gradient(135deg, #e9f7ef 0%, #d4edda 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-green);
+            font-style: italic;
+            color: var(--dark-blue);
+        }
+
+        .scripture-reference cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-align: right;
+        }
+
+        /* Missing Article Styles */
+        .missing-article {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 4px solid #ffc107;
+        }
+
+        .missing-title {
+            color: #856404;
+        }
+
+        .coming-soon {
+            color: #856404;
+            font-style: italic;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(44, 122, 62, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            box-shadow: 0 6px 20px rgba(44, 122, 62, 0.4);
+        }
+
+        /* Footer - Matching Main Page */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .faith-sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .article-card {
+                padding: 1.5rem;
+            }
+            
+            .article-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .article-card {
+                padding: 1.25rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .name-hero {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Header - Matching Main Page -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
+                    <a href="index.html" class="logo-text">The Apostles' Church</a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class='bx bx-menu'></i>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li class="nav-item" role="none"><a href="articles.html" class="nav-link active" role="menuitem">Articles of Faith</a></li>
+                    <li class="nav-item" role="none"><a href="resources.html" class="nav-link" role="menuitem">Resources</a></li>
+                    <li class="nav-item" role="none"><a href="about.html" class="nav-link" role="menuitem">About Us</a></li>
+                    <li class="nav-item" role="none"><a href="index.html#contact" class="nav-link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Faith</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Articles of Faith</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="name-hero">
+        <div class="container">
+            <h1 class="page-title">Articles of Faith</h1>
+            <p class="page-subtitle">Our foundational beliefs that guide our faith and practice as followers of Christ.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="articles-container">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Navigation -->
+                <div class="col-lg-3 mb-4">
+                    <aside class="faith-sidebar">
+                        <h2 class="sidebar-title">Outline</h2>
+                        <nav aria-label="Articles navigation">
+                            <ul class="sidebar-nav">
+                                <li class="sidebar-item"><a href="#scripture" class="sidebar-link active">Scripture</a></li>
+                                <li class="sidebar-item"><a href="#god" class="sidebar-link">God</a></li>
+                                <li class="sidebar-item"><a href="#jesus" class="sidebar-link">Jesus Christ</a></li>
+                                <li class="sidebar-item"><a href="#holy-spirit" class="sidebar-link">Holy Spirit</a></li>
+                                <li class="sidebar-item"><a href="#life" class="sidebar-link">Life</a></li>
+                                <li class="sidebar-item"><a href="#human" class="sidebar-link">Human</a></li>
+                                <li class="sidebar-item"><a href="#death" class="sidebar-link">Death</a></li>
+                                <li class="sidebar-item"><a href="#salvation" class="sidebar-link">Salvation</a></li>
+                                <li class="sidebar-item"><a href="#holy-life" class="sidebar-link">Holy Life</a></li>
+                                <li class="sidebar-item"><a href="#church" class="sidebar-link">Church</a></li>
+                                <li class="sidebar-item"><a href="#baptism" class="sidebar-link">Baptism</a></li>
+                                <li class="sidebar-item"><a href="#resurrection" class="sidebar-link">Resurrection</a></li>
+                                <li class="sidebar-item"><a href="#culture" class="sidebar-link">Culture</a></li>
+                                <li class="sidebar-item"><a href="#eschatology" class="sidebar-link">Eschatology</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+
+                <!-- Articles Content -->
+                <div class="col-lg-9">
+                    <!-- Introduction -->
+                    <article class="article-card">
+                        <h2 class="article-title">Faith</h2>
+                        <div class="article-content">
+                            <p>The following are the articles of Faith of The Apostles' Church, our foundational beliefs that guide our faith and practice as followers of Jesus Christ.</p>
+                            <div class="scripture-reference">
+                                "Now faith is confidence in what we hope for and assurance about what we do not see."
+                                <cite>— Hebrews 11:1</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Scripture -->
+                    <article id="scripture" class="article-card">
+                        <h2 class="article-title">Scripture</h2>
+                        <div class="article-content">
+                            <p>We believe the Holy Bible, both Old and New Testaments, is the inspired Word of Jehovah God, without any error as originally given. It is the all-sufficient and supreme authority in matters of faith, doctrine, and spiritual living.</p>
+                            <div class="scripture-reference">
+                                "All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training in righteousness."
+                                <cite>— 2 Timothy 3:16</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- God -->
+                    <article id="god" class="article-card">
+                        <h2 class="article-title">God</h2>
+                        <div class="article-content">
+                            <p>We believe in Jehovah God as the Supreme Divine Creator and one eternal God. He exists in three persons: Father, Son, and Holy Spirit—co-equal and co-eternal.</p>
+                            <div class="scripture-reference">
+                                "In the beginning God created the heavens and the earth."
+                                <cite>— Genesis 1:1</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Jesus Christ -->
+                    <article id="jesus" class="article-card">
+                        <h2 class="article-title">Jesus Christ</h2>
+                        <div class="article-content">
+                            <p>We believe in Jesus Christ as the eternal Son of God incarnate. The incarnation includes the divine conception, virgin birth, and true humanity of Jesus Christ, yet without sin. His death was a voluntary substitutionary atonement for our sins. His resurrection and ascension were bodily, as His return will be. Meanwhile, He sits at the right hand of the Father and is now our High Priest and Advocate.</p>
+                            <div class="scripture-reference">
+                                "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."
+                                <cite>— John 3:16</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Holy Spirit -->
+                    <article id="holy-spirit" class="article-card">
+                        <h2 class="article-title">The Holy Spirit</h2>
+                        <div class="article-content">
+                            <p>We believe in the Holy Spirit as the power of Jehovah God who convicts people of sin, regenerates them, baptizing them into the body of Jesus Christ at their conversion. The Holy Spirit seals, indwells, sanctifies, and fills believers, producing in them the fruits of the Spirit and power for service.</p>
+                            <div class="scripture-reference">
+                                "But the Advocate, the Holy Spirit, whom the Father will send in my name, will teach you all things and will remind you of everything I have said to you."
+                                <cite>— John 14:26</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Life -->
+                    <article id="life" class="article-card">
+                        <h2 class="article-title">Life</h2>
+                        <div class="article-content">
+                            <p>We believe in the sanctity of life in all its forms, as all life comes from God and bears His image. Every human life has intrinsic value and dignity from conception to natural death.</p>
+                            <div class="scripture-reference">
+                                "So God created mankind in his own image, in the image of God he created them; male and female he created them."
+                                <cite>— Genesis 1:27</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Human -->
+                    <article id="human" class="article-card">
+                        <h2 class="article-title">Human</h2>
+                        <div class="article-content">
+                            <p>We believe that humans were created both male and female in the image of God but were tempted and fell into sin. Therefore, all humans are born with a sinful nature and, unless saved by the grace of Jehovah God through Jesus Christ, stand eternally condemned.</p>
+                            <div class="scripture-reference">
+                                "For all have sinned and fall short of the glory of God."
+                                <cite>— Romans 3:23</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Death -->
+                    <article id="death" class="article-card">
+                        <h2 class="article-title">Death</h2>
+                        <div class="article-content">
+                            <p>We believe that physical death is a consequence of sin but that through Christ's resurrection, death has been conquered. For believers, death is the gateway to eternal life with God.</p>
+                            <div class="scripture-reference">
+                                "Where, O death, is your victory? Where, O death, is your sting?"
+                                <cite>— 1 Corinthians 15:55</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Salvation -->
+                    <article id="salvation" class="article-card">
+                        <h2 class="article-title">Salvation</h2>
+                        <div class="article-content">
+                            <p>We believe that salvation is a free gift of God's grace, received through faith in Jesus Christ alone. It is not earned by good works but results in good works as evidence of genuine faith.</p>
+                            <div class="scripture-reference">
+                                "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God."
+                                <cite>— Ephesians 2:8</cite>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Life -->
+                    <article id="life" class="article-card">
+                        <h2 class="article-title">Life</h2>
+                        <div class="article-content">
+                            <p>We believe in the sanctity of life in all its forms, as all life comes from God and bears His image. Every human life has intrinsic value and dignity from conception to natural death.</p>
+                            <div class="scripture-reference">
+                                "So God created mankind in his own image, in the image of God he created them; male and female he created them."
+                                <cite>— Genesis 1:27</cite>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Church -->
+                    <article id="church" class="article-card">
+                        <h2 class="article-title">Church</h2>
+                        <div class="article-content">
+                            <p>We believe the Church is the Ekklesia of God, the body and Kingdom of Jesus Christ of which Jesus Christ is the Head and King built on the foundation rock of the Apostles. We also believe in a regenerated Church membership: that is, the Ekklesia is composed of believers from every tribe, tongue, race and nation, who, of their own free will, understand their need for Jesus Christ and therefore accepted Him as their personal Lord and Saviour and are baptized by the Holy Spirit.</p>
+                            <div class="scripture-reference">
+                                "I am the true vine, and my Father is the gardener... Remain in me, as I also remain in you. No branch can bear fruit by itself; it must remain in the vine. Neither can you bear fruit unless you remain in me."
+                                <cite>— John 15:1-8; Mark 16:15-16</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Baptism -->
+                    <article id="baptism" class="article-card">
+                        <h2 class="article-title">Baptism</h2>
+                        <div class="article-content">
+                            <p>We believe that baptism is by immersion in the name of the Father and of the Son and of the Holy Spirit (i.e. Triune immersion) and that the Lord's Supper is a memorial to the suffering and death of Jesus Christ on the cross. These are ordinances to be observed by the Church in its present age.</p>
+                            <div class="scripture-reference">
+                                "Go and make disciples of all nations, baptizing them and teaching them to obey Christ's commands. Do this in remembrance of Me, for through the bread and the cup My sacrifice proclaims the new covenant. I am with you always, even to the end of the age."
+                                <cite>— Matthew 28:19-20; 1 Corinthians 11:23-26; Matthew 26:26-28</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resurrection -->
+                    <article id="resurrection" class="article-card">
+                        <h2 class="article-title">Resurrection</h2>
+                        <div class="article-content">
+                            <p>We believe in the bodily resurrection of the living dead, the everlasting blessedness of the saved in heaven, and the everlasting punishment and separation from Jehovah God of the unsaved in hell.</p>
+                            <div class="scripture-reference">
+                                "How are the dead raised? What is sown perishable is raised imperishable, a spiritual body in glory. Though afflicted and sharing in suffering, God comforts us and delivers us, teaching us to endure with hope. But the fearful and unbelieving face judgment, while those in Christ inherit life through resurrection."
+                                <cite>— 1 Corinthians 15:35-44, 1 Corinthians 4:13-18, 2 Corinthians 1:7-10; Revelations 21:8</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Culture -->
+                    <article id="culture" class="article-card">
+                        <h2 class="article-title">Culture</h2>
+                        <div class="article-content">
+                            <p>We believe that culture everywhere in the world is a sum total of the lived experiences under particular material conditions created by a given social, economic and political order and this plays an indispensable role in the spirituality of believers. Aspects of culture that are consistent with the Word of Jehovah God should be upheld for mutual enrichment and efficiency while those aspects of culture that are inconsistent with the Word of Jehovah God should be rejected accordingly.</p>
+                            <div class="scripture-reference">
+                                "Be transformed by the renewing of your mind, not conformed to this world. True defilement is not from human traditions, but from hearts that set aside God's commands. Salvation is by grace, not law—burdensome rules are lifted so believers may walk in freedom."
+                                <cite>— Romans 12:2; Mark 7:6-13; Galatians 5:1</cite>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Eschatology -->
+                    <article id="eschatology" class="article-card">
+                        <h2 class="article-title">Eschatology</h2>
+                        <div class="article-content">
+                            <p>We believe that there will be signs and events marking the end times, including the rapture of the Church when Christ returns and true believers are caught up to meet Him in the air, the revelation of the man of sin, and the great tribulation period. We also affirm the judgment of the nations, where all people will appear before the judgment seat of Jesus Christ to give an account of their deeds and receive their reward.</p>
+                            <div class="scripture-reference">
+                                "We believe that the Church will be gathered to Christ, deception will be revealed, and a time of great tribulation will unfold, followed by judgment, reward, and glory. The Lamb will celebrate His marriage supper, Christ will return with His saints, reign upon the earth, and all believers will dwell forever with the Lord in eternal blessedness."
+                                <cite>— 1 Thessalonians 4:16-17; 1 Corinthians 15:51-52; 2 Thessalonians 2:3-9; Matthew 24:21-22; Matthew 25:31-32; Revelation 19:7-8; Revelation 20:11-15</cite>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class='bx bx-chevron-up'></i>
+    </button>
+
+    <!-- Footer - Matching Main Page -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles of Faith</a></li>
+                        <li><a href="theName.html">The Name</a></li>
+                        <li><a href="index.html#ministries">Ministries</a></li>
+                        <li><a href="news.html">News & Events</a></li>
+                        <li><a href="giving.html">Online Giving</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Facebook">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="YouTube">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('.main-nav') && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+            
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's the back to top button or empty
+                    if (href === '#top' || href === '#') return;
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        // Update active state in sidebar
+                        document.querySelectorAll('.sidebar-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navMenu && navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Highlight current article in sidebar while scrolling
+            window.addEventListener('scroll', function() {
+                const articles = document.querySelectorAll('.article-card[id]');
+                const sidebarLinks = document.querySelectorAll('.sidebar-link');
+                
+                let currentArticle = '';
+                
+                articles.forEach(article => {
+                    const articleTop = article.offsetTop;
+                    const articleHeight = article.clientHeight;
+                    const scrollPosition = window.pageYOffset + 150;
+                    
+                    if (scrollPosition >= articleTop && 
+                        scrollPosition < (articleTop + articleHeight)) {
+                        currentArticle = '#' + article.id;
+                    }
+                });
+                
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentArticle) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Initialize active article on load
+            setTimeout(() => {
+                const hash = window.location.hash;
+                if (hash) {
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active state in sidebar
+                        document.querySelectorAll('.sidebar-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === hash) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

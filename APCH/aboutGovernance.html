@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Governance - The Apostles' Church</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header Styles - Matching Main Page */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 60px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation - Matching Main Page */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb-nav {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--text-light);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        /* Hero Banner */
+        .governance-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        center/cover no-repeat;
+            color: var(--text-light);
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Introduction Section */
+        .introduction-section {
+            padding: 4rem 0;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .introduction-text {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .scripture-quote {
+            font-style: italic;
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            border-left: 4px solid var(--accent-gold);
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Governance Structure */
+        .governance-structure {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        /* Governance Levels */
+        .governance-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .governance-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .governance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .governance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .governance-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .card-subtitle {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .card-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            flex-grow: 1;
+        }
+
+        .card-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .committee-types {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed var(--light-gray);
+        }
+
+        .committee-type {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .committee-type h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .committee-type p {
+            color: var(--text-dark);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Council Hierarchy */
+        .council-hierarchy {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 12px;
+        }
+
+        .hierarchy-chart {
+            max-width: 1000px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .hierarchy-level {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hierarchy-item {
+            background: var(--text-light);
+            padding: 2rem 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            min-width: 250px;
+            border-top: 4px solid var(--primary-green);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .hierarchy-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hierarchy-name {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hierarchy-role {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hierarchy-detail {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .hierarchy-connector {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background: var(--primary-green);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Scriptural Foundation */
+        .scriptural-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scriptural-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .scripture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scripture-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .scripture-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .scripture-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .scripture-verse {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .scripture-reference {
+            text-align: right;
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            background: transparent;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--text-light);
+            color: var(--dark-blue);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(44, 122, 62, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            box-shadow: 0 6px 20px rgba(44, 122, 62, 0.4);
+        }
+
+        /* Footer - Matching Main Page */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .governance-levels {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hierarchy-level {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+            
+            .scripture-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .governance-levels {
+                grid-template-columns: 1fr;
+            }
+            
+            .governance-card {
+                padding: 2rem;
+            }
+            
+            .hierarchy-item {
+                min-width: 200px;
+                padding: 1.5rem;
+            }
+            
+            .scripture-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .btn-outline-light {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .governance-card {
+                padding: 1.5rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .hierarchy-item {
+                min-width: 100%;
+                padding: 1rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .governance-card, .hierarchy-item, .scripture-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .white-title {
+            color: var(--text-light);
+        }
+
+        .white-title::after {
+            background: linear-gradient(90deg, var(--accent-gold), var(--text-light));
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="Church Logo" class="church-logo">
+                    <a href="index.html" class="logo-text"></a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="activities.html" class="nav-link">Activities</a></li>
+                    <li><a href="delimitation.html" class="nav-link">Delimitation</a></li>
+                    <li><a href="structure.html" class="nav-link">Structure</a></li>
+                    <li><a href="governance.html" class="nav-link active">Governance</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Our Church</a></li>
+                <li class="breadcrumb-item active">Church Governance</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="governance-hero">
+        <div class="container">
+            <h1 class="page-title">Church Governance</h1>
+            <p class="page-subtitle">
+                Understanding the biblical structure and leadership framework that guides The Apostles' Church
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="introduction-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Divine Order in Leadership</h2>
+                <p class="section-subtitle">Biblical governance for effective ministry and spiritual guidance</p>
+            </div>
+            
+            <div class="scripture-quote">
+                "For God is not a God of disorder but of peace—as in all the congregations of the Lord's people."
+                <div style="text-align: right; color: var(--primary-green); font-weight: 600; margin-top: 1rem;">
+                    — 1 Corinthians 14:33
+                </div>
+            </div>
+            
+            <p class="introduction-text">
+                The Apostles' Church is organized and governed by councils composed of dedicated committees 
+                responsible for coordinating and synchronizing all areas of ministry. Our governance structure 
+                ensures both spiritual guidance and administrative efficiency, reflecting biblical principles 
+                of order and accountability.
+            </p>
+        </div>
+    </section>
+
+    <!-- Governance Structure Section -->
+    <section class="governance-structure">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Governance Structure</h2>
+                <p class="section-subtitle">Two complementary systems working in harmony</p>
+            </div>
+
+            <div class="governance-levels">
+                <!-- Ecumenical Committee -->
+                <div class="governance-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class='bx bxs-book-alt'></i>
+                        </div>
+                        <div>
+                            <h3 class="card-title">Ecumenical Committees</h3>
+                            <div class="card-subtitle">Spiritual Guidance & Doctrine</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p>Responsible for directing all ecumenical activities including doctrinal teaching and guardianship of the Church. These committees ensure the purity of doctrine and spiritual integrity of all church activities.</p>
+                        
+                        <div class="committee-types">
+                            <div class="committee-type">
+                                <h4>Doctrinal Committee</h4>
+                                <p>Oversees biblical teaching and ensures doctrinal purity</p>
+                            </div>
+                            <div class="committee-type">
+                                <h4>Worship Committee</h4>
+                                <p>Coordinates liturgical practices and worship services</p>
+                            </div>
+                            <div class="committee-type">
+                                <h4>Discipleship Committee</h4>
+                                <p>Oversees spiritual formation and Christian education</p>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Membership:</strong> All clergy belong to ecumenical committees, with administration officers also eligible for appointment.</p>
+                    </div>
+                </div>
+
+                <!-- Administration Committee -->
+                <div class="governance-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class='bx bxs-briefcase'></i>
+                        </div>
+                        <div>
+                            <h3 class="card-title">Administration Committees</h3>
+                            <div class="card-subtitle">Management & Operations</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p>Oversees all administrative and management functions in the Church. These committees ensure efficient operations, financial stewardship, and proper resource management.</p>
+                        
+                        <div class="committee-types">
+                            <div class="committee-type">
+                                <h4>Finance Committee</h4>
+                                <p>Manages church finances and budgeting</p>
+                            </div>
+                            <div class="committee-type">
+                                <h4>Facilities Committee</h4>
+                                <p>Oversees church property and maintenance</p>
+                            </div>
+                            <div class="committee-type">
+                                <h4>Personnel Committee</h4>
+                                <p>Handles staff management and human resources</p>
+                            </div>
+                        </div>
+                        
+                        <p><strong>Membership:</strong> All administration officers belong to administration committees, with clergy also eligible for appointment to ensure integrated leadership.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Council Hierarchy -->
+    <section class="council-hierarchy">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Council Hierarchy</h2>
+                <p class="section-subtitle">Three levels of governance working in unity</p>
+            </div>
+
+            <div class="hierarchy-chart">
+                <!-- Level 1: Branch Council -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-name">Branch Council</div>
+                        <div class="hierarchy-role">Local Congregation Leadership</div>
+                        <div class="hierarchy-detail">
+                            Made up of all leaders of the congregation chaired by the Pastor and deputised by the Evangelist. Oversees the congregation and coordinates all Branch Subcommittees.
+                        </div>
+                    </div>
+                </div>
+                <div class="hierarchy-connector"></div>
+
+                <!-- Level 2: Regional Council -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-name">Regional Council</div>
+                        <div class="hierarchy-role">Multi-Congregation Oversight</div>
+                        <div class="hierarchy-detail">
+                            Composed of all regional leaders led by an elected Executive Committee. Receives reports from all Regional Subcommittees and submits consolidated reports to the Synod.
+                        </div>
+                    </div>
+                </div>
+                <div class="hierarchy-connector"></div>
+
+                <!-- Level 3: Synod -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-name">Synod</div>
+                        <div class="hierarchy-role">Highest Governing Council</div>
+                        <div class="hierarchy-detail">
+                            The APCH's highest governing council on earth, representing the authority of the General Conference. Consists of the Synod Executive and all Regional Bishops.
+                        </div>
+                    </div>
+                </div>
+                <div class="hierarchy-connector"></div>
+
+                <!-- Level 4: Synod Executive -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-name">Synod Executive</div>
+                        <div class="hierarchy-role">Supreme Governing Body</div>
+                        <div class="hierarchy-detail">
+                            Headed by the General Overseer, represents the Synod and General Conference when not in session. Provides continuous leadership and decision-making authority.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scriptural Foundation -->
+    <section class="scriptural-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title white-title">Biblical Foundation</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Scriptural principles guiding our governance</p>
+            </div>
+
+            <div class="scripture-grid">
+                <div class="scripture-card">
+                    <div class="scripture-icon">
+                        <i class='bx bxs-book'></i>
+                    </div>
+                    <div class="scripture-verse">
+                        "Obey your leaders and submit to them, for they keep watch over your souls as those who will give an account."
+                    </div>
+                    <div class="scripture-reference">Hebrews 13:17</div>
+                </div>
+
+                <div class="scripture-card">
+                    <div class="scripture-icon">
+                        <i class='bx bxs-user-check'></i>
+                    </div>
+                    <div class="scripture-verse">
+                        "The elders who direct the affairs of the church well are worthy of double honor, especially those whose work is preaching and teaching."
+                    </div>
+                    <div class="scripture-reference">1 Timothy 5:17</div>
+                </div>
+
+                <div class="scripture-card">
+                    <div class="scripture-icon">
+                        <i class='bx bxs-group'></i>
+                    </div>
+                    <div class="scripture-verse">
+                        "Now you are the body of Christ, and each one of you is a part of it. And God has placed in the church first of all apostles..."
+                    </div>
+                    <div class="scripture-reference">1 Corinthians 12:27-28</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Learn More About Our Church</h2>
+            <p class="mb-4" style="max-width: 700px; margin: 0 auto; opacity: 0.9;">
+                Explore how our governance structure supports effective ministry and spiritual growth 
+                across all levels of our church community.
+            </p>
+            <div class="cta-buttons">
+                <a href="structure.html" class="cta-button">Church Structure</a>
+                <a href="activities.html" class="btn btn-outline-light">View Activities</a>
+                <a href="delimitation.html" class="btn btn-outline-light">Church Delimitation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Apostles' Church</h3>
+                    <p style="opacity: 0.8;">
+                        "Let everything be done decently and in order." — 1 Corinthians 14:40
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="social-link"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="social-link"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social-link"><i class='bx bxl-youtube'></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Church Sections</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="delimitation.html">Delimitation</a></li>
+                        <li><a href="structure.html">Structure</a></li>
+                        <li><a href="governance.html" class="active">Governance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section" id="contact">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">
+                    "For the overseer must be above reproach as God's steward..." — Titus 1:7
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class='bx bx-chevron-up'></i>
+    </a>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all governance cards
+        document.querySelectorAll('.governance-card, .hierarchy-item, .scripture-card').forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+        });
+
+        // Add hover effect to cards
+        document.querySelectorAll('.governance-card, .hierarchy-item, .scripture-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if (card.classList.contains('governance-card')) {
+                    card.style.transform = 'translateY(-10px)';
+                } else {
+                    card.style.transform = 'translateY(-5px)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

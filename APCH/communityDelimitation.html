@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Structure - The Apostles' Church</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header Styles - Matching Main Page */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation - Matching Main Page */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb-nav {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--text-light);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        /* Hero Banner */
+        .structure-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        center/cover no-repeat;
+            color: var(--text-light);
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Structure Overview */
+        .structure-overview {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Structure Hierarchy */
+        .structure-hierarchy {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+
+        .hierarchy-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-green), var(--secondary-green));
+            border-radius: 3px;
+            z-index: 1;
+        }
+
+        /* Structure Levels */
+        .structure-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .structure-item {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .structure-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .structure-connector {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--primary-green);
+            top: 50%;
+            z-index: 1;
+        }
+
+        .structure-item:nth-child(odd) .structure-connector {
+            left: 50%;
+        }
+
+        .structure-item:nth-child(even) .structure-connector {
+            right: 50%;
+        }
+
+        .structure-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            width: 45%;
+            border-top: 4px solid var(--accent-gold);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .structure-item:nth-child(even) .structure-card {
+            border-top-color: var(--primary-green);
+        }
+
+        .structure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .structure-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .structure-item:nth-child(even) .structure-icon {
+            background: linear-gradient(135deg, var(--accent-gold), #ffb347);
+        }
+
+        .structure-title {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .structure-subtitle {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .structure-details {
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .structure-metrics {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            font-size: 0.95rem;
+        }
+
+        /* Conference Schedule */
+        .conference-section {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 12px;
+        }
+
+        .conference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .conference-card {
+            background: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .conference-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .conference-month {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .conference-title {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .conference-description {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .conference-reference {
+            font-style: italic;
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+        }
+
+        /* Organizational Chart */
+        .org-chart-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .org-chart {
+            max-width: 1000px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .org-item {
+            background: var(--text-light);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+            border-top: 4px solid var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .org-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .org-name {
+            color: var(--dark-blue);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .org-detail {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            background: transparent;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--text-light);
+            color: var(--dark-blue);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(44, 122, 62, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            box-shadow: 0 6px 20px rgba(44, 122, 62, 0.4);
+        }
+
+        /* Footer - Matching Main Page */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .structure-item {
+                flex-direction: column !important;
+                gap: 2rem;
+            }
+            
+            .structure-card {
+                width: 90%;
+            }
+            
+            .structure-connector {
+                display: none;
+            }
+            
+            .hierarchy-line {
+                left: 50px;
+            }
+            
+            .conference-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .org-level {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .structure-card {
+                padding: 2rem;
+            }
+            
+            .conference-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .btn-outline-light {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .structure-card {
+                padding: 1.5rem;
+            }
+            
+            .structure-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .structure-card, .conference-card, .org-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Matching Main Page -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
+                    <a href="index.html" class="logo-text"></a>
+                </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="articles.html" class="nav-link" role="menuitem">Articles of Faith</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About Us</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="about.html">About The APCH</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Church Structure</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="structure-hero">
+        <div class="container">
+            <h1 class="page-title">Church Organizational Structure</h1>
+            <p class="page-subtitle">Understanding the biblical and efficient structure that enables effective ministry across all levels of The Apostles' Church.</p>
+        </div>
+    </section>
+
+    <!-- Structure Overview -->
+    <section class="structure-overview">
+        <div class="container">
+            <div class="overview-text">
+                The Apostles' Church is organized into four distinct administrative levels, each designed for effective ministry, leadership, and spiritual growth.
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Hierarchy -->
+    <section class="structure-hierarchy">
+        <div class="hierarchy-line"></div>
+        <div class="structure-levels">
+            <!-- Preaching Point -->
+            <div class="structure-item">
+                <div class="structure-card">
+                    <div class="structure-icon">
+                        <i class='bx bx-map-pin'></i>
+                    </div>
+                    <h3 class="structure-title">Preaching Point</h3>
+                    <div class="structure-subtitle">Satellite Assembly Point</div>
+                    <div class="structure-details">
+                        The smallest assembly unit of The Apostles' Church, operating as a satellite point for the nearest branch. These are strategic locations for outreach and community engagement.
+                    </div>
+                    <div class="structure-metrics">
+                        <strong>Leadership:</strong> Appointed Teacher assisted by Deacon, Secretary, and Treasurer<br>
+                        <strong>Purpose:</strong> Local outreach and foundational discipleship
+                    </div>
+                </div>
+                <div class="structure-connector"></div>
+            </div>
+            
+            <!-- Branch -->
+            <div class="structure-item">
+                <div class="structure-card">
+                    <div class="structure-icon">
+                        <i class='bx bx-church'></i>
+                    </div>
+                    <h3 class="structure-title">Branch</h3>
+                    <div class="structure-subtitle">Foundation of APCH</div>
+                    <div class="structure-details">
+                        The foundational unit of The Apostles' Church, consisting of a congregation with established leadership and regular worship services. Each branch serves as a spiritual home for members in a specific locality.
+                    </div>
+                    <div class="structure-metrics">
+                        <strong>Membership:</strong> 40-144 baptized members<br>
+                        <strong>Leadership:</strong> Pastor with appointed elders<br>
+                        <strong>Growth Strategy:</strong> Creates preaching points when exceeding 144 members
+                    </div>
+                </div>
+                <div class="structure-connector"></div>
+            </div>
+            
+            <!-- Region -->
+            <div class="structure-item">
+                <div class="structure-card">
+                    <div class="structure-icon">
+                        <i class='bx bx-globe'></i>
+                    </div>
+                    <h3 class="structure-title">Region</h3>
+                    <div class="structure-subtitle">Geographical Administration</div>
+                    <div class="structure-details">
+                        A defined geographical area containing multiple branches, configured and recommended by the Secretariat and approved by the Synod Executive. Regions provide oversight and coordination for ministry across larger areas.
+                    </div>
+                    <div class="structure-metrics">
+                        <strong>Requirements:</strong> Minimum 1,000 baptized members<br>
+                        <strong>Governance:</strong> Regional leadership council<br>
+                        <strong>Purpose:</strong> Strategic planning and resource coordination
+                    </div>
+                </div>
+                <div class="structure-connector"></div>
+            </div>
+            
+            <!-- General Conference -->
+            <div class="structure-item">
+                <div class="structure-card">
+                    <div class="structure-icon">
+                        <i class='bx bx-group'></i>
+                    </div>
+                    <h3 class="structure-title">The General Conference</h3>
+                    <div class="structure-subtitle">Supreme Governing Body</div>
+                    <div class="structure-details">
+                        The highest governing authority of The Apostles' Church, representing the entire membership. The General Conference makes key decisions, provides spiritual direction, and serves the Lord's Table during its meetings.
+                    </div>
+                    <div class="structure-metrics">
+                        <strong>Meetings:</strong> Quarterly (April, July, October)<br>
+                        <strong>Authority:</strong> Supreme decision-making body<br>
+                        <strong>Biblical Basis:</strong> Deuteronomy 16 seasonal gatherings
+                    </div>
+                </div>
+                <div class="structure-connector"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conference Schedule -->
+    <section class="conference-section">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: var(--dark-blue);">General Conference Schedule</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                Following the biblical pattern established in Deuteronomy 16, The Apostles' Church holds three General Conferences each year to celebrate, make decisions, and serve the Lord's Table.
+            </p>
+            
+            <div class="conference-grid">
+                <div class="conference-card">
+                    <div class="conference-month">April</div>
+                    <div class="conference-title">First Quarter Conference</div>
+                    <div class="conference-description">
+                        Spring gathering focusing on spiritual renewal, strategic planning for the year, and celebrating new beginnings in Christ.
+                    </div>
+                    <div class="conference-reference">
+                        "Observe the month of Aviv and celebrate the Passover of the LORD your God" - Deuteronomy 16:1
+                    </div>
+                </div>
+                
+                <div class="conference-card">
+                    <div class="conference-month">July</div>
+                    <div class="conference-title">Second Quarter Conference</div>
+                    <div class="conference-description">
+                        Mid-year assessment, leadership development, and celebration of harvest blessings in ministry and spiritual growth.
+                    </div>
+                    <div class="conference-reference">
+                        "Celebrate the Festival of Weeks to the LORD your God" - Deuteronomy 16:10
+                    </div>
+                </div>
+                
+                <div class="conference-card">
+                    <div class="conference-month">October</div>
+                    <div class="conference-title">Third Quarter Conference</div>
+                    <div class="conference-description">
+                        Year-end gathering for thanksgiving, reflection on accomplishments, and preparation for the coming year's ministry.
+                    </div>
+                    <div class="conference-reference">
+                        "Celebrate the Festival of Tabernacles for seven days" - Deuteronomy 16:13
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizational Chart -->
+    <section class="org-chart-section">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: var(--dark-blue);">Leadership Structure</h2>
+            
+            <div class="org-chart">
+                <!-- Level 1: General Conference -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-name">General Conference</div>
+                        <div class="org-detail">Supreme Governing Body</div>
+                    </div>
+                </div>
+                
+                <!-- Level 2: Synod Executive & Secretariat -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-name">Synod Executive</div>
+                        <div class="org-detail">Executive Leadership Council</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-name">Secretariat</div>
+                        <div class="org-detail">Administrative Office</div>
+                    </div>
+                </div>
+                
+                <!-- Level 3: Regional Leadership -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-name">Regional Council</div>
+                        <div class="org-detail">Geographical Oversight</div>
+                    </div>
+                </div>
+                
+                <!-- Level 4: Branch Leadership -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-name">Branch Pastors</div>
+                        <div class="org-detail">Local Congregation Leaders</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-name">Elders Council</div>
+                        <div class="org-detail">Spiritual Guidance</div>
+                    </div>
+                </div>
+                
+                <!-- Level 5: Preaching Point Leadership -->
+                <div class="org-level">
+                    <div class="org-item">
+                        <div class="org-name">Teachers</div>
+                        <div class="org-detail">Preaching Point Leaders</div>
+                    </div>
+                    <div class="org-item">
+                        <div class="org-name">Deacons</div>
+                        <div class="org-detail">Service & Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Connect with Our Church Structure</h2>
+            <p class="lead" style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem; opacity: 0.9;">
+                Find your place in our organized, biblical church structure and grow in ministry alongside fellow believers.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button" onclick="location.href='membership.html'">
+                    <i class='bx bx-user-plus'></i> Join a Local Branch
+                </button>
+                <button class="btn-outline-light" onclick="location.href='about.html'">
+                    <i class='bx bx-map'></i> Find a Preaching Point
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class='bx bx-chevron-up'></i>
+    </a>
+
+    <!-- Footer - Matching Main Page -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Church Structure</h3>
+                    <ul class="footer-links">
+                        <li><a href="#structure">Organizational Overview</a></li>
+                        <li><a href="#preaching-points">Preaching Points</a></li>
+                        <li><a href="#branches">Local Branches</a></li>
+                        <li><a href="#regions">Regional Structure</a></li>
+                        <li><a href="#conference">General Conference</a></li>
+                        <li><a href="#leadership">Leadership Roles</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Administration</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Facebook">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="YouTube">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Next General Conference</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Date: April 15-17, 2025</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Location: To be announced</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#structure" style="color: rgba(255, 255, 255, 0.7);">Organizational Documents</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's the back to top button
+                    if (href === '#top') return;
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        // Scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add animation to structure cards on scroll
+            const structureCards = document.querySelectorAll('.structure-card, .conference-card, .org-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            structureCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

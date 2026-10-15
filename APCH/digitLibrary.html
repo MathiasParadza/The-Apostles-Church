@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library | The Apostles' Church</title>
+    <meta name="description" content="Explore our digital library of Christian resources, sermons, Bible studies, and educational materials for spiritual growth.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Digital Library | The Apostles' Church">
+    <meta property="og:description" content="Access our collection of Christian resources, sermons, and Bible studies.">
+    <meta property="og:image" content="https://apostleschurch.org/images/library-og.jpg">
+    <meta property="og:url" content="https://apostleschurch.org/library">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Digital Library | The Apostles' Church">
+    <meta name="twitter:description" content="Access our collection of Christian resources, sermons, and Bible studies.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f9f5;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Header & Navigation - Same as main site */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Library Hero Section */
+        .library-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .library-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .library-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 3rem 1.2rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-gold);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background: #ffb347;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Library Filters */
+        .library-filters {
+            background: var(--light-gray);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .filter-tag {
+            background: var(--text-light);
+            border: 2px solid var(--medium-gray);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: var(--primary-green);
+            color: var(--text-light);
+            border-color: var(--primary-green);
+        }
+
+        /* Resource Grid */
+        .resource-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-blue);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            border-radius: 2px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .resource-card:hover .resource-image {
+            transform: scale(1.05);
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-category {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--primary-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .resource-title {
+            color: var(--dark-blue);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .resource-format {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-description {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .resource-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .btn-read, .btn-download {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-read {
+            background: var(--primary-green);
+            color: var(--text-light);
+        }
+
+        .btn-read:hover {
+            background: var(--secondary-green);
+        }
+
+        .btn-download {
+            background: var(--light-gray);
+            color: var(--dark-blue);
+            border: 2px solid var(--medium-gray);
+        }
+
+        .btn-download:hover {
+            background: var(--medium-gray);
+        }
+
+        /* Featured Collections */
+        .collections-section {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            padding: 4rem 0;
+        }
+
+        .collection-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .collection-header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .collection-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .collection-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-count {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .collection-content {
+            padding: 1.5rem;
+        }
+
+        .collection-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .collection-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .collection-items li:last-child {
+            border-bottom: none;
+        }
+
+        /* Latest Additions */
+        .latest-section {
+            padding: 4rem 0;
+            background: var(--text-light);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #ffb347;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .library-hero h1 {
+                font-size: 2.75rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                justify-content: space-between;
+            }
+            
+            .library-hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-tags {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .library-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .search-input {
+                padding: 1rem 3rem 1rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .resource-actions {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo" width="60" height="60">
+                    <a href="index.html" class="logo-text"></a>
+                </div>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class='bx bx-menu'></i>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="library.html" class="nav-link active" role="menuitem">
+                            <i class='bx bx-book'></i> Digital Library
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="index.html#journey-title" class="nav-link" role="menuitem">Journey</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="index.html#resources-title" class="nav-link" role="menuitem">Resources</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="index.html#footer" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Library Hero -->
+        <section class="library-hero" aria-labelledby="library-title">
+            <div class="container">
+                <h1 id="library-title">Digital Library</h1>
+                <p>Explore our comprehensive collection of Christian resources, sermons, Bible studies, and educational materials for spiritual growth and discipleship.</p>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Search for resources, topics, or authors..." aria-label="Search library resources">
+                        <button class="search-btn" aria-label="Search">
+                            <i class='bx bx-search'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Library Filters -->
+        <section class="library-filters" aria-label="Resource filters">
+            <div class="container">
+                <div class="filter-tags">
+                    <button class="filter-tag active" data-filter="all">All Resources</button>
+                    <button class="filter-tag" data-filter="sermon">Sermons</button>
+                    <button class="filter-tag" data-filter="bible-study">Bible Studies</button>
+                    <button class="filter-tag" data-filter="article">Articles</button>
+                    <button class="filter-tag" data-filter="book">Books</button>
+                    <button class="filter-tag" data-filter="video">Videos</button>
+                    <button class="filter-tag" data-filter="audio">Audio</button>
+                    <button class="filter-tag" data-filter="new">New Additions</button>
+                    <button class="filter-tag" data-filter="popular">Most Popular</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Resources -->
+        <section class="resource-section" aria-labelledby="featured-resources">
+            <div class="container">
+                <h2 id="featured-resources" class="section-title">Featured Resources</h2>
+                
+                <div class="resource-grid">
+                    <!-- Resource 1 -->
+                    <article class="resource-card" data-category="sermon" data-popular="true">
+                        <img src="https://images.unsplash.com/photo-1542662565-7e4b66bae529?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Ancient Bible open on wooden table" class="resource-image" loading="lazy">
+                        <div class="resource-content">
+                            <span class="resource-category">Sermon Series</span>
+                            <h3 class="resource-title">The Gospel of John: A Deep Dive</h3>
+                            <div class="resource-meta">
+                                <span class="resource-author">Pastor John Smith</span>
+                                <span class="resource-format">
+                                    <i class='bx bx-time'></i> 45 min
+                                </span>
+                            </div>
+                            <p class="resource-description">
+                                A comprehensive 12-part sermon series exploring the profound truths in the Gospel of John, 
+                                focusing on the deity of Christ and His mission.
+                            </p>
+                            <div class="resource-actions">
+                                <a href="#" class="btn-read">Listen Now</a>
+                                <a href="#" class="btn-download" download>
+                                    <i class='bx bx-download'></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resource 2 -->
+                    <article class="resource-card" data-category="bible-study" data-new="true">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Bible study group discussion" class="resource-image" loading="lazy">
+                        <div class="resource-content">
+                            <span class="resource-category">Bible Study</span>
+                            <h3 class="resource-title">Understanding the Book of Romans</h3>
+                            <div class="resource-meta">
+                                <span class="resource-author">Dr. Michael Chen</span>
+                                <span class="resource-format">
+                                    <i class='bx bx-book'></i> Study Guide
+                                </span>
+                            </div>
+                            <p class="resource-description">
+                                An in-depth 8-week Bible study guide exploring Paul's letter to the Romans, 
+                                with discussion questions and practical applications.
+                            </p>
+                            <div class="resource-actions">
+                                <a href="#" class="btn-read">Study Online</a>
+                                <a href="#" class="btn-download" download>
+                                    <i class='bx bx-download'></i> PDF
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resource 3 -->
+                    <article class="resource-card" data-category="article" data-popular="true">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Person praying with hands together" class="resource-image" loading="lazy">
+                        <div class="resource-content">
+                            <span class="resource-category">Article</span>
+                            <h3 class="resource-title">The Power of Persistent Prayer</h3>
+                            <div class="resource-meta">
+                                <span class="resource-author">Sarah Johnson</span>
+                                <span class="resource-format">
+                                    <i class='bx bx-file'></i> 15 min read
+                                </span>
+                            </div>
+                            <p class="resource-description">
+                                Explore biblical principles of persistent prayer and how to develop a consistent prayer life 
+                                that transforms your relationship with God.
+                            </p>
+                            <div class="resource-actions">
+                                <a href="#" class="btn-read">Read Article</a>
+                                <a href="#" class="btn-download" download>
+                                    <i class='bx bx-download'></i> Save
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resource 4 -->
+                    <article class="resource-card" data-category="video">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Video production setup" class="resource-image" loading="lazy">
+                        <div class="resource-content">
+                            <span class="resource-category">Video Series</span>
+                            <h3 class="resource-title">Christian Foundations for New Believers</h3>
+                            <div class="resource-meta">
+                                <span class="resource-author">Elder James Wilson</span>
+                                <span class="resource-format">
+                                    <i class='bx bx-video'></i> 10 episodes
+                                </span>
+                            </div>
+                            <p class="resource-description">
+                                A video series designed to help new Christians understand the basics of faith, 
+                                baptism, prayer, and living a Christian life.
+                            </p>
+                            <div class="resource-actions">
+                                <a href="#" class="btn-read">Watch Series</a>
+                                <a href="#" class="btn-download">
+                                    <i class='bx bx-share-alt'></i> Share
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resource 5 -->
+                    <article class="resource-card" data-category="book">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Stack of books on table" class="resource-image" loading="lazy">
+                        <div class="resource-content">
+                            <span class="resource-category">E-Book</span>
+                            <h3 class="resource-title">Walking in the Spirit: A Practical Guide</h3>
+                            <div class="resource-meta">
+                                <span class="resource-author">Rev. David Miller</span>
+                                <span class="resource-format">
+                                    <i class='bx bx-book-open'></i> 240 pages
+                                </span>
+                            </div>
+                            <p class="resource-description">
+                                Learn how to cultivate sensitivity to the Holy Spirit's guidance in everyday life 
+                                through biblical principles and practical exercises.
+                            </p>
+                            <div class="resource-actions">
+                                <a href="#" class="btn-read">Read E-Book</a>
+                                <a href="#" class="btn-download" download>
+                                    <i class='bx bx-download'></i> EPUB
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resource 6 -->
+                    <article class="resource-card" data-category="audio" data-new="true">
+                        <img src="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Audio recording studio" class="resource-image" loading="lazy">
+                        <div class="resource-content">
+                            <span class="resource-category">Audio Podcast</span>
+                            <h3 class="resource-title">Daily Devotional Reflections</h3>
+                            <div class="resource-meta">
+                                <span class="resource-author">Various Elders</span>
+                                <span class="resource-format">
+                                    <i class='bx bx-headphone'></i> Daily episodes
+                                </span>
+                            </div>
+                            <p class="resource-description">
+                                Daily 10-minute audio devotionals covering various books of the Bible with practical 
+                                applications for modern Christian living.
+                            </p>
+                            <div class="resource-actions">
+                                <a href="#" class="btn-read">Listen Now</a>
+                                <a href="#" class="btn-download">
+                                    <i class='bx bx-rss'></i> Subscribe
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collections -->
+        <section class="collections-section" aria-labelledby="collections-title">
+            <div class="container">
+                <h2 id="collections-title" class="section-title">Featured Collections</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="collection-card">
+                            <div class="collection-header">
+                                <i class='bx bx-bible collection-icon'></i>
+                                <h3 class="collection-title">Bible Study Series</h3>
+                                <p class="collection-count">42 resources</p>
+                            </div>
+                            <div class="collection-content">
+                                <ul class="collection-items">
+                                    <li>Gospel Studies (12)</li>
+                                    <li>Paul's Letters (8)</li>
+                                    <li>Old Testament (15)</li>
+                                    <li>Prophecy (7)</li>
+                                </ul>
+                                <a href="#" class="btn-read" style="margin-top: 1rem; display: block; text-align: center;">
+                                    Explore Collection
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="collection-card">
+                            <div class="collection-header">
+                                <i class='bx bx-group collection-icon'></i>
+                                <h3 class="collection-title">Family & Marriage</h3>
+                                <p class="collection-count">28 resources</p>
+                            </div>
+                            <div class="collection-content">
+                                <ul class="collection-items">
+                                    <li>Marriage Counseling (6)</li>
+                                    <li>Parenting (8)</li>
+                                    <li>Family Devotions (7)</li>
+                                    <li>Relationships (7)</li>
+                                </ul>
+                                <a href="#" class="btn-read" style="margin-top: 1rem; display: block; text-align: center;">
+                                    Explore Collection
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="collection-card">
+                            <div class="collection-header">
+                                <i class='bx bx-church collection-icon'></i>
+                                <h3 class="collection-title">Church History</h3>
+                                <p class="collection-count">35 resources</p>
+                            </div>
+                            <div class="collection-content">
+                                <ul class="collection-items">
+                                    <li>Early Church (9)</li>
+                                    <li>Reformation (8)</li>
+                                    <li>Modern Church (10)</li>
+                                    <li>Biographies (8)</li>
+                                </ul>
+                                <a href="#" class="btn-read" style="margin-top: 1rem; display: block; text-align: center;">
+                                    Explore Collection
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Additions -->
+        <section class="latest-section" aria-labelledby="latest-title">
+            <div class="container">
+                <h2 id="latest-title" class="section-title">Latest Additions</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="resource-card">
+                            <div class="resource-content">
+                                <span class="resource-category" style="background: #e3f2fd; color: #1976d2;">New</span>
+                                <h3 class="resource-title">Overcoming Anxiety with Faith</h3>
+                                <p class="resource-description">Biblical strategies for managing anxiety through prayer and scripture.</p>
+                                <a href="#" class="btn-read">Read Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="resource-card">
+                            <div class="resource-content">
+                                <span class="resource-category" style="background: #e3f2fd; color: #1976d2;">New</span>
+                                <h3 class="resource-title">Youth Ministry Toolkit</h3>
+                                <p class="resource-description">Resources for engaging youth in meaningful spiritual conversations.</p>
+                                <a href="#" class="btn-read">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="resource-card">
+                            <div class="resource-content">
+                                <span class="resource-category" style="background: #e3f2fd; color: #1976d2;">New</span>
+                                <h3 class="resource-title">Financial Stewardship</h3>
+                                <p class="resource-description">Biblical principles for managing finances as faithful stewards.</p>
+                                <a href="#" class="btn-read">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="resource-card">
+                            <div class="resource-content">
+                                <span class="resource-category" style="background: #e3f2fd; color: #1976d2;">New</span>
+                                <h3 class="resource-title">Prayer Journal Template</h3>
+                                <p class="resource-description">Printable prayer journal to track your prayer journey.</p>
+                                <a href="#" class="btn-download" download>Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section" aria-labelledby="newsletter-title">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 id="newsletter-title">Stay Updated</h2>
+                    <p>Subscribe to our newsletter to receive weekly updates on new resources, featured content, and spiritual insights.</p>
+                    
+                    <form class="newsletter-form" aria-label="Newsletter subscription">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                    
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Digital Library</h3>
+                    <ul class="footer-links">
+                        <li><a href="#featured-resources">Featured Resources</a></li>
+                        <li><a href="#collections-title">Collections</a></li>
+                        <li><a href="#latest-title">Latest Additions</a></li>
+                        <li><a href="#">Browse All</a></li>
+                        <li><a href="#">Submit Resource</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#journey-title">Spiritual Journey</a></li>
+                        <li><a href="index.html#resources-title">Resources</a></li>
+                        <li><a href="index.html#elders-title">Our Elders</a></li>
+                        <li><a href="index.html#footer">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact & Support</h3>
+                    <address style="color: rgba(255, 255, 255, 0.8); font-style: normal;">
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.8);">
+                        Library Hours: Mon-Fri, 9 AM - 5 PM
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
+                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
+                    <a href="#sitemap" style="color: rgba(255, 255, 255, 0.7);">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.main-nav') && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Filter functionality
+            const filterTags = document.querySelectorAll('.filter-tag');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    // Remove active class from all tags
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tag
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter resources
+                    resourceCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'flex';
+                        } else if (filterValue === 'new' && card.hasAttribute('data-new')) {
+                            card.style.display = 'flex';
+                        } else if (filterValue === 'popular' && card.hasAttribute('data-popular')) {
+                            card.style.display = 'flex';
+                        } else if (card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // Show all if search is empty
+                    resourceCards.forEach(card => {
+                        card.style.display = 'flex';
+                    });
+                    return;
+                }
+                
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                    const description = card.querySelector('.resource-description').textContent.toLowerCase();
+                    const category = card.querySelector('.resource-category').textContent.toLowerCase();
+                    const author = card.querySelector('.resource-author').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || 
+                        description.includes(searchTerm) || 
+                        category.includes(searchTerm) ||
+                        author.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            if (searchBtn) {
+                searchBtn.addEventListener('click', performSearch);
+            }
+            
+            if (searchInput) {
+                searchInput.addEventListener('keyup', function(event) {
+                    if (event.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+                
+                // Clear search when input is cleared
+                searchInput.addEventListener('input', function() {
+                    if (this.value === '') {
+                        resourceCards.forEach(card => {
+                            card.style.display = 'flex';
+                        });
+                    }
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="email"]');
+                    
+                    if (emailInput.value && emailInput.checkValidity()) {
+                        // In a real application, you would submit to a server here
+                        alert('Thank you for subscribing to our newsletter!');
+                        emailInput.value = '';
+                    } else {
+                        emailInput.focus();
+                    }
+                });
+            }
+            
+            // Lazy loading for images
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
