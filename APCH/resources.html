@@ -186,7 +186,7 @@
         /* Hero Section */
         .resources-hero {
             background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), 
-                        url('https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') 
+                        url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') 
                         center/cover no-repeat;
             color: var(--text-light);
             padding: 5rem 0;
@@ -213,7 +213,7 @@
             background: var(--light-gray);
             padding: 2rem 0;
             position: sticky;
-            top: 81px;
+            top: var(--header-height, 122px);
             z-index: 900;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -260,14 +260,34 @@
         /* Resource Section */
         .resource-section {
             margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            scroll-margin-top: 200px;
+            animation: sectionFadeIn 0.5s ease;
         }
 
-        .resource-section.active {
-            opacity: 1;
-            transform: translateY(0);
+        .resource-section.is-hidden,
+        .resource-card.is-hidden {
+            display: none !important;
+        }
+
+        @keyframes sectionFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .resource-image {
+            background-color: var(--medium-gray);
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+        }
+
+        .no-results.visible {
+            display: block;
         }
 
         .section-header {
@@ -771,7 +791,7 @@
                     <i class='bx bx-church'></i> Church Life
                 </button>
                 <button class="category-btn" data-category="learning-growth">
-                    <i class='bx bx-graduation'></i> Learning & Growth
+                    <i class='bx bx-book-reader'></i> Learning & Growth
                 </button>
                 <button class="category-btn" data-category="featured">
                     <i class='bx bx-star'></i> Featured
@@ -793,8 +813,10 @@
                 </div>
             </section>
 
+            <p class="no-results" id="noResults" role="status">No resources match your search. Try a different keyword.</p>
+
             <!-- Featured Resources -->
-            <section id="featured" class="resource-section active" data-category="featured">
+            <section id="featured" class="resource-section" data-category="featured">
                 <div class="section-header">
                     <h2 class="section-title">Featured Resources</h2>
                     <p class="section-description">Discover our most popular and impactful resources for spiritual growth.</p>
@@ -807,7 +829,7 @@
                         </div>
                         <h3 class="featured-title">Bible Course</h3>
                         <p class="featured-description">Start your journey with our free interactive Bible study program tailored for all knowledge levels.</p>
-                        <a href="#bible-course" class="btn btn-outline-light">Enroll Now</a>
+                        <a href="#learning-growth" class="btn btn-outline-light">Enroll Now</a>
                     </div>
                     
                     <div class="featured-card">
@@ -816,7 +838,7 @@
                         </div>
                         <h3 class="featured-title">Events Calendar</h3>
                         <p class="featured-description">Stay updated with our weekly services, special events, and community activities.</p>
-                        <a href="#events" class="btn btn-outline-light">View Schedule</a>
+                        <a href="#church-life" class="btn btn-outline-light">View Schedule</a>
                     </div>
                     
                     <div class="featured-card">
@@ -825,62 +847,14 @@
                         </div>
                         <h3 class="featured-title">Ministries</h3>
                         <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
+                        <a href="#church-life" class="btn btn-outline-light">Explore Ministries</a>
                     </div>
 
-                                        <div class="featured-card">
-                        <div class="featured-icon">
-                            <i class='bx bx-group'></i>
-                        </div>
-                        <h3 class="featured-title">Ministries</h3>
-                        <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
-                    </div>
 
-                                        <div class="featured-card">
-                        <div class="featured-icon">
-                            <i class='bx bx-group'></i>
-                        </div>
-                        <h3 class="featured-title">Ministries</h3>
-                        <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
-                    </div>
 
-                                        <div class="featured-card">
-                        <div class="featured-icon">
-                            <i class='bx bx-group'></i>
-                        </div>
-                        <h3 class="featured-title">Ministries</h3>
-                        <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
-                    </div>
 
-                                        <div class="featured-card">
-                        <div class="featured-icon">
-                            <i class='bx bx-group'></i>
-                        </div>
-                        <h3 class="featured-title">Ministries</h3>
-                        <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
-                    </div>
 
-                                        <div class="featured-card">
-                        <div class="featured-icon">
-                            <i class='bx bx-group'></i>
-                        </div>
-                        <h3 class="featured-title">Ministries</h3>
-                        <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
-                    </div>
 
-                                        <div class="featured-card">
-                        <div class="featured-icon">
-                            <i class='bx bx-group'></i>
-                        </div>
-                        <h3 class="featured-title">Ministries</h3>
-                        <p class="featured-description">Find your place to serve and grow through our various ministry opportunities.</p>
-                        <a href="#ministries" class="btn btn-outline-light">Explore Ministries</a>
-                    </div>
                 </div>
             </section>
 
@@ -935,7 +909,7 @@
                     </article>
                     
                     <article class="resource-card" data-tags="prophecy end-times">
-                        <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Light breaking through dark clouds" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1001,7 +975,7 @@
                 
                 <div class="resource-grid">
                     <article class="resource-card" data-tags="sermons teaching audio">
-                        <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Pastor delivering sermon" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1048,7 +1022,7 @@
                         <div class="resource-content">
                             <div class="resource-meta">
                                 <span class="resource-type">Volunteer Guide</span>
-                                <span class="resource-length"><i class='bx bx-hand'></i> Guide</span>
+                                <span class="resource-length"><i class='bx bx-donate-heart'></i> Guide</span>
                             </div>
                             <h3 class="resource-title">Volunteer Opportunities</h3>
                             <p class="resource-description">Find meaningful ways to serve within our church family and make a difference in our community.</p>
@@ -1057,7 +1031,7 @@
                     </article>
                     
                     <article class="resource-card" data-tags="prayer support">
-                        <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Hands praying together" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1095,7 +1069,7 @@
                     </article>
                     
                     <article class="resource-card" data-tags="questions answers">
-                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Question marks representing curiosity" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1104,12 +1078,12 @@
                             </div>
                             <h3 class="resource-title">Bible Questions Answered</h3>
                             <p class="resource-description">Clear, biblically-based answers to common questions about Scripture, doctrine, and Christian living.</p>
-                            <a href="#bible-questions" class="resource-link" aria-label="Browse Bible questions">Browse Q&A <i class='bx bx-chevron-right'></i></a>
+                            <a href="resources/bible-questions.html" class="resource-link" aria-label="Browse Bible questions">Browse Q&A <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
                     
                     <article class="resource-card" data-tags="peace happiness mental-health">
-                        <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Peaceful nature scene" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1118,12 +1092,12 @@
                             </div>
                             <h3 class="resource-title">Finding Peace & Happiness</h3>
                             <p class="resource-description">Biblical principles for overcoming anxiety, finding contentment, and experiencing true joy in Christ.</p>
-                            <a href="#peace-happiness" class="resource-link" aria-label="Read peace guide">Read Guide <i class='bx bx-chevron-right'></i></a>
+                            <a href="resources/peace-happiness.html" class="resource-link" aria-label="Read peace guide">Read Guide <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
                     
                     <article class="resource-card" data-tags="marriage family relationships">
-                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Happy family together" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1132,12 +1106,12 @@
                             </div>
                             <h3 class="resource-title">Marriage & Family Resources</h3>
                             <p class="resource-description">Biblical guidance for building strong, God-centered marriages and raising children in faith.</p>
-                            <a href="#marriage-family" class="resource-link" aria-label="Explore family resources">Explore Resources <i class='bx bx-chevron-right'></i></a>
+                            <a href="resources/marriage-family.html" class="resource-link" aria-label="Explore family resources">Explore Resources <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
                     
                     <article class="resource-card" data-tags="youth teens">
-                        <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                              alt="Youth group activities" class="resource-image" loading="lazy">
                         <div class="resource-content">
                             <div class="resource-meta">
@@ -1146,7 +1120,7 @@
                             </div>
                             <h3 class="resource-title">Youth & Young Adult Resources</h3>
                             <p class="resource-description">Specialized materials addressing the unique spiritual needs and challenges facing today's youth.</p>
-                            <a href="#youth" class="resource-link" aria-label="Browse youth resources">Browse Resources <i class='bx bx-chevron-right'></i></a>
+                            <a href="resources/youth.html" class="resource-link" aria-label="Browse youth resources">Browse Resources <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
                     
@@ -1160,7 +1134,7 @@
                             </div>
                             <h3 class="resource-title">Science & the Bible</h3>
                             <p class="resource-description">Exploring the harmony between scientific discovery and biblical revelation in creation and history.</p>
-                            <a href="#science-bible" class="resource-link" aria-label="Read science and Bible study">Read Study <i class='bx bx-chevron-right'></i></a>
+                            <a href="resources/science-bible.html" class="resource-link" aria-label="Read science and Bible study">Read Study <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
                 </div>
@@ -1184,7 +1158,7 @@
                     
                     <a href="#prayer-guide" class="quick-item">
                         <div class="quick-icon">
-                            <i class='bx bx-pray'></i>
+                            <i class='bx bx-heart-circle'></i>
                         </div>
                         <h3 class="quick-title">Weekly Prayer Guide</h3>
                         <p>Structured prayers for personal and intercessory prayer</p>
@@ -1251,9 +1225,9 @@
                         <li><a href="#bible-study">Bible Study</a></li>
                         <li><a href="#church-life">Church Life</a></li>
                         <li><a href="#learning-growth">Learning & Growth</a></li>
-                        <li><a href="#sermons">Sermons</a></li>
-                        <li><a href="#ministries">Ministries</a></li>
-                        <li><a href="#events">Events</a></li>
+                        <li><a href="#church-life">Sermons</a></li>
+                        <li><a href="#church-life">Ministries</a></li>
+                        <li><a href="#church-life">Events</a></li>
                     </ul>
                 </div>
                 
@@ -1338,100 +1312,117 @@
             const categoryButtons = document.querySelectorAll('.category-btn');
             const resourceSections = document.querySelectorAll('.resource-section');
             const searchInput = document.querySelector('.search-input');
-            const resourceCards = document.querySelectorAll('.resource-card');
-            
+            const noResults = document.getElementById('noResults');
+            const header = document.querySelector('.main-header');
+            let currentCategory = 'all';
+
+            // Keep the sticky category bar directly under the (variable-height) header
+            function updateHeaderHeight() {
+                if (header) {
+                    document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+                }
+            }
+            updateHeaderHeight();
+            window.addEventListener('resize', updateHeaderHeight);
+
+            // Replace any image that fails to load with a neutral placeholder
+            const fallbackImage = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">' +
+                '<rect width="600" height="200" fill="#2c7a3e"/>' +
+                '<text x="300" y="112" font-family="Georgia,serif" font-size="28" fill="#ffffff" text-anchor="middle">The Apostles’ Church</text></svg>'
+            );
+            document.querySelectorAll('.resource-image').forEach(img => {
+                const useFallback = () => {
+                    if (img.src !== fallbackImage) img.src = fallbackImage;
+                };
+                img.addEventListener('error', useFallback);
+                if (img.complete && img.naturalWidth === 0 && img.currentSrc) useFallback();
+            });
+
+            // Apply category + search filters together
+            function applyFilters() {
+                const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                let visibleCount = 0;
+
+                resourceSections.forEach(section => {
+                    const inCategory = currentCategory === 'all' || section.dataset.category === currentCategory;
+                    const cards = section.querySelectorAll('.resource-card');
+                    let sectionMatches = 0;
+
+                    cards.forEach(card => {
+                        const text = [
+                            card.querySelector('.resource-title')?.textContent,
+                            card.querySelector('.resource-description')?.textContent,
+                            card.dataset.tags
+                        ].join(' ').toLowerCase();
+                        const match = searchTerm === '' || text.includes(searchTerm);
+                        card.classList.toggle('is-hidden', !match);
+                        if (match) sectionMatches++;
+                    });
+
+                    // Sections without cards (Featured) are hidden while searching
+                    const hasMatches = searchTerm === '' || sectionMatches > 0;
+                    const show = inCategory && hasMatches;
+                    section.classList.toggle('is-hidden', !show);
+                    if (show) visibleCount++;
+                });
+
+                if (noResults) noResults.classList.toggle('visible', visibleCount === 0);
+            }
+
+            function setCategory(category) {
+                currentCategory = category;
+                categoryButtons.forEach(btn => {
+                    const isActive = btn.dataset.category === category;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-pressed', String(isActive));
+                });
+                applyFilters();
+            }
+
             categoryButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    // Update active button
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show/hide sections
-                    resourceSections.forEach(section => {
-                        if (category === 'all' || section.getAttribute('data-category') === category) {
-                            section.classList.add('active');
-                        } else {
-                            section.classList.remove('active');
-                        }
-                    });
-                    
-                    // Scroll to first visible section
-                    if (category !== 'all') {
-                        const firstVisible = document.querySelector(`.resource-section[data-category="${category}"]`);
-                        if (firstVisible) {
-                            window.scrollTo({
-                                top: firstVisible.offsetTop - 150,
-                                behavior: 'smooth'
-                            });
-                        }
+                    setCategory(this.dataset.category);
+
+                    const firstVisible = document.querySelector('.resource-section:not(.is-hidden)');
+                    if (currentCategory !== 'all' && firstVisible) {
+                        firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
             });
-            
-            // Search Functionality
+
             if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase().trim();
-                    
-                    if (searchTerm === '') {
-                        // Show all cards if search is empty
-                        resourceCards.forEach(card => {
-                            card.style.display = 'flex';
-                        });
-                        return;
-                    }
-                    
-                    // Filter cards based on search term
-                    resourceCards.forEach(card => {
-                        const title = card.querySelector('.resource-title').textContent.toLowerCase();
-                        const description = card.querySelector('.resource-description').textContent.toLowerCase();
-                        const tags = card.getAttribute('data-tags') || '';
-                        
-                        if (title.includes(searchTerm) || 
-                            description.includes(searchTerm) || 
-                            tags.includes(searchTerm)) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
+                searchInput.addEventListener('input', applyFilters);
             }
-            
-            // Smooth scrolling for anchor links
+
+            // Smooth scrolling for in-page anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    
                     if (href === '#top' || href === '#') return;
-                    
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        e.preventDefault();
-                        
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 120,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        if (navMenu && navMenu.classList.contains('active')) {
-                            navMenu.classList.remove('active');
-                            mobileToggle.setAttribute('aria-expanded', 'false');
-                        }
+
+                    let targetElement = null;
+                    try { targetElement = document.querySelector(href); } catch (err) { return; }
+                    if (!targetElement) return;
+
+                    e.preventDefault();
+
+                    // If the target is filtered out, reset filters first
+                    if (targetElement.closest('.is-hidden')) {
+                        if (searchInput) searchInput.value = '';
+                        setCategory('all');
+                    }
+
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
-            
-            // Initialize first section as active
-            setTimeout(() => {
-                const featuredSection = document.querySelector('.resource-section[data-category="featured"]');
-                if (featuredSection) {
-                    featuredSection.classList.add('active');
-                }
-            }, 100);
+
+            setCategory('all');
         });
     </script>
 </body>
