@@ -2086,23 +2086,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-function toggleComingChristDetails() {
-    const details = document.getElementById('coming-christ-details');
-    const toggleText = document.getElementById('toggle-text');
-    const toggleIcon = document.getElementById('toggle-icon');
-    
-    if (details.style.display === 'none') {
-        details.style.display = 'block';
-        toggleText.textContent = 'Show Less';
-        toggleIcon.style.transform = 'rotate(90deg)';
-    } else {
-        details.style.display = 'none';
-        toggleText.textContent = 'Read More';
-        toggleIcon.style.transform = 'rotate(0deg)';
-    }
-}
-</script>
                     
 <article class="resource-card" id="healing-hope-card">
     <img src="https://images.unsplash.com/photo-1551376347-075b0121a65b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
@@ -2329,7 +2312,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="resource-content">
                     <h3 class="resource-title">Bible Questions Answered</h3>
                     <p>Clear answers to common questions about scripture and Christian living.</p>
-                    <a href="D:\programming\modern\APCH\resources\bible-questions.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                    <a href="resources/bible-questions.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>
@@ -2338,7 +2321,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="resource-content">
                     <h3 class="resource-title">Peace & Happiness</h3>
                     <p>Biblical principles for finding true peace and lasting joy in Christ.</p>
-                    <a href="D:\programming\modern\APCH\resources\peace-happiness.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                    <a href="resources/peace-happiness.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>
@@ -2347,7 +2330,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="resource-content">
                     <h3 class="resource-title">Faith in God</h3>
                     <p>Strengthening your trust and developing a deeper relationship with God.</p>
-                    <a href="D:\programming\modern\APCH\resources\faith-god.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                    <a href="resources/faith-god.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>
@@ -2356,7 +2339,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="resource-content">
                     <h3 class="resource-title">Marriage & Family</h3>
                     <p>Biblical guidance for building strong, God-centered relationships.</p>
-                    <a href="D:\programming\modern\APCH\resources\marriage-family.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                    <a href="resources/marriage-family.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>
@@ -2365,7 +2348,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="resource-content">
                     <h3 class="resource-title">Youth & Young Adults</h3>
                     <p>Resources specifically for teens and young adults navigating faith.</p>
-                    <a href="D:\programming\modern\APCH\resources\/youth.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                    <a href="resources/youth.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>
@@ -2374,7 +2357,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="resource-content">
                     <h3 class="resource-title">Science & the Bible</h3>
                     <p>Exploring the harmony between scientific discovery and biblical truth.</p>
-                    <a href="D:\programming\modern\APCH\resources\science-bible.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
+                    <a href="resources/science-bible.html" class="resource-link">Explore <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
         </div>
@@ -2390,7 +2373,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <i class='bx bx-book-open' style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
                                     <h3 class="resource-title">Try Our Bible Course</h3>
                                     <p>Join our free interactive Bible study program tailored for all knowledge levels.</p>
-                                    <a href="#bible-course" class="resource-link">Enroll Now</a>
+                                    <a href="resources.html#learning-growth" class="resource-link">Enroll Now</a>
                                 </div>
                             </div>
                         </div>
@@ -2464,12 +2447,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#sermons">Sermons & Teachings</a></li>
-                        <li><a href="#events">Events Calendar</a></li>
-                        <li><a href="#ministries">Ministries</a></li>
-                        <li><a href="#prayer-requests">Prayer Requests</a></li>
+                        <li><a href="resources.html#church-life">Sermons & Teachings</a></li>
+                        <li><a href="resources.html#church-life">Events Calendar</a></li>
+                        <li><a href="resources.html#church-life">Ministries</a></li>
+                        <li><a href="resources.html#church-life">Prayer Requests</a></li>
                         <li><a href="giving.html">Online Giving</a></li>
-                        <li><a href="#volunteer">Volunteer Opportunities</a></li>
+                        <li><a href="resources.html#church-life">Volunteer Opportunities</a></li>
                     </ul>
                 </div>
                 
@@ -2629,6 +2612,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
+            const tag = document.activeElement && document.activeElement.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+            if (document.querySelector('.search-modal.active')) return;
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'ArrowRight') nextSlide();
         });
@@ -2868,7 +2854,7 @@ const searchData = [
         title: "What Is the Coming of Christ?",
         snippet: "Understanding biblical prophecy about Christ's return and what it means...",
         category: "Resources",
-        url: "#coming-christ",
+        url: "#coming-christ-card",
         tags: ["prophecy", "christ return", "bible study"]
     },
     {
@@ -2876,7 +2862,7 @@ const searchData = [
         title: "Finding Healing and Hope",
         snippet: "A compassionate guide to overcoming self-harm through faith, community...",
         category: "Resources",
-        url: "#healing-hope",
+        url: "#healing-hope-card",
         tags: ["healing", "hope", "mental health", "support"]
     },
     {
@@ -2892,7 +2878,7 @@ const searchData = [
         title: "Online Giving",
         snippet: "Support our ministry through secure online donations and tithes...",
         category: "Giving",
-        url: "#giving",
+        url: "giving.html",
         tags: ["giving", "donate", "tithe", "support"]
     },
     {
@@ -2900,7 +2886,7 @@ const searchData = [
         title: "Bible Study Course",
         snippet: "Join our free interactive Bible study program tailored for all knowledge levels...",
         category: "Resources",
-        url: "#bible-course",
+        url: "resources.html#learning-growth",
         tags: ["bible study", "course", "learning", "scripture"]
     },
     {
@@ -2908,7 +2894,7 @@ const searchData = [
         title: "Prayer Requests",
         snippet: "Submit your prayer requests and join our prayer community...",
         category: "Community",
-        url: "#prayer-requests",
+        url: "resources.html#church-life",
         tags: ["prayer", "requests", "community", "support"]
     }
 ];
@@ -3086,7 +3072,10 @@ function displayResults(results) {
 function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
     
-    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const term = searchTerm.trim();
+    if (!term) return text;
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
     return text.replace(regex, '<span style="background: rgba(252, 157, 31, 0.2); padding: 0 2px; border-radius: 2px;">$1</span>');
 }
 
