@@ -22,7 +22,7 @@ const MAX_SECTIONS_PER_PAGE = 40;
 const CATEGORY_RULES = [
     [/^index\.html$/, 'Home'],
     [/^about/i, 'About Us'],
-    [/^(community|membership)/i, 'Community'],
+    [/^(community|membership|locations)/i, 'Community'],
     [/^(articles|theName)/i, 'Faith & Beliefs'],
     [/^resources(\.html|\/)/, 'Resources'],
     [/^digitLibrary/i, 'Digital Library'],
