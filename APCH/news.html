@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Updates - The Apostles' Church</title>
+    <link rel="icon" type="image/png" href="APCH.png">
+    <link rel="apple-touch-icon" href="APCH.png">
     <meta name="description" content="Latest news, events, and updates from The Apostles' Church community.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="News & Updates - The Apostles' Church">
     <meta property="og:description" content="Stay informed with the latest news, events, and spiritual insights from our church community.">
-    <meta property="og:image" content="https://apostleschurch.org/images/news-og-image.jpg">
-    <meta property="og:url" content="https://apostleschurch.org/news">
+    <meta property="og:image" content="https://apostleschurch.org/temple.jpeg">
+    <meta property="og:url" content="https://apostleschurch.org/news.html">
     <meta property="og:type" content="website">
     
     <!-- Twitter -->
@@ -693,6 +695,11 @@
         @keyframes loading {
             100% { left: 100%; }
         }
+        .is-placeholder {
+            opacity: 0.55;
+            pointer-events: none;
+            cursor: default;
+        }
     </style>
     <!-- Site search -->
     <link rel="stylesheet" href="assets/css/site-search.css">
@@ -721,16 +728,16 @@
                         <a href="index.html#resources" class="nav-link" role="menuitem">Resources</a>
                     </li>
                     <li class="nav-item" role="none">
-                        <a href="index.html#church" class="nav-link" role="menuitem">Our Church</a>
+                        <a href="communityDelimitation.html" class="nav-link" role="menuitem">Our Church</a>
                     </li>
                     <li class="nav-item" role="none">
-                        <a href="index.html#faith" class="nav-link" role="menuitem">Faith & Beliefs</a>
+                        <a href="articles.html" class="nav-link" role="menuitem">Faith & Beliefs</a>
                     </li>
                     <li class="nav-item" role="none">
                         <a href="news.html" class="nav-link active" role="menuitem">News</a>
                     </li>
                     <li class="nav-item" role="none">
-                        <a href="index.html#giving" class="nav-link" role="menuitem">Giving</a>
+                        <a href="giving.html" class="nav-link" role="menuitem">Giving</a>
                     </li>
                     <li class="nav-item" role="none">
                         <a href="digitLibrary.html" class="nav-link" role="menuitem">Digital Library</a>
@@ -786,7 +793,7 @@
                             </div>
                             <h3 class="news-title">Annual Community Easter Celebration Draws Record Attendance</h3>
                             <p class="news-excerpt">Our church hosted its largest Easter celebration yet, with over 1,200 community members joining us for a day of worship, fellowship, and service. The event featured special musical performances, children's activities, and a community meal that brought together people from all walks of life.</p>
-                            <a href="#" class="read-more">Read Full Story <i class='bx bx-chevron-right'></i></a>
+                            <a class="read-more is-placeholder" aria-disabled="true" title="Coming soon">Read Full Story <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
 
@@ -801,7 +808,7 @@
                             </div>
                             <h3 class="news-title">New Sermon Series: "Walking in Faith Through Uncertain Times"</h3>
                             <p class="news-excerpt">Join us for a transformative 8-week sermon series exploring how to maintain strong faith during life's challenges. Starting this Sunday, Pastor James will guide us through biblical principles for finding peace and purpose.</p>
-                            <a href="#" class="read-more">Read More <i class='bx bx-chevron-right'></i></a>
+                            <a class="read-more is-placeholder" aria-disabled="true" title="Coming soon">Read More <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
 
@@ -815,7 +822,7 @@
                             </div>
                             <h3 class="news-title">Youth Ministry Launches Summer Discipleship Program</h3>
                             <p class="news-excerpt">Our youth ministry is excited to announce "Rooted in Faith," a summer program designed to help teenagers develop deeper spiritual foundations through Bible study, mentorship, and service projects.</p>
-                            <a href="#" class="read-more">Read More <i class='bx bx-chevron-right'></i></a>
+                            <a class="read-more is-placeholder" aria-disabled="true" title="Coming soon">Read More <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
 
@@ -829,7 +836,7 @@
                             </div>
                             <h3 class="news-title">Community Food Pantry Expansion Completed</h3>
                             <p class="news-excerpt">Thanks to generous donations and volunteer efforts, our community food pantry has expanded its capacity by 40%. The upgraded facility will serve over 500 families monthly, providing essential groceries and spiritual support.</p>
-                            <a href="#" class="read-more">Read More <i class='bx bx-chevron-right'></i></a>
+                            <a class="read-more is-placeholder" aria-disabled="true" title="Coming soon">Read More <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
 
@@ -843,7 +850,7 @@
                             </div>
                             <h3 class="news-title">Marriage Retreat Registration Now Open</h3>
                             <p class="news-excerpt">Strengthen your marriage at our annual couples retreat, "Building a Covenant Marriage." The weekend getaway includes workshops, counseling sessions, and quality time for couples to reconnect spiritually and emotionally.</p>
-                            <a href="#" class="read-more">Read More <i class='bx bx-chevron-right'></i></a>
+                            <a class="read-more is-placeholder" aria-disabled="true" title="Coming soon">Read More <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
 
@@ -857,23 +864,11 @@
                             </div>
                             <h3 class="news-title">New Small Group Studies Starting This Month</h3>
                             <p class="news-excerpt">Connect with other believers through our new small group studies focusing on prayer, biblical finances, and Christian parenting. Groups meet weekly in various locations throughout the community.</p>
-                            <a href="#" class="read-more">Read More <i class='bx bx-chevron-right'></i></a>
+                            <a class="read-more is-placeholder" aria-disabled="true" title="Coming soon">Read More <i class='bx bx-chevron-right'></i></a>
                         </div>
                     </article>
                 </div>
 
-                <!-- Pagination -->
-                <div class="pagination" role="navigation" aria-label="News pagination">
-                    <a href="#" class="page-link active" aria-label="Page 1" aria-current="page">1</a>
-                    <a href="#" class="page-link" aria-label="Page 2">2</a>
-                    <a href="#" class="page-link" aria-label="Page 3">3</a>
-                    <a href="#" class="page-link" aria-label="Page 4">4</a>
-                    <span class="page-link">...</span>
-                    <a href="#" class="page-link" aria-label="Page 10">10</a>
-                    <a href="#" class="page-link" aria-label="Next page">
-                        <i class='bx bx-chevron-right'></i>
-                    </a>
-                </div>
             </div>
         </section>
 
@@ -978,10 +973,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html#sermons">Sermons & Teachings</a></li>
-                        <li><a href="index.html#events">Events Calendar</a></li>
-                        <li><a href="index.html#ministries">Ministries</a></li>
-                        <li><a href="index.html#prayer-requests">Prayer Requests</a></li>
+                        <li><a href="digitLibrary.html">Sermons & Teachings</a></li>
+                        <li><a href="news.html#events-title">Events Calendar</a></li>
+                        <li><a href="communityActivities.html">Ministries</a></li>
+                        <li><a href="mailto:apchsecretariat@gmail.com?subject=Prayer%20request">Prayer Requests</a></li>
                         <li><a href="news.html">Latest News</a></li>
                         <li><a href="digitLibrary.html">Digital Library</a></li>
                     </ul>
@@ -1010,11 +1005,9 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
+                <p>&copy; 2026 The Apostles' Church. All rights reserved.</p>
                 <p class="mb-0">
-                    <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
-                    <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
-                    <a href="#sitemap" style="color: rgba(255, 255, 255, 0.7);">Sitemap</a>
+                    <a href="privacy.html" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a>
                 </p>
             </div>
         </div>
