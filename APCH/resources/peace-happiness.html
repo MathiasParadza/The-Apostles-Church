@@ -720,7 +720,7 @@
             <nav class="main-nav" aria-label="Main Navigation">
                 <div class="logo-container">
                     <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo" width="60" height="60">
-                    <a href="index.html" class="logo-text"></a>
+                    <a href="../index.html" class="logo-text"></a>
                 </div>
                 
                 <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -788,7 +788,7 @@
                 <header class="article-header">
                     <nav class="breadcrumb" aria-label="Breadcrumb">
                         <a href="../index.html">Home</a> &gt; 
-                        <a href="resources.html">Resources</a> &gt; 
+                        <a href="../resources.html">Resources</a> &gt; 
                         <span aria-current="page">Peace & Happiness</span>
                     </nav>
                     
@@ -863,7 +863,7 @@
                         <li><a href="#events">Events Calendar</a></li>
                         <li><a href="#ministries">Ministries</a></li>
                         <li><a href="#prayer-requests">Prayer Requests</a></li>
-                        <li><a href="giving.html">Online Giving</a></li>
+                        <li><a href="../giving.html">Online Giving</a></li>
                         <li><a href="#volunteer">Volunteer Opportunities</a></li>
                     </ul>
                 </div>
@@ -893,7 +893,7 @@
                     </div>
                     <div class="mt-4">
                         <h4 style="color: var(--accent-gold); font-size: 1rem;">Subscribe to Our Newsletter</h4>
-                        <form class="d-flex gap-2" style="max-width: 300px;" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                        <form class="d-flex gap-2" style="max-width: 300px;" data-newsletter>
                             <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription" required>
                             <button type="submit" class="btn" style="background: var(--accent-gold); color: var(--dark-blue); border: none; padding: 0.5rem 1rem; border-radius: 4px;">Subscribe</button>
                         </form>
@@ -1011,24 +1011,11 @@
                 document.documentElement.classList.remove('focus-visible');
             });
             
-            // Form validation
-            const newsletterForm = document.querySelector('form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const emailInput = this.querySelector('input[type="email"]');
-                    if (emailInput.value && emailInput.checkValidity()) {
-                        alert('Thank you for subscribing to our newsletter!');
-                        emailInput.value = '';
-                    } else {
-                        emailInput.focus();
-                    }
-                });
-            }
         });
     </script>
     <!-- Site search -->
     <script src="../assets/js/search-index.js" defer></script>
     <script src="../assets/js/site-search.js" defer></script>
+    <script src="../assets/js/newsletter.js" defer></script>
 </body>
 </html>

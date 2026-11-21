@@ -780,6 +780,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+            .tbc {
+            color: #b45309;
+            font-style: italic;
+        }
     </style>
     <!-- Site search -->
     <link rel="stylesheet" href="assets/css/site-search.css">
@@ -894,13 +898,13 @@
                         Online Giving
                     </button>
                     <button class="method-tab" data-method="text" role="tab" aria-selected="false">
-                        Text-to-Give
+                        Mobile Money
                     </button>
                     <button class="method-tab" data-method="bank" role="tab" aria-selected="false">
                         Bank Transfer
                     </button>
                     <button class="method-tab" data-method="check" role="tab" aria-selected="false">
-                        Check or Cash
+                        In Person
                     </button>
                 </div>
 
@@ -912,7 +916,7 @@
                         </div>
                         <div>
                             <h3 class="method-title">Secure Online Giving</h3>
-                            <p class="method-description">Give quickly and securely using your credit/debit card or bank account</p>
+                            <p class="method-description">Card giving online is coming soon. Until then, please give by Mobile Money, bank transfer or in person.</p>
                         </div>
                     </div>
                     
@@ -933,14 +937,14 @@
                         <div class="form-group">
                             <label class="form-label">Giving Amount</label>
                             <div class="amount-options">
-                                <span class="amount-option" data-amount="25">$25</span>
-                                <span class="amount-option" data-amount="50">$50</span>
-                                <span class="amount-option active" data-amount="100">$100</span>
-                                <span class="amount-option" data-amount="250">$250</span>
-                                <span class="amount-option" data-amount="500">$500</span>
+                                <span class="amount-option" data-amount="50">K50</span>
+                                <span class="amount-option" data-amount="100">K100</span>
+                                <span class="amount-option active" data-amount="200">K200</span>
+                                <span class="amount-option" data-amount="500">K500</span>
+                                <span class="amount-option" data-amount="1000">K1,000</span>
                             </div>
                             <div class="custom-amount">
-                                <span class="currency-symbol">$</span>
+                                <span class="currency-symbol">K</span>
                                 <input type="number" class="form-control" placeholder="Other Amount" min="1" step="0.01">
                             </div>
                         </div>
@@ -980,45 +984,38 @@
                             <label class="form-label">Payment Method</label>
                             <div class="amount-options">
                                 <span class="amount-option active" data-method="card">Credit/Debit Card</span>
-                                <span class="amount-option" data-method="bank">Bank Account</span>
+                                <span class="amount-option" data-method="mobile">Mobile Money</span>
                             </div>
                         </div>
                         
-                        <button type="submit" class="give-btn">Continue to Payment</button>
+                        <button type="submit" class="give-btn" disabled aria-disabled="true" style="opacity: 0.6; cursor: not-allowed;">Online Payment Coming Soon</button>
                     </form>
                 </div>
 
-                <!-- Text-to-Give Content -->
+                <!-- Mobile Money Content -->
                 <div class="method-content" id="text-content" role="tabpanel">
                     <div class="method-header">
                         <div class="method-icon">
-                            <i class='bx bx-message-square'></i>
+                            <i class='bx bx-mobile-alt'></i>
                         </div>
                         <div>
-                            <h3 class="method-title">Text-to-Give</h3>
-                            <p class="method-description">Give instantly using your mobile phone</p>
+                            <h3 class="method-title">Mobile Money</h3>
+                            <p class="method-description">Give from your phone using Airtel Money or MTN MoMo</p>
                         </div>
                     </div>
-                    
-                    <div style="max-width: 500px; margin: 0 auto;">
-                        <div style="text-align: center; margin-bottom: 2rem;">
-                            <div style="font-size: 2rem; color: var(--primary-green); margin-bottom: 1rem;">
-                                <i class='bx bx-phone'></i>
+
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">Mobile Money Details:</h4>
+                            <div style="line-height: 2;">
+                                <p><strong>Airtel Money:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>MTN MoMo:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>Registered Name:</strong> <span class="tbc">[To be confirmed]</span></p>
                             </div>
-                            <h4>How to Give by Text:</h4>
                         </div>
-                        
-                        <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                            <ol style="padding-left: 1.5rem;">
-                                <li style="margin-bottom: 1rem;">Text <strong>GIVE</strong> to <strong>(555) 123-4567</strong></li>
-                                <li style="margin-bottom: 1rem;">Follow the link sent to your phone</li>
-                                <li style="margin-bottom: 1rem;">Complete the secure payment form</li>
-                                <li>Receive a confirmation text and email</li>
-                            </ol>
-                        </div>
-                        
+
                         <div style="background: #e9f7ef; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-green);">
-                            <p style="margin: 0;"><strong>Note:</strong> Standard messaging rates may apply. You only need to set up your payment information once.</p>
+                            <p style="margin: 0;"><strong>Note:</strong> Check that the registered name matches before you send. Please send your name and the purpose of your gift (e.g. tithe, offering, building fund) to <strong>apchsecretariat@gmail.com</strong> or <strong>+260 977 441 240</strong>.</p>
                         </div>
                     </div>
                 </div>
@@ -1030,8 +1027,8 @@
                             <i class='bx bx-building-house'></i>
                         </div>
                         <div>
-                            <h3 class="method-title">Bank Transfer / ACH</h3>
-                            <p class="method-description">Set up recurring or one-time transfers from your bank account</p>
+                            <h3 class="method-title">Bank Transfer</h3>
+                            <p class="method-description">Make a one-time or standing-order transfer from your bank account</p>
                         </div>
                     </div>
                     
@@ -1039,11 +1036,12 @@
                         <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                             <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">Church Banking Information:</h4>
                             <div style="line-height: 2;">
-                                <p><strong>Bank:</strong> Faith Community Bank</p>
-                                <p><strong>Account Name:</strong> The Apostles' Church</p>
-                                <p><strong>Account Number:</strong> 1234567890</p>
-                                <p><strong>Routing Number:</strong> 021000021</p>
-                                <p><strong>Account Type:</strong> Checking</p>
+                                <p><strong>Bank:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>Branch:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>Account Name:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>Account Number:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>Branch / Sort Code:</strong> <span class="tbc">[To be confirmed]</span></p>
+                                <p><strong>SWIFT Code (international):</strong> <span class="tbc">[To be confirmed]</span></p>
                             </div>
                         </div>
                         
@@ -1051,7 +1049,7 @@
                             <h5 style="margin-bottom: 0.5rem; color: var(--dark-blue);">Important Notes:</h5>
                             <ul style="padding-left: 1.5rem; margin: 0;">
                                 <li>Include your name in the transfer memo</li>
-                                <li>Email <strong>giving@apostleschurch.org</strong> with transfer details</li>
+                                <li>Email <strong>apchsecretariat@gmail.com</strong> with transfer details</li>
                                 <li>Allow 2-3 business days for processing</li>
                             </ul>
                         </div>
@@ -1065,8 +1063,8 @@
                             <i class='bx bx-envelope'></i>
                         </div>
                         <div>
-                            <h3 class="method-title">Check or Cash</h3>
-                            <p class="method-description">Traditional giving methods during services or by mail</p>
+                            <h3 class="method-title">In Person</h3>
+                            <p class="method-description">Give during services or at the church office</p>
                         </div>
                     </div>
                     
@@ -1078,28 +1076,28 @@
                                         <i class='bx bx-church'></i>
                                     </div>
                                     <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">During Services</h4>
-                                    <p>Place your cash or check in the offering baskets during our Sunday worship services at 9:00 AM or 11:00 AM.</p>
+                                    <p>Give your offering or tithe during our Sunday worship services.</p>
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div style="background: var(--light-gray); padding: 2rem; border-radius: 12px; height: 100%; text-align: center;">
                                     <div style="font-size: 3rem; color: var(--primary-green); margin-bottom: 1rem;">
-                                        <i class='bx bx-mail-send'></i>
+                                        <i class='bx bx-building'></i>
                                     </div>
-                                    <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">By Mail</h4>
-                                    <p>Send checks payable to:</p>
+                                    <h4 style="margin-bottom: 1rem; color: var(--dark-blue);">At the Church Office</h4>
                                     <p style="font-weight: 600; margin: 1rem 0;">
                                         The Apostles' Church<br>
-                                        123 Faith Avenue<br>
-                                        Spiritual City, SC 12345
+                                        CH80/01 Off Zambezi Road<br>
+                                        Lusaka, Zambia
                                     </p>
+                                    <p>Monday-Friday, 10:00 AM - 4:00 PM</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div style="background: #e9f7ef; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid var(--primary-green);">
-                            <p style="margin: 0;"><strong>For tax deduction purposes:</strong> Please include your name and address with cash donations. Contribution statements are mailed quarterly.</p>
+                            <p style="margin: 0;"><strong>Receipts:</strong> Ask for a receipt when you give at the church office, and include your name with any gift so it can be recorded.</p>
                         </div>
                     </div>
                 </div>
@@ -1170,21 +1168,21 @@
                 <div class="faq-container">
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>Is my online giving secure?</span>
+                            <span>Can I give online with a card?</span>
                             <i class='bx bx-chevron-down faq-icon'></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Yes, we use industry-standard SSL encryption and PCI-compliant payment processing. Your financial information is never stored on our servers.</p>
+                            <p>Online card giving is coming soon. For now, please give by Mobile Money, bank transfer or in person. This website does not collect or store any payment details.</p>
                         </div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>Will I receive a giving statement for tax purposes?</span>
+                            <span>Will I receive a receipt for my giving?</span>
                             <i class='bx bx-chevron-down faq-icon'></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Yes, we provide quarterly giving statements and an annual statement in January for the previous year's tax deductions. You can also access your giving history through your online account.</p>
+                            <p>Yes. Receipts are issued at the church office. For Mobile Money or bank transfers, send your details to the secretariat and they will confirm receipt.</p>
                         </div>
                     </div>
                     
@@ -1194,49 +1192,21 @@
                             <i class='bx bx-chevron-down faq-icon'></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Yes, you can set up recurring donations weekly, bi-weekly, or monthly through our online giving platform. You can modify or cancel recurring donations at any time.</p>
+                            <p>Yes. You can set up a standing order with your bank using the bank transfer details above, and change or cancel it with your bank at any time.</p>
                         </div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>What percentage goes to administrative costs?</span>
+                            <span>Can I give goods or other non-cash gifts?</span>
                             <i class='bx bx-chevron-down faq-icon'></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Less than 5% of donations cover payment processing fees and administrative costs. 95% of every dollar goes directly to ministry work.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Can I give stocks or other assets?</span>
-                            <i class='bx bx-chevron-down faq-icon'></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, we accept stock donations and other non-cash gifts. Please contact our finance office at (555) 123-4567 ext. 202 for assistance with asset donations.</p>
+                            <p>Yes. Please contact the church secretariat on +260 977 441 240 or apchsecretariat@gmail.com to arrange non-cash gifts.</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Security Badge -->
-                <div class="security-badge">
-                    <h4 style="color: var(--dark-blue); margin-bottom: 1rem;">Your Security is Our Priority</h4>
-                    <div class="security-icons">
-                        <div>
-                            <i class='bx bx-lock-alt security-icon'></i>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">256-bit SSL Encryption</p>
-                        </div>
-                        <div>
-                            <i class='bx bx-shield security-icon'></i>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">PCI DSS Compliant</p>
-                        </div>
-                        <div>
-                            <i class='bx bx-check-shield security-icon'></i>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Secure Payment Processing</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -1245,7 +1215,6 @@
     <footer class="main-footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
                 <div class="footer-section" id="contact">
                     <h3>Contact Us</h3>
                     <address>
@@ -1262,8 +1231,6 @@
                         <li><a href="index.html#sermons">Sermons & Teachings</a></li>
                         <li><a href="index.html#events">Events Calendar</a></li>
                         <li><a href="news.html">Latest News</a></li>
-                        <li><a href="#tax-documents">Tax Documents</a></li>
-                        <li><a href="#giving-history">View Giving History</a></li>
                         <li><a href="digitLibrary.html">Digital Library</a></li>
                     </ul>
                 </div>
@@ -1289,7 +1256,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 The Apostles' Church. All rights reserved. The Apostles' Church is a 501(c)(3) nonprofit organization. Donations are tax-deductible as allowed by law.</p>
+                <p>&copy; 2025 The Apostles' Church. All rights reserved.</p>
                 <p class="mb-0">
                     <a href="#privacy" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a> | 
                     <a href="#terms" style="color: rgba(255, 255, 255, 0.7);">Terms of Use</a> | 
@@ -1407,109 +1374,12 @@
             });
             
             // Giving Form Submission
+            // No payment provider is connected yet, so the form must never submit or pretend to process a payment.
             const givingForm = document.getElementById('online-giving-form');
             if (givingForm) {
                 givingForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    
-                    // Get form data
-                    const amount = customAmountInput ? customAmountInput.value : '100';
-                    const frequency = document.querySelector('.amount-option[data-frequency].active')?.getAttribute('data-frequency') || 'one-time';
-                    const fund = document.querySelector('.fund-option.active')?.getAttribute('data-fund') || 'general';
-                    
-                    // Show processing modal
-                    showProcessingModal(amount, frequency, fund);
                 });
-            }
-            
-            function showProcessingModal(amount, frequency, fund) {
-                // Create modal
-                const modal = document.createElement('div');
-                modal.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.8);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 2000;
-                    opacity: 0;
-                    animation: fadeIn 0.3s ease forwards;
-                `;
-                
-                modal.innerHTML = `
-                    <div style="
-                        background: white;
-                        border-radius: 12px;
-                        padding: 3rem;
-                        max-width: 500px;
-                        width: 90%;
-                        text-align: center;
-                        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-                        animation: slideUp 0.3s ease forwards;
-                    ">
-                        <div style="font-size: 4rem; color: var(--primary-green); margin-bottom: 1rem;">
-                            <i class='bx bx-check-circle'></i>
-                        </div>
-                        <h3 style="margin-bottom: 1rem; color: var(--dark-blue);">Thank You for Your Generosity!</h3>
-                        <p style="margin-bottom: 1.5rem; line-height: 1.6;">
-                            Your ${frequency} gift of $${amount} to the ${getFundName(fund)} has been processed successfully.
-                            A confirmation email has been sent to your inbox.
-                        </p>
-                        <p style="margin-bottom: 2rem; font-style: italic; color: var(--primary-green);">
-                            "God loves a cheerful giver." - 2 Corinthians 9:7
-                        </p>
-                        <button id="close-modal" style="
-                            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-                            color: white;
-                            border: none;
-                            padding: 0.75rem 2rem;
-                            border-radius: 8px;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: var(--transition);
-                        ">
-                            Continue
-                        </button>
-                    </div>
-                `;
-                
-                document.body.appendChild(modal);
-                
-                // Add animation styles
-                const style = document.createElement('style');
-                style.textContent = `
-                    @keyframes fadeIn {
-                        to { opacity: 1; }
-                    }
-                    @keyframes slideUp {
-                        from { transform: translateY(20px); opacity: 0; }
-                        to { transform: translateY(0); opacity: 1; }
-                    }
-                `;
-                document.head.appendChild(style);
-                
-                // Close modal
-                setTimeout(() => {
-                    const closeBtn = document.getElementById('close-modal');
-                    if (closeBtn) {
-                        closeBtn.addEventListener('click', () => {
-                            modal.style.animation = 'fadeOut 0.3s ease forwards';
-                            setTimeout(() => {
-                                document.body.removeChild(modal);
-                                // Reset form
-                                if (givingForm) givingForm.reset();
-                                amountOptions[2].classList.add('active'); // Reset to $100
-                                fundOptions[0].classList.add('active'); // Reset to General Fund
-                                frequencyOptions[0].classList.add('active'); // Reset to One-Time
-                                paymentOptions[0].classList.add('active'); // Reset to Card
-                            }, 300);
-                        });
-                    }
-                }, 100);
             }
             
             function getFundName(fund) {

@@ -2858,8 +2858,8 @@
                     </div>
                     <div class="mt-4">
                         <h4>Subscribe to Our Newsletter</h4>
-                        <form class="d-flex gap-2" style="max-width: 300px;">
-                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription">
+                        <form class="d-flex gap-2" style="max-width: 300px;" data-newsletter>
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription" required>
                             <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
                     </div>
@@ -3169,22 +3169,6 @@
             });
         }
         
-        // Form validation for newsletter
-        const newsletterForm = document.querySelector('form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                
-                if (emailInput.value && emailInput.checkValidity()) {
-                    // In a real application, you would submit to a server here
-                    alert('Thank you for subscribing to our newsletter!');
-                    emailInput.value = '';
-                } else {
-                    emailInput.focus();
-                }
-            });
-        }
         
         // Add focus styles for keyboard navigation
         document.addEventListener('keyup', function(e) {
@@ -3207,7 +3191,6 @@
         
         // Check if elements exist
         if (floatingNavBtn && floatingNavMenu) {
-            console.log('Circular floating nav elements found');
             
             // Toggle circular nav menu
             floatingNavBtn.addEventListener('click', function(e) {
@@ -3216,7 +3199,6 @@
                 this.classList.toggle('active');
                 const isExpanded = floatingNavMenu.classList.contains('active');
                 this.setAttribute('aria-expanded', isExpanded);
-                console.log('Circular nav toggled, expanded:', isExpanded);
             });
             
             // Close menu when clicking outside
@@ -3265,10 +3247,6 @@
                     }
                 });
             });
-        } else {
-            console.log('Circular floating nav elements NOT found');
-            console.log('floatingNavBtn:', floatingNavBtn);
-            console.log('floatingNavMenu:', floatingNavMenu);
         }
         
         // Active section detection
@@ -3326,7 +3304,6 @@
         // Initialize on load
         setTimeout(updateActiveSection, 100);
         
-        console.log('Circular floating navigation script loaded');
 
     });
 </script>
@@ -3385,5 +3362,6 @@
     <!-- Site search -->
     <script src="assets/js/search-index.js" defer></script>
     <script src="assets/js/site-search.js" defer></script>
+    <script src="assets/js/newsletter.js" defer></script>
 </body>
 </html>
