@@ -28,6 +28,7 @@ const CATEGORY_RULES = [
     [/^digitLibrary/i, 'Digital Library'],
     [/^giving/i, 'Giving'],
     [/^news/i, 'News'],
+    [/^music/i, 'Music'],
     [/^store/i, 'Store'],
 ];
 

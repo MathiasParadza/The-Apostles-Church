@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - The Apostles' Church</title>
+    <meta name="description" content="Music at The Apostles' Church: choir hymnals, congregational hymnals and our musicians.">
+    <meta property="og:title" content="Music - The Apostles' Church">
+    <meta property="og:description" content="Music at The Apostles' Church: choir hymnals, congregational hymnals and our musicians.">
+    <meta property="og:image" content="https://apostleschurch.org/temple.jpeg">
+    <meta property="og:url" content="https://apostleschurch.org/music.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="APCH.png">
+    <link rel="apple-touch-icon" href="APCH.png">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #2c7a3e;
+            --secondary-green: #40ae49;
+            --accent-gold: #fc9d1f;
+            --dark-blue: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --text-dark: #333333;
+            --text-muted: #5b6670;
+            --text-light: #ffffff;
+            --tint-green: #eef6ef;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+            --reading-width: 760px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* ---------- Header (same look as the other pages) ---------- */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-right: auto;
+        }
+
+        .church-logo {
+            height: 90px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .church-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--text-light);
+            font-size: 1.6rem;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* ---------- Breadcrumb ---------- */
+        .breadcrumb-nav {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            padding: 0.85rem 0;
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--text-light);
+        }
+
+        .breadcrumb-item.active,
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* ---------- Hero ---------- */
+        .name-hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(64, 174, 73, 0.35) 0, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(252, 157, 31, 0.18) 0, transparent 40%),
+                linear-gradient(135deg, #1f5a2d 0%, var(--primary-green) 55%, #23653a 100%);
+            color: var(--text-light);
+            padding: 5rem 0 4.5rem;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .page-title {
+            font-size: clamp(2.1rem, 5vw, 3.4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .hero-verse {
+            max-width: 680px;
+            margin: 0 auto;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+            font-style: italic;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .hero-verse cite {
+            display: block;
+            margin-top: 0.75rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.95rem;
+            font-style: normal;
+            font-weight: 500;
+            color: var(--accent-gold);
+        }
+
+        /* ---------- On-this-page navigation ---------- */
+        .page-toc {
+            background: #ffffff;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .page-toc ul {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            margin: 0 auto;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            justify-content: center;
+        }
+
+        .page-toc ul::-webkit-scrollbar {
+            display: none;
+        }
+
+        .page-toc a {
+            display: inline-block;
+            white-space: nowrap;
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--medium-gray);
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .page-toc a:hover,
+        .page-toc a:focus-visible {
+            border-color: var(--primary-green);
+            background: var(--tint-green);
+            color: var(--primary-green);
+        }
+
+        /* ---------- Sections ---------- */
+        .name-section {
+            padding: 4.5rem 0;
+            scroll-margin-top: 110px;
+        }
+
+        .name-section.alt {
+            background: var(--light-gray);
+        }
+
+        .section-head {
+            max-width: var(--reading-width);
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--tint-green);
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .name-section.alt .section-number {
+            background: #ffffff;
+        }
+
+        .section-title {
+            color: var(--dark-blue);
+            font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+            margin: 0;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            margin: 1rem auto 0;
+            border-radius: 3px;
+            background: var(--accent-gold);
+        }
+
+        .prose {
+            max-width: var(--reading-width);
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.85;
+        }
+
+        .prose p {
+            margin-bottom: 1.4rem;
+        }
+
+        .prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Scripture quotations */
+        .scripture {
+            margin: 2rem 0;
+            padding: 1.5rem 1.75rem 1.5rem 3.5rem;
+            position: relative;
+            background: var(--tint-green);
+            border-left: 4px solid var(--primary-green);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .name-section.alt .scripture {
+            background: #ffffff;
+        }
+
+        .scripture::before {
+            content: '\201C';
+            position: absolute;
+            top: 0.4rem;
+            left: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1;
+            color: rgba(44, 122, 62, 0.35);
+        }
+
+        .scripture blockquote {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--dark-blue);
+        }
+
+        .scripture figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        /* Card grids */
+        .card-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2.5rem auto 0;
+        }
+
+        .card-grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1080px;
+        }
+
+        .card-grid.cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .info-card {
+            background: #ffffff;
+            border: 1px solid var(--medium-gray);
+            border-radius: 12px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: rgba(44, 122, 62, 0.4);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--dark-blue);
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        .info-card .ref {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        /* Key principle callout */
+        .key-principle {
+            max-width: var(--reading-width);
+            margin: 2.5rem auto 0;
+            display: flex;
+            gap: 1.25rem;
+            padding: 1.75rem;
+            border-radius: 12px;
+            background: #fff8ec;
+            border: 1px solid #f6d9a8;
+        }
+
+        .key-principle i {
+            flex-shrink: 0;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .key-principle h3 {
+            font-size: 1.15rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.4rem;
+        }
+
+        .key-principle p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        /* Linked cards */
+        .info-card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .info-card-link:hover,
+        .info-card-link:focus-visible {
+            color: inherit;
+        }
+
+        /* Coming soon notice */
+        .coming-soon {
+            max-width: var(--reading-width);
+            margin: 2rem auto 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem 1.75rem;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px dashed rgba(44, 122, 62, 0.45);
+        }
+
+        .name-section:not(.alt) .coming-soon {
+            background: var(--tint-green);
+        }
+
+        .coming-soon i {
+            flex-shrink: 0;
+            font-size: 1.9rem;
+            line-height: 1;
+            color: var(--primary-green);
+        }
+
+        .coming-soon h3 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .coming-soon p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* ---------- Call to action ---------- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 4.5rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button,
+        .cta-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.95rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
+            color: var(--dark-blue);
+            box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
+        }
+
+        .cta-button:hover {
+            color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+        }
+
+        .cta-outline {
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            color: var(--text-light);
+        }
+
+        .cta-outline:hover {
+            background: var(--text-light);
+            color: var(--dark-blue);
+        }
+
+        /* ---------- Back to top ---------- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(44, 122, 62, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        /* ---------- Footer (same look as the other pages) ---------- */
+        .main-footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.05rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1100px) {
+            .card-grid.cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 760px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .church-logo {
+                height: 64px;
+            }
+
+            .mobile-toggle {
+                display: inline-flex;
+            }
+
+            .nav-menu {
+                display: none;
+                order: 100;
+                flex-basis: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding: 0.5rem 0 0.25rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .nav-menu.open {
+                display: flex;
+            }
+
+            .nav-menu .nav-link {
+                display: block;
+                padding: 0.75rem 0.25rem;
+            }
+
+            .nav-link::after {
+                display: none;
+            }
+
+            .card-grid.cols-3 {
+                grid-template-columns: 1fr;
+                max-width: var(--reading-width);
+            }
+
+            .name-section {
+                scroll-margin-top: 90px;
+            }
+
+            .page-toc ul {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .name-hero {
+                padding: 3.5rem 0 3rem;
+            }
+
+            .name-section {
+                padding: 3.25rem 0;
+            }
+
+            .prose {
+                font-size: 1.05rem;
+                line-height: 1.8;
+            }
+
+            .scripture {
+                padding: 1.25rem 1.25rem 1.25rem 2.75rem;
+            }
+
+            .scripture::before {
+                left: 0.6rem;
+                font-size: 2.75rem;
+            }
+
+            .scripture blockquote {
+                font-size: 1.05rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .church-logo {
+                height: 54px;
+            }
+
+            .card-grid.cols-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .key-principle {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1.5rem;
+            }
+
+            .cta-button,
+            .cta-outline {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+    <!-- Site search -->
+    <link rel="stylesheet" href="assets/css/site-search.css">
+</head>
+<body id="top">
+    <!-- Header - Matching Main Page -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <div class="logo-container">
+                    <a href="index.html" aria-label="The Apostles' Church home">
+                        <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
+                    </a>
+                </div>
+
+                <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainMenu">
+                    <i class='bx bx-menu' aria-hidden="true"></i>
+                </button>
+
+                <ul class="nav-menu" id="mainMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="articles.html" class="nav-link">Articles of Faith</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="music.html" class="nav-link active" aria-current="page">Music</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Music</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="name-hero" aria-labelledby="page-title">
+        <div class="container">
+            <span class="hero-eyebrow">Worship in Song</span>
+            <h1 class="page-title" id="page-title">Music</h1>
+            <p class="hero-verse">
+                "O sing unto the LORD a new song: sing unto the LORD, all the earth."
+                <cite>Psalm 96:1</cite>
+            </p>
+        </div>
+    </section>
+
+    <!-- On this page -->
+    <nav class="page-toc" aria-label="On this page">
+        <div class="container">
+            <ul>
+                <li><a href="#choir-hymnals">Choir Hymnals</a></li>
+                <li><a href="#congregational-hymnals">Congregational Hymnals</a></li>
+                <li><a href="#musicians">Musicians</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Introduction -->
+        <section class="name-section" aria-label="Introduction">
+            <div class="container">
+                <div class="prose">
+                    <p>Music is part of how we worship. Through hymns, choir songs and instruments we give thanks to God, teach one another and lift our hearts together as one body.</p>
+
+                    <figure class="scripture">
+                        <blockquote>Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.</blockquote>
+                        <figcaption>Colossians 3:16</figcaption>
+                    </figure>
+                </div>
+
+                <div class="card-grid cols-3">
+                    <a class="info-card info-card-link" href="#choir-hymnals">
+                        <span class="card-icon"><i class='bx bx-music' aria-hidden="true"></i></span>
+                        <h3>Choir Hymnals</h3>
+                        <p>The hymns and songs sung by our church choirs.</p>
+                    </a>
+                    <a class="info-card info-card-link" href="#congregational-hymnals">
+                        <span class="card-icon"><i class='bx bx-book-heart' aria-hidden="true"></i></span>
+                        <h3>Congregational Hymnals</h3>
+                        <p>The hymns the whole congregation sings together in worship.</p>
+                    </a>
+                    <a class="info-card info-card-link" href="#musicians">
+                        <span class="card-icon"><i class='bx bx-microphone' aria-hidden="true"></i></span>
+                        <h3>Musicians</h3>
+                        <p>The singers and instrumentalists who serve in our music ministry.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Choir Hymnals -->
+        <section id="choir-hymnals" class="name-section alt" aria-labelledby="choir-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-number"><i class='bx bx-music' aria-hidden="true"></i></span>
+                    <h2 class="section-title" id="choir-title">Choir Hymnals</h2>
+                </div>
+                <div class="prose">
+                    <p>Our choirs lead the church in song during services, conferences and special occasions. This section will hold the choir hymnals, with the words of each hymn so that choir members can learn and practise them.</p>
+                </div>
+                <div class="coming-soon">
+                    <i class='bx bx-time-five' aria-hidden="true"></i>
+                    <div>
+                        <h3>Coming soon</h3>
+                        <p>The choir hymnals are being prepared and will be added here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Congregational Hymnals -->
+        <section id="congregational-hymnals" class="name-section" aria-labelledby="congregational-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-number"><i class='bx bx-book-heart' aria-hidden="true"></i></span>
+                    <h2 class="section-title" id="congregational-title">Congregational Hymnals</h2>
+                </div>
+                <div class="prose">
+                    <p>Congregational hymns are sung by everyone together during worship. This section will hold the congregational hymnals, so that members and visitors can follow along and sing at home.</p>
+                </div>
+                <div class="coming-soon">
+                    <i class='bx bx-time-five' aria-hidden="true"></i>
+                    <div>
+                        <h3>Coming soon</h3>
+                        <p>The congregational hymnals are being prepared and will be added here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Musicians -->
+        <section id="musicians" class="name-section alt" aria-labelledby="musicians-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-number"><i class='bx bx-microphone' aria-hidden="true"></i></span>
+                    <h2 class="section-title" id="musicians-title">Musicians</h2>
+                </div>
+                <div class="prose">
+                    <p>Our musicians, singers and instrumentalists, serve God and the church with the gifts He has given them. This section will introduce the people who serve in our music ministry.</p>
+                </div>
+                <div class="coming-soon">
+                    <i class='bx bx-time-five' aria-hidden="true"></i>
+                    <div>
+                        <h3>Coming soon</h3>
+                        <p>Profiles of our musicians will be added here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 class="cta-title" id="cta-title">Serve in the Music Ministry</h2>
+                <p class="cta-text">Do you sing or play an instrument? Contact the church secretariat to find out how you can serve.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:apchsecretariat@gmail.com?subject=Music%20ministry" class="cta-button">
+                        <i class='bx bx-envelope' aria-hidden="true"></i> Contact Us
+                    </a>
+                    <a href="communityActivities.html" class="cta-outline">
+                        <i class='bx bx-calendar' aria-hidden="true"></i> Church Activities
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class='bx bx-chevron-up' aria-hidden="true"></i>
+    </a>
+
+    <!-- Footer - Matching Main Page -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class='bx bx-map' style="margin-right: 10px;"></i> CH80/01 OFF ZAMBEZI ROAD, LUSAKA</p>
+                        <p><i class='bx bx-phone' style="margin-right: 10px;"></i> +260 977 441 240</p>
+                        <p><i class='bx bx-envelope' style="margin-right: 10px;"></i> apchsecretariat@gmail.com</p>
+                    </address>
+                    <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Music</h3>
+                    <ul class="footer-links">
+                        <li><a href="#choir-hymnals">Choir Hymnals</a></li>
+                        <li><a href="#congregational-hymnals">Congregational Hymnals</a></li>
+                        <li><a href="#musicians">Musicians</a></li>
+                        <li><a href="communityActivities.html">Church Activities</a></li>
+                        <li><a href="theName.html">The Name</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" class="social-link" aria-label="Facebook">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="https://www.youtube.com" class="social-link" aria-label="YouTube">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Weekly Bible Study</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Wednesdays: 7:00 PM - 8:30 PM</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Focus: Apostolic Foundations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 The Apostles' Church. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="privacy.html" style="color: rgba(255, 255, 255, 0.7);">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu
+            var toggle = document.getElementById('menuToggle');
+            var menu = document.getElementById('mainMenu');
+
+            function setMenu(open) {
+                menu.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                toggle.querySelector('i').className = open ? 'bx bx-x' : 'bx bx-menu';
+            }
+
+            toggle.addEventListener('click', function () {
+                setMenu(!menu.classList.contains('open'));
+            });
+
+            menu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () { setMenu(false); });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && menu.classList.contains('open')) {
+                    setMenu(false);
+                    toggle.focus();
+                }
+            });
+
+            // Back to top button
+            var backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function () {
+                backToTop.classList.toggle('visible', window.pageYOffset > 300);
+            }, { passive: true });
+        });
+    </script>
+    <!-- Site search -->
+    <script src="assets/js/search-index.js" defer></script>
+    <script src="assets/js/site-search.js" defer></script>
+</body>
+</html>
