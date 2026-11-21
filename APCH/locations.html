@@ -605,6 +605,48 @@
             color: inherit;
         }
 
+        .location-schedule {
+            margin: -0.5rem 0 1.5rem;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            background: var(--tint-green);
+        }
+
+        .location-schedule h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 1rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .location-schedule h4 i {
+            color: var(--primary-green);
+        }
+
+        .location-schedule dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.45rem 1.25rem;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .location-schedule dt {
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .location-schedule dd {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .location-schedule .time {
+            white-space: nowrap;
+        }
+
         .location-actions {
             display: flex;
             flex-wrap: wrap;
@@ -1029,7 +1071,19 @@
                             <ul class="location-details">
                                 <li><i class='bx bx-map' aria-hidden="true"></i> Chinyunyu, Lusaka Province, Zambia</li>
                                 <li><i class='bx bx-current-location' aria-hidden="true"></i> Plus Code: PXQW+WG3</li>
+                                <li><i class='bx bx-door-open' aria-hidden="true"></i> Open to visitors every day</li>
                             </ul>
+                            <div class="location-schedule">
+                                <h4><i class='bx bx-time-five' aria-hidden="true"></i> Service times</h4>
+                                <dl>
+                                    <dt>Hosanna</dt>
+                                    <dd>Every morning, <span class="time">06:00</span></dd>
+                                    <dt>Sunday Service</dt>
+                                    <dd>Sunday, <span class="time">10:00 - 12:30</span></dd>
+                                    <dt>Choir Practice</dt>
+                                    <dd>Wednesday, <span class="time">15:00 - 17:00</span><br>Saturday, <span class="time">14:00 - 16:00</span></dd>
+                                </dl>
+                            </div>
                             <div class="location-actions">
                                 <a class="btn-directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=PXQW%2BWG3%20Chinyunyu%2C%20Zambia" target="_blank" rel="noopener">
                                     <i class='bx bx-directions' aria-hidden="true"></i> Get directions
