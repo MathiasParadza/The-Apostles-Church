@@ -944,7 +944,7 @@
                 <p style="max-width: 600px; margin: 0 auto 1rem; opacity: 0.9;">
                     Subscribe to our weekly newsletter to receive the latest news, sermon notes, and event updates directly in your inbox.
                 </p>
-                <form class="newsletter-form" id="newsletter-form">
+                <form class="newsletter-form" id="newsletter-form" data-newsletter>
                     <div class="form-group">
                         <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address for newsletter" required>
                         <button type="submit" class="subscribe-btn">Subscribe</button>
@@ -1075,31 +1075,6 @@
                 });
             });
             
-            // Newsletter Form Submission
-            const newsletterForm = document.getElementById('newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const emailInput = this.querySelector('input[type="email"]');
-                    const consentCheckbox = this.querySelector('#privacy-consent');
-                    
-                    if (emailInput.value && emailInput.checkValidity() && consentCheckbox.checked) {
-                        // Simulate form submission
-                        emailInput.value = '';
-                        consentCheckbox.checked = false;
-                        
-                        // Show success message
-                        alert('Thank you for subscribing to our newsletter! You will receive a confirmation email shortly.');
-                    } else {
-                        if (!consentCheckbox.checked) {
-                            alert('Please agree to receive emails from us.');
-                            consentCheckbox.focus();
-                        } else {
-                            emailInput.focus();
-                        }
-                    }
-                });
-            }
             
             // Event Registration Buttons
             const registerButtons = document.querySelectorAll('.register-btn');
@@ -1188,5 +1163,6 @@
     <!-- Site search -->
     <script src="assets/js/search-index.js" defer></script>
     <script src="assets/js/site-search.js" defer></script>
+    <script src="assets/js/newsletter.js" defer></script>
 </body>
 </html>

@@ -670,7 +670,7 @@
                         <a href="index.html" class="nav-link" role="menuitem">Home</a>
                     </li>
                     <li class="nav-item" role="none">
-                        <a href="library.html" class="nav-link active" role="menuitem">
+                        <a href="digitLibrary.html" class="nav-link active" role="menuitem">
                             <i class='bx bx-book'></i> Digital Library
                         </a>
                     </li>
@@ -1022,7 +1022,7 @@
                     <h2 id="newsletter-title">Stay Updated</h2>
                     <p>Subscribe to our newsletter to receive weekly updates on new resources, featured content, and spiritual insights.</p>
                     
-                    <form class="newsletter-form" aria-label="Newsletter subscription">
+                    <form class="newsletter-form" aria-label="Newsletter subscription" data-newsletter>
                         <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
                         <button type="submit" class="newsletter-btn">Subscribe</button>
                     </form>
@@ -1215,22 +1215,6 @@
                 });
             });
             
-            // Newsletter form submission
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const emailInput = this.querySelector('input[type="email"]');
-                    
-                    if (emailInput.value && emailInput.checkValidity()) {
-                        // In a real application, you would submit to a server here
-                        alert('Thank you for subscribing to our newsletter!');
-                        emailInput.value = '';
-                    } else {
-                        emailInput.focus();
-                    }
-                });
-            }
             
             // Lazy loading for images
             if ('IntersectionObserver' in window) {
@@ -1253,5 +1237,6 @@
     <!-- Site search -->
     <script src="assets/js/search-index.js" defer></script>
     <script src="assets/js/site-search.js" defer></script>
+    <script src="assets/js/newsletter.js" defer></script>
 </body>
 </html>

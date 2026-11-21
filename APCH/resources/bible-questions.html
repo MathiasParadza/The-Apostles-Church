@@ -574,7 +574,7 @@
             <nav class="main-nav" aria-label="Main Navigation">
                 <div class="logo-container">
                     <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
-                    <a href="index.html" class="logo-text">The Apostles' Church</a>
+                    <a href="../index.html" class="logo-text">The Apostles' Church</a>
                 </div>
                 
                 <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -645,7 +645,7 @@
             <article class="article-content">
                 <header class="article-header">
                     <nav class="breadcrumb">
-                        <a href="resources.html">Resources</a> &gt; 
+                        <a href="../resources.html">Resources</a> &gt; 
                         <span>Bible Questions Answered</span>
                     </nav>
                     
@@ -691,7 +691,7 @@
                 <div class="cta-section" style="text-align: center; padding: 3rem; background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%); border-radius: 12px; margin-top: 2rem;">
                     <h3 style="color: var(--dark-blue); margin-bottom: 1rem;">Have More Questions?</h3>
                     <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">We'd love to help you find biblical answers to your questions.</p>
-                    <a href="/contact.html" class="cta-button">Contact Us</a>
+                    <a href="#contact" class="cta-button">Contact Us</a>
                 </div>
             </article>
         </div>
@@ -718,7 +718,7 @@
                         <li><a href="#events">Events Calendar</a></li>
                         <li><a href="#ministries">Ministries</a></li>
                         <li><a href="#prayer-requests">Prayer Requests</a></li>
-                        <li><a href="giving.html">Online Giving</a></li>
+                        <li><a href="../giving.html">Online Giving</a></li>
                         <li><a href="#volunteer">Volunteer Opportunities</a></li>
                     </ul>
                 </div>
@@ -748,8 +748,8 @@
                     </div>
                     <div class="mt-4">
                         <h4>Subscribe to Our Newsletter</h4>
-                        <form class="d-flex gap-2" style="max-width: 300px;">
-                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription">
+                        <form class="d-flex gap-2" style="max-width: 300px;" data-newsletter>
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Email for newsletter subscription" required>
                             <button type="submit" class="btn btn-primary">Subscribe</button>
                         </form>
                     </div>
@@ -844,22 +844,6 @@
             });
         });
         
-        // Form validation for newsletter
-        const newsletterForm = document.querySelector('form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                
-                if (emailInput.value && emailInput.checkValidity()) {
-                    // In a real application, you would submit to a server here
-                    alert('Thank you for subscribing to our newsletter!');
-                    emailInput.value = '';
-                } else {
-                    emailInput.focus();
-                }
-            });
-        }
         
         // Add focus styles for keyboard navigation
         document.addEventListener('keyup', function(e) {
@@ -876,5 +860,6 @@
     <!-- Site search -->
     <script src="../assets/js/search-index.js" defer></script>
     <script src="../assets/js/site-search.js" defer></script>
+    <script src="../assets/js/newsletter.js" defer></script>
 </body>
 </html>
