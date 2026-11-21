@@ -13,16 +13,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="APCH.png">
     <link rel="apple-touch-icon" href="APCH.png">
-
+    
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    
     <style>
         :root {
             --primary-green: #2c7a3e;
@@ -32,13 +32,9 @@
             --light-gray: #f8f9fa;
             --medium-gray: #e9ecef;
             --text-dark: #333333;
-            --text-muted: #5b6670;
             --text-light: #ffffff;
-            --tint-green: #eef6ef;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.06);
             --transition: all 0.3s ease;
-            --reading-width: 760px;
         }
 
         * {
@@ -47,15 +43,11 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: #ffffff;
+            background-color: #f5f9f5;
             overflow-x: hidden;
         }
 
@@ -64,7 +56,7 @@
             font-weight: 700;
         }
 
-        /* ---------- Header (same look as the other pages) ---------- */
+        /* Header Styles - Matching Main Page */
         .main-header {
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
             color: var(--text-light);
@@ -75,19 +67,10 @@
             box-shadow: var(--shadow);
         }
 
-        .main-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
         .logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-right: auto;
         }
 
         .church-logo {
@@ -98,6 +81,20 @@
 
         .church-logo:hover {
             transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation - Matching Main Page */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .nav-menu {
@@ -129,34 +126,19 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-link:hover {
             color: var(--accent-gold);
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
+        .nav-link:hover::after {
             width: 100%;
         }
 
-        .mobile-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.12);
-            color: var(--text-light);
-            font-size: 1.6rem;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        /* ---------- Breadcrumb ---------- */
+        /* Breadcrumb Navigation */
         .breadcrumb-nav {
             background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
-            padding: 0.85rem 0;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
         }
 
         .breadcrumb {
@@ -174,319 +156,274 @@
             color: var(--text-light);
         }
 
-        .breadcrumb-item.active,
-        .breadcrumb-item + .breadcrumb-item::before {
-            color: rgba(255, 255, 255, 0.75);
-        }
-
-        /* ---------- Hero ---------- */
-        .name-hero {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(64, 174, 73, 0.35) 0, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(252, 157, 31, 0.18) 0, transparent 40%),
-                linear-gradient(135deg, #1f5a2d 0%, var(--primary-green) 55%, #23653a 100%);
+        .breadcrumb-item.active {
             color: var(--text-light);
-            padding: 5rem 0 4.5rem;
-            text-align: center;
+            opacity: 0.8;
         }
 
-        .hero-eyebrow {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
+        /* Hero Banner */
+        .name-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1520106212299-d99c443e4568?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        center/cover no-repeat;
+            color: var(--text-light);
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
         .page-title {
-            font-size: clamp(2.1rem, 5vw, 3.4rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.15;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-verse {
-            max-width: 680px;
+        .page-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
             margin: 0 auto;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+            opacity: 0.9;
             font-style: italic;
-            line-height: 1.6;
-            opacity: 0.95;
         }
 
-        .hero-verse cite {
-            display: block;
-            margin-top: 0.75rem;
-            font-family: 'Roboto', sans-serif;
-            font-size: 0.95rem;
-            font-style: normal;
-            font-weight: 500;
-            color: var(--accent-gold);
+        /* Main Content Container */
+        .name-container {
+            padding: 3rem 0;
         }
 
-        /* ---------- On-this-page navigation ---------- */
-        .page-toc {
-            background: #ffffff;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .page-toc ul {
-            display: flex;
-            gap: 0.5rem;
-            list-style: none;
-            margin: 0 auto;
-            padding: 1rem 0;
-            overflow-x: auto;
-            scrollbar-width: none;
-            justify-content: center;
-        }
-
-        .page-toc ul::-webkit-scrollbar {
-            display: none;
-        }
-
-        .page-toc a {
-            display: inline-block;
-            white-space: nowrap;
-            padding: 0.45rem 1rem;
-            border-radius: 50px;
-            border: 1px solid var(--medium-gray);
-            color: var(--dark-blue);
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
+        /* Content Card */
+        .content-card {
+            background: var(--text-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-green);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
         }
 
-        .page-toc a:hover,
-        .page-toc a:focus-visible {
-            border-color: var(--primary-green);
-            background: var(--tint-green);
-            color: var(--primary-green);
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
 
-        /* ---------- Sections ---------- */
-        .name-section {
-            padding: 4.5rem 0;
-            scroll-margin-top: 110px;
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-green), var(--secondary-green));
         }
 
-        .name-section.alt {
-            background: var(--light-gray);
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--medium-gray);
         }
 
-        .section-head {
-            max-width: var(--reading-width);
-            margin: 0 auto 2rem;
-            text-align: center;
-        }
-
-        .section-number {
-            display: inline-flex;
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: var(--tint-green);
-            color: var(--primary-green);
+            color: var(--text-light);
             font-size: 1.5rem;
-            margin-bottom: 1rem;
         }
 
-        .name-section.alt .section-number {
-            background: #ffffff;
-        }
-
-        .section-title {
+        .card-title {
             color: var(--dark-blue);
-            font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+            font-size: 2.5rem;
             margin: 0;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            margin: 1rem auto 0;
-            border-radius: 3px;
-            background: var(--accent-gold);
-        }
-
-        .prose {
-            max-width: var(--reading-width);
-            margin: 0 auto;
+        /* Card Content */
+        .card-content {
+            color: var(--text-dark);
+            line-height: 1.8;
             font-size: 1.1rem;
-            line-height: 1.85;
         }
 
-        .prose p {
-            margin-bottom: 1.4rem;
+        .card-content p {
+            margin-bottom: 1.5rem;
         }
 
-        .prose p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Scripture quotations */
-        .scripture {
-            margin: 2rem 0;
-            padding: 1.5rem 1.75rem 1.5rem 3.5rem;
-            position: relative;
-            background: var(--tint-green);
+        /* Scripture Box */
+        .scripture-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
             border-left: 4px solid var(--primary-green);
-            border-radius: 0 10px 10px 0;
-        }
-
-        .name-section.alt .scripture {
-            background: #ffffff;
-        }
-
-        .scripture::before {
-            content: '\201C';
-            position: absolute;
-            top: 0.4rem;
-            left: 1rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            line-height: 1;
-            color: rgba(44, 122, 62, 0.35);
-        }
-
-        .scripture blockquote {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            font-style: italic;
-            line-height: 1.7;
             color: var(--dark-blue);
+            position: relative;
         }
 
-        .scripture figcaption {
-            margin-top: 0.75rem;
-            font-size: 0.95rem;
+        .scripture-box::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(44, 122, 62, 0.2);
+        }
+
+        .scripture-text {
+            font-style: italic;
+            padding-left: 1.5rem;
+        }
+
+        .scripture-reference {
+            display: block;
+            margin-top: 0.5rem;
             font-weight: 600;
             color: var(--primary-green);
+            text-align: right;
+            font-style: normal;
         }
 
-        /* Card grids */
-        .card-grid {
+        /* Key Points */
+        .key-points {
             display: grid;
-            gap: 1.5rem;
-            margin: 2.5rem auto 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .card-grid.cols-3 {
-            grid-template-columns: repeat(3, 1fr);
-            max-width: 1080px;
+        .point-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
 
-        .card-grid.cols-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .info-card {
-            background: #ffffff;
-            border: 1px solid var(--medium-gray);
-            border-radius: 12px;
-            padding: 1.75rem 1.5rem;
-            box-shadow: var(--shadow-soft);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .info-card:hover {
-            border-color: rgba(44, 122, 62, 0.4);
+        .point-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
             box-shadow: var(--shadow);
         }
 
-        .info-card .card-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            color: var(--text-light);
-            font-size: 1.5rem;
+        .point-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
             margin-bottom: 1rem;
         }
 
-        .info-card h3 {
+        .point-title {
             color: var(--dark-blue);
-            font-size: 1.25rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .info-card p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            line-height: 1.65;
-        }
-
-        .info-card .ref {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            color: var(--primary-green);
         }
 
-        /* Key principle callout */
-        .key-principle {
-            max-width: var(--reading-width);
-            margin: 2.5rem auto 0;
-            display: flex;
-            gap: 1.25rem;
-            padding: 1.75rem;
+        .point-description {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Biblical Significance Section */
+        .significance-section {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            padding: 3rem;
             border-radius: 12px;
-            background: #fff8ec;
-            border: 1px solid #f6d9a8;
+            margin: 3rem 0;
         }
 
-        .key-principle i {
-            flex-shrink: 0;
-            font-size: 2rem;
-            color: var(--accent-gold);
-            line-height: 1;
+        .significance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .key-principle h3 {
-            font-size: 1.15rem;
+        .significance-item {
+            background: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .significance-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .significance-title {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Apostolic Ministry Grid */
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ministry-card {
+            background: linear-gradient(135deg, #e9f7ef 0%, #d4edda 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .ministry-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .ministry-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .ministry-title {
             color: var(--dark-blue);
-            margin-bottom: 0.4rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
-        .key-principle p {
-            margin: 0;
-            font-size: 1.05rem;
-            line-height: 1.75;
+        .ministry-description {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        /* ---------- Call to action ---------- */
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
             color: var(--text-light);
-            padding: 4.5rem 0;
+            padding: 4rem 0;
             text-align: center;
+            border-radius: 12px;
+            margin: 4rem 0;
         }
 
         .cta-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 1rem;
-        }
-
-        .cta-text {
-            max-width: 640px;
-            margin: 0 auto;
-            font-size: 1.15rem;
-            opacity: 0.9;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .cta-buttons {
@@ -497,43 +434,42 @@
             margin-top: 2rem;
         }
 
-        .cta-button,
-        .cta-outline {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.95rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
         .cta-button {
             background: linear-gradient(135deg, var(--accent-gold) 0%, #ffb347 100%);
             color: var(--dark-blue);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             box-shadow: 0 4px 15px rgba(252, 157, 31, 0.3);
         }
 
         .cta-button:hover {
-            color: var(--dark-blue);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(252, 157, 31, 0.4);
+            background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
         }
 
-        .cta-outline {
-            border: 2px solid rgba(255, 255, 255, 0.85);
+        .btn-outline-light {
+            border: 2px solid var(--text-light);
             color: var(--text-light);
+            background: transparent;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: var(--transition);
         }
 
-        .cta-outline:hover {
+        .btn-outline-light:hover {
             background: var(--text-light);
             color: var(--dark-blue);
         }
 
-        /* ---------- Back to top ---------- */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -561,16 +497,17 @@
         }
 
         .back-to-top:hover {
-            color: var(--text-light);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            box-shadow: 0 6px 20px rgba(44, 122, 62, 0.4);
         }
 
-        /* ---------- Footer (same look as the other pages) ---------- */
+        /* Footer - Matching Main Page */
         .main-footer {
             background: linear-gradient(135deg, var(--dark-blue) 0%, #1a2530 100%);
             color: var(--text-light);
             padding: 3rem 0 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 4rem;
         }
 
         .footer-content {
@@ -584,10 +521,6 @@
             color: var(--accent-gold);
             margin-bottom: 1.5rem;
             font-size: 1.25rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.05rem;
         }
 
         .footer-links {
@@ -643,87 +576,56 @@
             font-size: 0.9rem;
         }
 
-        /* ---------- Responsive ---------- */
-        @media (max-width: 1100px) {
-            .card-grid.cols-4 {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 760px;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .church-logo {
-                height: 64px;
+            .page-title {
+                font-size: 2.5rem;
             }
-
-            .mobile-toggle {
-                display: inline-flex;
+            
+            .content-card {
+                padding: 2rem;
             }
-
-            .nav-menu {
-                display: none;
-                order: 100;
-                flex-basis: 100%;
-                flex-direction: column;
-                gap: 0;
-                padding: 0.5rem 0 0.25rem;
-                border-top: 1px solid rgba(255, 255, 255, 0.2);
+            
+            .card-title {
+                font-size: 2rem;
             }
-
-            .nav-menu.open {
-                display: flex;
-            }
-
-            .nav-menu .nav-link {
-                display: block;
-                padding: 0.75rem 0.25rem;
-            }
-
-            .nav-link::after {
-                display: none;
-            }
-
-            .card-grid.cols-3 {
-                grid-template-columns: 1fr;
-                max-width: var(--reading-width);
-            }
-
-            .name-section {
-                scroll-margin-top: 90px;
-            }
-
-            .page-toc ul {
-                justify-content: flex-start;
+            
+            .key-points, .ministry-grid, .significance-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            .name-hero {
-                padding: 3.5rem 0 3rem;
+            .page-title {
+                font-size: 2rem;
             }
-
-            .name-section {
-                padding: 3.25rem 0;
+            
+            .content-card {
+                padding: 1.5rem;
             }
-
-            .prose {
-                font-size: 1.05rem;
-                line-height: 1.8;
+            
+            .card-title {
+                font-size: 1.75rem;
             }
-
-            .scripture {
-                padding: 1.25rem 1.25rem 1.25rem 2.75rem;
+            
+            .key-points, .ministry-grid, .significance-grid {
+                grid-template-columns: 1fr;
             }
-
-            .scripture::before {
-                left: 0.6rem;
-                font-size: 2.75rem;
+            
+            .significance-section {
+                padding: 2rem;
             }
-
-            .scripture blockquote {
-                font-size: 1.05rem;
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
-
+            
+            .cta-button, .btn-outline-light {
+                width: 100%;
+                max-width: 300px;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -731,26 +633,20 @@
         }
 
         @media (max-width: 576px) {
-            .church-logo {
-                height: 54px;
+            .page-title {
+                font-size: 1.75rem;
             }
-
-            .card-grid.cols-4 {
-                grid-template-columns: 1fr;
+            
+            .content-card {
+                padding: 1.25rem;
             }
-
-            .key-principle {
+            
+            .card-header {
                 flex-direction: column;
-                gap: 0.75rem;
-                padding: 1.5rem;
+                text-align: center;
+                gap: 10px;
             }
-
-            .cta-button,
-            .cta-outline {
-                width: 100%;
-                max-width: 320px;
-            }
-
+            
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
@@ -759,42 +655,41 @@
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
+        .content-card, .point-card, .ministry-card, .significance-item {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
     <!-- Site search -->
     <link rel="stylesheet" href="assets/css/site-search.css">
 </head>
-<body id="top">
+<body>
     <!-- Header - Matching Main Page -->
     <header class="main-header" role="banner">
         <div class="container">
             <nav class="main-nav" aria-label="Main Navigation">
                 <div class="logo-container">
-                    <a href="index.html" aria-label="The Apostles' Church home">
-                        <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
-                    </a>
+                    <img src="APCH.png" alt="The Apostles' Church Logo" class="church-logo">
+                    <a href="index.html" class="logo-text"></a>
                 </div>
-
-                <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainMenu">
-                    <i class='bx bx-menu' aria-hidden="true"></i>
-                </button>
-
-                <ul class="nav-menu" id="mainMenu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="articles.html" class="nav-link">Articles of Faith</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="theName.html" class="nav-link active" aria-current="page">The Name</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="articles.html" class="nav-link" role="menuitem">Articles of Faith</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About Us</a></li>
+                    <li role="none"><a href="theName.html" class="nav-link active" role="menuitem">The Name</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -812,230 +707,227 @@
     </nav>
 
     <!-- Hero Banner -->
-    <section class="name-hero" aria-labelledby="page-title">
+    <section class="name-hero">
         <div class="container">
-            <span class="hero-eyebrow">Our Identity</span>
-            <h1 class="page-title" id="page-title">The Meaning of Our Name</h1>
-            <p class="hero-verse">
-                "You shall be called by a new name that the mouth of the LORD will bestow."
-                <cite>Isaiah 62:2</cite>
-            </p>
+            <h1 class="page-title">The Meaning of Our Name</h1>
+            <p class="page-subtitle">"You shall be called by a new name that the mouth of the LORD will bestow." - Isaiah 62:2</p>
         </div>
     </section>
 
-    <!-- On this page -->
-    <nav class="page-toc" aria-label="On this page">
+    <!-- Main Content -->
+    <main class="name-container">
         <div class="container">
-            <ul>
-                <li><a href="#the-name">Why "Apostles"?</a></li>
-                <li><a href="#significance">Biblical Significance</a></li>
-                <li><a href="#identity">Our Apostolic Identity</a></li>
-                <li><a href="#ministries">The Apostolic Ministries</a></li>
-                <li><a href="#unity">Unity in the Name</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main>
-        <!-- Why "Apostles"? -->
-        <section id="the-name" class="name-section" aria-labelledby="the-name-title">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-number"><i class='bx bx-rename' aria-hidden="true"></i></span>
-                    <h2 class="section-title" id="the-name-title">Why "Apostles"?</h2>
+            <!-- Introduction -->
+            <article id="the-name" class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-rename'></i>
+                    </div>
+                    <h2 class="card-title">Why "Apostles"?</h2>
                 </div>
-                <div class="prose">
+                <div class="card-content">
                     <p><em>Apostles</em> is the new name that Yahweh gave to His chosen people who seek His Kingdom and His righteousness (Luke 6:13; Matthew 6:33). This prophetic name was foretold by Isaiah:</p>
-
-                    <figure class="scripture">
-                        <blockquote>And the Gentiles shall see thy righteousness, and all kings thy glory: and thou shalt be called by a new name, which the mouth of the LORD shall name.</blockquote>
-                        <figcaption>Isaiah 62:2</figcaption>
-                    </figure>
-
+                    
+                    <div class="scripture-box">
+                        <div class="scripture-text">And the Gentiles shall see thy righteousness, and all kings thy glory: and thou shalt be called by a new name, which the mouth of the LORD shall name.</div>
+                        <div class="scripture-reference">— Isaiah 62:2</div>
+                    </div>
+                    
                     <p>Yahweh called us by this new name to save us from the curse of the old name:</p>
-
-                    <figure class="scripture">
-                        <blockquote>And ye shall leave your name for a curse unto my chosen: for the LORD Yahweh shall slay thee, and call his servants by another name.</blockquote>
-                        <figcaption>Isaiah 65:15</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- Biblical Significance -->
-        <section id="significance" class="name-section alt" aria-labelledby="significance-title">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-number"><i class='bx bx-bible' aria-hidden="true"></i></span>
-                    <h2 class="section-title" id="significance-title">Biblical Significance of Our Name</h2>
-                </div>
-                <div class="card-grid cols-3">
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-crown' aria-hidden="true"></i></span>
-                        <h3>A Chosen People</h3>
-                        <p>As Yahweh's bondservants and chosen people, we are a new tribe and holy nation, a royal priesthood of His Kingdom and Righteousness.</p>
-                        <span class="ref">1 Peter 2:9</span>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-heart' aria-hidden="true"></i></span>
-                        <h3>New Covenant</h3>
-                        <p>Founded on a new covenant written not on stone tablets but on the tablets of our hearts.</p>
-                        <span class="ref">Jeremiah 31:33</span>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-unite' aria-hidden="true"></i></span>
-                        <h3>Divine Union</h3>
-                        <p>We are united through the blood and body of Yehoshua HaMeshiach, becoming one family in Him.</p>
-                        <span class="ref">Ephesians 2:13-16</span>
+                    
+                    <div class="scripture-box">
+                        <div class="scripture-text">And ye shall leave your name for a curse unto my chosen: for the LORD Yahweh shall slay thee, and call his servants by another name.</div>
+                        <div class="scripture-reference">— Isaiah 65:15</div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </article>
 
-        <!-- Our Apostolic Identity -->
-        <section id="identity" class="name-section" aria-labelledby="identity-title">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-number"><i class='bx bx-book-alt' aria-hidden="true"></i></span>
-                    <h2 class="section-title" id="identity-title">Our Apostolic Identity</h2>
+            <!-- Biblical Significance -->
+            <section class="significance-section">
+                <div class="container">
+                    <h2 class="text-center mb-4" style="color: var(--dark-blue);">Biblical Significance of Our Name</h2>
+                    <div class="significance-grid">
+                        <div class="significance-item">
+                            <h3 class="significance-title">A Chosen People</h3>
+                            <p>As Yahweh's bondservants and chosen people, we are a new tribe and holy nation, a royal priesthood of His Kingdom and Righteousness (1 Peter 2:9).</p>
+                        </div>
+                        
+                        <div class="significance-item">
+                            <h3 class="significance-title">New Covenant</h3>
+                            <p>Founded on a new covenant written not on stone tablets but on the tablets of our hearts (Jeremiah 31:33).</p>
+                        </div>
+                        
+                        <div class="significance-item">
+                            <h3 class="significance-title">Divine Union</h3>
+                            <p>We are united through the blood and body of Yehoshua HaMeshiach, becoming one family in Him (Ephesians 2:13-16).</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="prose">
+            </section>
+
+            <!-- Key Points -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-book-alt'></i>
+                    </div>
+                    <h2 class="card-title">Our Apostolic Identity</h2>
+                </div>
+                <div class="card-content">
                     <p>When we partake of the divine through communion, our lips are touched by Yahweh's power, removing our iniquity and atoning for our sins (Isaiah 6:6-7). In this spiritual nourishment, we undergo an Ezekielian experience:</p>
-                </div>
-                <div class="card-grid cols-3">
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-book-open' aria-hidden="true"></i></span>
-                        <h3>Spiritual Nourishment</h3>
-                        <p>Eating the scroll of God's Word, making it sweet as honey in our mouths.</p>
-                        <span class="ref">Ezekiel 3:1-3</span>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-world' aria-hidden="true"></i></span>
-                        <h3>Global Commission</h3>
-                        <p>Commissioned to speak to all creation, not just those of familiar speech.</p>
-                        <span class="ref">Mark 16:15-18</span>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-message-alt' aria-hidden="true"></i></span>
-                        <h3>Divine Tongues</h3>
-                        <p>Speaking through the Holy Spirit in various tongues as at Pentecost and speaking as Oracles of God.</p>
-                        <span class="ref">Acts 2:3-4; 1 Peter 4:11</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    
+                    <div class="key-points">
+                        <div class="point-card">
+                            <div class="point-icon">
+                                <i class='bx bx-book-open'></i>
+                            </div>
+                            <h3 class="point-title">Spiritual Nourishment</h3>
+                            <p class="point-description">Eating the scroll of God's Word, making it sweet as honey in our mouths (Ezekiel 3:1-3).</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <div class="point-icon">
+                                <i class='bx bx-world'></i>
+                            </div>
+                            <h3 class="point-title">Global Commission</h3>
+                            <p class="point-description">Commissioned to speak to all creation, not just those of familiar speech (Mark 16:15-18).</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <div class="point-icon">
+                                <i class='bx bx-message-alt'></i>
+                            </div>
+                            <h3 class="point-title">Divine Tongues</h3>
+                            <p class="point-description">Speaking through the Holy Spirit in various tongues as at Pentecost and speaking as Oracles of God (Acts 2:3-4, 1 Peter 4:11).
+As citizens of this holy nation, we are called apostles, a royal priesthood and vocation just as our Father who is the Chief Apostle. The founding of this apostolic nation is prophetic, and our ministries reflect this apostolic and prophetic foundations (Ephesians 2:20):
 
-        <!-- The Apostolic Ministries -->
-        <section id="ministries" class="name-section alt" aria-labelledby="ministries-title">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-number"><i class='bx bx-network-chart' aria-hidden="true"></i></span>
-                    <h2 class="section-title" id="ministries-title">The Apostolic Ministries</h2>
+Key Principle: Before one can prophesy, evangelize, shepherd, or teach, one must first acquire the citizenship, to be an apostle. One must be sent, possessing the authority and power. If not an apostle, then in whose name and by what authority and power shall one minister?
+</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="prose">
+            </article>
+
+            <!-- Apostolic Ministries -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-network-chart'></i>
+                    </div>
+                    <h2 class="card-title">The Apostolic Ministries</h2>
+                </div>
+                <div class="card-content">
                     <p>The ultimate goal of the Gospel is to unite all peoples into one tribe or nation of one faith and knowledge of Yahweh through Yehoshua HaMeshiach. This tribal nation is the body that is perfected and edified by its founding father, Yehoshua, who is the Chief Apostle and high priest of the order of Melchizedek (Hebrews 3:1).</p>
-
-                    <figure class="scripture">
-                        <blockquote>Wherefore, holy brethren, partakers of the heavenly calling, consider the Apostle and High Priest of our profession, Christ Jesus.</blockquote>
-                        <figcaption>Hebrews 3:1</figcaption>
-                    </figure>
-
-                    <p>As citizens of this holy nation, we are called apostles, a royal priesthood and vocation just as our Father who is the Chief Apostle. The founding of this apostolic nation is prophetic, and our ministries reflect this apostolic and prophetic foundations (Ephesians 2:20):</p>
+                    
+                    <div class="scripture-box">
+                        <div class="scripture-text">Wherefore, holy brethren, partakers of the heavenly calling, consider the Apostle and High Priest of our profession, Christ Jesus.</div>
+                        <div class="scripture-reference">— Hebrews 3:1</div>
+                    </div>
+                    
+                    <p>As citizens of this holy nation, we are called apostles—a royal priesthood and vocation just as our father who is the Chief Apostle. The founding of this tribal nation is prophetic, and our ministries reflect this apostolic calling:</p>
+                    
+                    <div class="ministry-grid">
+                        <div class="ministry-card">
+                            <div class="ministry-icon">
+                                <i class='bx bx-bullhorn'></i>
+                            </div>
+                            <h3 class="ministry-title">Apostolic Prophets</h3>
+                            <p class="ministry-description">Proclaiming the culture of our tribal nation through prophetic utterance.</p>
+                        </div>
+                        
+                        <div class="ministry-card">
+                            <div class="ministry-icon">
+                                <i class='bx bx-megaphone'></i>
+                            </div>
+                            <h3 class="ministry-title">Apostolic Evangelists</h3>
+                            <p class="ministry-description">Baptizing those who believe in the name of our Chief Apostle.</p>
+                        </div>
+                        
+                        <div class="ministry-card">
+                            <div class="ministry-icon">
+                                <i class='bx bx-group'></i>
+                            </div>
+                            <h3 class="ministry-title">Apostolic Pastors</h3>
+                            <p class="ministry-description">Shepherding and nurturing believers to grow in faith and maturity.</p>
+                        </div>
+                        
+                        <div class="ministry-card">
+                            <div class="ministry-icon">
+                                <i class='bx bx-book-reader'></i>
+                            </div>
+                            <h3 class="ministry-title">Apostolic Teachers</h3>
+                            <p class="ministry-description">Instructing through study and meditation on the Gospel of our nation.</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4"><strong>Key Principle:</strong> Before one can prophesy, evangelize, shepherd, or teach, one must first acquire the citizenship—to be an apostle. One must be sent, possessing the authority. If not an apostle, then in whose name and by what authority shall one minister?</p>
                 </div>
+            </article>
 
-                <div class="card-grid cols-4">
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-broadcast' aria-hidden="true"></i></span>
-                        <h3>Apostolic Prophets</h3>
-                        <p>Proclaiming the culture of our tribal nation through prophetic utterance.</p>
+            <!-- Unity in Christ -->
+            <article class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class='bx bx-unite'></i>
                     </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-water' aria-hidden="true"></i></span>
-                        <h3>Apostolic Evangelists</h3>
-                        <p>Baptizing those who believe in the name of our Chief Apostle.</p>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-group' aria-hidden="true"></i></span>
-                        <h3>Apostolic Pastors</h3>
-                        <p>Shepherding and nurturing believers to grow in faith and maturity.</p>
-                    </div>
-                    <div class="info-card">
-                        <span class="card-icon"><i class='bx bx-book-reader' aria-hidden="true"></i></span>
-                        <h3>Apostolic Teachers</h3>
-                        <p>Instructing through study and meditation on the Gospel of our nation.</p>
-                    </div>
+                    <h2 class="card-title">Unity in the Apostolic Name</h2>
                 </div>
-
-                <div class="key-principle">
-                    <i class='bx bxs-key' aria-hidden="true"></i>
-                    <div>
-                        <h3>Key Principle</h3>
-                        <p>Before one can prophesy, evangelize, shepherd, or teach, one must first acquire the citizenship, to be an apostle. One must be sent, possessing the authority and power. If not an apostle, then in whose name and by what authority and power shall one minister?</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Unity in the Apostolic Name -->
-        <section id="unity" class="name-section" aria-labelledby="unity-title">
-            <div class="container">
-                <div class="section-head">
-                    <span class="section-number"><i class='bx bx-unite' aria-hidden="true"></i></span>
-                    <h2 class="section-title" id="unity-title">Unity in the Apostolic Name</h2>
-                </div>
-                <div class="prose">
+                <div class="card-content">
                     <p>When Yehoshua named His disciples apostles (Luke 6:12-13), He reconciled and united Himself with them through this name. His prayer in John 17 reveals His desire for unity—that all believers would be one with Him and with each other.</p>
-
-                    <figure class="scripture">
-                        <blockquote>And when it was day, he called unto him his disciples: and of them he chose twelve, whom also he named apostles.</blockquote>
-                        <figcaption>Luke 6:13</figcaption>
-                    </figure>
-
+                    
+                    <div class="scripture-box">
+                        <div class="scripture-text">And when it was day, he called unto him his disciples: and of them he chose twelve, whom also he named apostles.</div>
+                        <div class="scripture-reference">— Luke 6:13</div>
+                    </div>
+                    
                     <p>There is only one Ekklesia (Church), and it bears the name that Yehoshua commanded: <strong>The Apostles</strong>. No other name has been given by Yehoshua to His disciples. Therefore, no one has the right to change or give another name to the Body of Christ:</p>
-
-                    <figure class="scripture">
-                        <blockquote>Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.</blockquote>
-                        <figcaption>Acts 4:12</figcaption>
-                    </figure>
-
+                    
+                    <div class="scripture-box">
+                        <div class="scripture-text">Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.</div>
+                        <div class="scripture-reference">— Acts 4:12</div>
+                    </div>
+                    
                     <p>On the Day of Pentecost, when three thousand people believed and were baptized, they were added to the Apostles and continued steadfastly in the apostles' doctrine (Acts 2:41-42). As Apostle Paul reminds us:</p>
-
-                    <figure class="scripture">
-                        <blockquote>Therefore you are no longer strangers and foreigners, but fellow citizens of the saints and members of Yahweh's household, built on the foundation of the apostles and prophets, with Christ Jesus Himself as the cornerstone.</blockquote>
-                        <figcaption>Ephesians 2:19-20</figcaption>
-                    </figure>
-
+                    
+                    <div class="scripture-box">
+                        <div class="scripture-text">Therefore you are no longer strangers and foreigners, but fellow citizens of the saints and members of Yahweh's household, built on the foundation of the apostles and prophets, with Christ Jesus Himself as the cornerstone.</div>
+                        <div class="scripture-reference">— Ephesians 2:19-20</div>
+                    </div>
+                    
                     <p>We, therefore, as the Ekklesia of Yahweh, are The Apostles and uphold the teachings of the Holy Bible, maintaining the unity of the Spirit in the bond of peace.</p>
                 </div>
-            </div>
-        </section>
+            </article>
 
-        <!-- Call to Action -->
-        <section class="cta-section" aria-labelledby="cta-title">
-            <div class="container">
-                <h2 class="cta-title" id="cta-title">Join the Apostolic Family</h2>
-                <p class="cta-text">Become part of the holy nation, a royal priesthood, and fellow citizens with the saints in God's household.</p>
-                <div class="cta-buttons">
-                    <a href="membership.html" class="cta-button">
-                        <i class='bx bx-user-plus' aria-hidden="true"></i> Become a Member
-                    </a>
-                    <a href="articles.html" class="cta-outline">
-                        <i class='bx bx-book' aria-hidden="true"></i> Read Our Articles of Faith
-                    </a>
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <div class="container">
+                    <h2 class="cta-title">Join the Apostolic Family</h2>
+                    <p class="lead" style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem; opacity: 0.9;">
+                        Become part of the holy nation, a royal priesthood, and fellow citizens with the saints in God's household.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="cta-button" onclick="location.href='membership.html'">
+                            <i class='bx bx-user-plus'></i> Become a Member
+                        </button>
+                        <button class="btn-outline-light" onclick="location.href='articles.html'">
+                            <i class='bx bx-book'></i> Read Our Articles of Faith
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <!-- Back to Top Button -->
     <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class='bx bx-chevron-up' aria-hidden="true"></i>
+        <i class='bx bx-chevron-up'></i>
     </a>
 
     <!-- Footer - Matching Main Page -->
     <footer class="main-footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
+                <div class="footer-section">
                 <div class="footer-section" id="contact">
                     <h3>Contact Us</h3>
                     <address>
@@ -1045,7 +937,7 @@
                     </address>
                     <p>Office Hours: Monday-Friday, 10:00 AM - 4:00 PM</p>
                 </div>
-
+                
                 <div class="footer-section">
                     <h3>Our Identity</h3>
                     <ul class="footer-links">
@@ -1057,7 +949,7 @@
                         <li><a href="articles.html">Apostolic Doctrine</a></li>
                     </ul>
                 </div>
-
+                
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
                     <div class="social-links">
@@ -1081,7 +973,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="copyright">
                 <p>&copy; 2026 The Apostles' Church. All rights reserved.</p>
                 <p class="mb-0">
@@ -1093,38 +985,63 @@
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu
-            var toggle = document.getElementById('menuToggle');
-            var menu = document.getElementById('mainMenu');
-
-            function setMenu(open) {
-                menu.classList.toggle('open', open);
-                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-                toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-                toggle.querySelector('i').className = open ? 'bx bx-x' : 'bx bx-menu';
-            }
-
-            toggle.addEventListener('click', function () {
-                setMenu(!menu.classList.contains('open'));
-            });
-
-            menu.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () { setMenu(false); });
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && menu.classList.contains('open')) {
-                    setMenu(false);
-                    toggle.focus();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
                 }
             });
 
-            // Back to top button
-            var backToTop = document.getElementById('backToTop');
-            window.addEventListener('scroll', function () {
-                backToTop.classList.toggle('visible', window.pageYOffset > 300);
-            }, { passive: true });
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's the back to top button
+                    if (href === '#top') return;
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        // Scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add animation to cards on scroll
+            const cards = document.querySelectorAll('.point-card, .ministry-card, .significance-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
         });
     </script>
     <!-- Site search -->
