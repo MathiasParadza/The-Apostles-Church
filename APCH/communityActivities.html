@@ -741,6 +741,150 @@
             max-width: 600px;
             margin: 0 auto;
         }
+
+        /* Activity cards below 1200px (small laptops, tablets, phones). Placed
+           last so it wins over the rules above. The cards used to be 90% of
+           an already padded column (245px wide on a 375px phone) and, from
+           993px, 45% of the width (about 400px), which made them very tall.
+           Show one full-width column instead, drop the line and connectors
+           that only ran behind the cards, and tighten the spacing and type. */
+        @media (max-width: 1199.98px) {
+            .activities-timeline {
+                padding: 0;
+                margin-bottom: 3rem;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column !important;
+            }
+
+            .timeline-connector {
+                display: none;
+            }
+
+            .activities-timeline > .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .timeline-items {
+                gap: 1.5rem;
+            }
+
+            .timeline-item {
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .activity-card {
+                width: 100%;
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 1.75rem;
+            }
+
+            .activity-card:hover {
+                transform: none;
+            }
+
+            .activity-header {
+                gap: 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .activity-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.6rem;
+            }
+
+            .activity-title {
+                font-size: 1.5rem;
+            }
+
+            .activity-subtitle {
+                font-size: 1rem;
+                margin-top: 0.25rem;
+            }
+
+            .activity-content {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .activity-content p {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .activity-card {
+                padding: 1.25rem 1.1rem;
+            }
+
+            .activity-header {
+                flex-direction: row;
+                text-align: left;
+                gap: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .activity-icon {
+                width: 46px;
+                height: 46px;
+                font-size: 1.35rem;
+            }
+
+            .activity-title {
+                font-size: 1.3rem;
+            }
+
+            .activity-subtitle {
+                font-size: 0.95rem;
+            }
+
+            /* Weekly Schedule: same full-width column, less empty space. */
+            .schedule-section {
+                margin: 2.5rem 0;
+                padding: 2.5rem 0;
+                border-radius: 0;
+            }
+
+            .schedule-grid {
+                gap: 1rem;
+                margin-top: 1.75rem;
+            }
+
+            .schedule-card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .schedule-card:hover {
+                transform: none;
+            }
+
+            .schedule-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .schedule-title {
+                font-size: 1.3rem;
+            }
+
+            .schedule-days {
+                margin-bottom: 0.5rem;
+            }
+
+            .schedule-description {
+                margin-bottom: 0;
+            }
+        }
     </style>
     <!-- Site search -->
     <link rel="stylesheet" href="assets/css/site-search.css">
