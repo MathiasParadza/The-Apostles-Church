@@ -65,6 +65,12 @@
 
     .main-nav.is-open .nav-menu {
         display: flex;
+        /* The header is sticky, so keep the open menu within the screen
+           (e.g. a phone held sideways) and let it scroll inside itself. */
+        max-height: calc(100vh - 96px);
+        max-height: calc(100dvh - 96px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
     }
 
     .main-nav .nav-menu .nav-link {

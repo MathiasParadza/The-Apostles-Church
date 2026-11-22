@@ -1,0 +1,109 @@
+/*
+ * Phone/tablet fixes for pages whose header has its own .mobile-toggle
+ * button (home page, resource pages, Giving, News, ...).
+ *
+ * assets/js/mobile-menu.js adds .is-collapsed to .main-nav while the page's
+ * menu button is showing, so these rules follow each page's own breakpoint.
+ *
+ * - The logo, search and menu buttons stay on one row; the opened menu
+ *   drops below them instead of pushing the buttons down.
+ * - The opened menu never grows past the bottom of the screen: it scrolls
+ *   inside itself (the header is sticky, so a taller menu could not be
+ *   scrolled into view at all).
+ */
+
+.main-nav.is-collapsed {
+    flex-wrap: wrap;
+}
+
+.main-nav.is-collapsed > .logo-container {
+    order: 0;
+    flex: 1 1 0;
+    min-width: 0;
+    margin-right: auto;
+}
+
+.main-nav.is-collapsed > .logo-container .logo-text {
+    font-size: 1.1rem;
+    line-height: 1.25;
+}
+
+.main-nav.is-collapsed > .site-search-trigger {
+    order: 1;
+}
+
+.main-nav.is-collapsed > .mobile-toggle {
+    order: 2;
+    flex: none;
+}
+
+.main-nav.is-collapsed > .nav-menu {
+    order: 3;
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+/*
+ * Opt-in (.nav-collapse-lg on .main-nav): pages whose full menu row doesn't
+ * fit between 769px and 991px use the menu button there too, matching the
+ * pages that already collapse below 992px. Mirrors those pages' own
+ * max-width: 768px menu rules.
+ */
+@media (min-width: 768.02px) and (max-width: 991.98px) {
+    .main-nav.nav-collapse-lg {
+        flex-wrap: wrap;
+    }
+
+    .main-nav.nav-collapse-lg > .mobile-toggle {
+        display: block;
+    }
+
+    .main-nav.nav-collapse-lg > .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 1rem;
+    }
+
+    .main-nav.nav-collapse-lg > .nav-menu.active {
+        display: flex;
+    }
+
+    .main-nav.nav-collapse-lg .nav-item {
+        width: 100%;
+    }
+
+    .main-nav.nav-collapse-lg .nav-link {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: space-between;
+    }
+
+    .main-nav.nav-collapse-lg .mega-dropdown,
+    .main-nav.nav-collapse-lg .compact-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        display: none;
+        width: 100%;
+        min-width: 100%;
+        padding: 0.5rem 0 0.5rem 2rem;
+    }
+
+    .main-nav.nav-collapse-lg .mega-dropdown {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.main-nav.is-collapsed > .nav-menu.active,
+.main-nav.is-collapsed > .nav-menu.open {
+    max-height: var(--mobile-menu-max-h, 70vh);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
