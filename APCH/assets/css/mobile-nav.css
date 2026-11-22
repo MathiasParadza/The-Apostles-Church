@@ -1,0 +1,82 @@
+/*
+ * Collapsible header menu for the inner pages whose header is a simple
+ * .main-nav > .logo-container + ul.nav-menu row. Below 992px the links
+ * fold into a panel opened by the button that assets/js/mobile-nav.js adds.
+ */
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .main-nav .logo-container {
+        order: 0;
+        min-width: 0;
+    }
+
+    .main-nav .church-logo {
+        height: 56px;
+    }
+
+    .main-nav .site-search-trigger {
+        order: 1;
+        margin-left: auto;
+    }
+
+    .mobile-nav-toggle {
+        order: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .mobile-nav-toggle:hover,
+    .mobile-nav-toggle:focus-visible {
+        background: rgba(255, 255, 255, 0.22);
+        outline: 2px solid var(--accent-gold, #f1c40f);
+        outline-offset: 2px;
+    }
+
+    .main-nav .nav-menu {
+        order: 3;
+        display: none;
+        flex-direction: column;
+        flex-basis: 100%;
+        gap: 0;
+        margin: 0.5rem 0 0;
+        padding: 0.25rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .main-nav.is-open .nav-menu {
+        display: flex;
+    }
+
+    .main-nav .nav-menu .nav-link {
+        display: block;
+        padding: 0.75rem 0.25rem;
+    }
+
+    .main-nav .nav-menu li + li {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav .nav-menu .nav-link::after {
+        display: none;
+    }
+}
