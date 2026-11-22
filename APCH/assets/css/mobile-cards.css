@@ -1,0 +1,98 @@
+/*
+ * Phone fixes for cards that ended up too narrow because several layers of
+ * side padding stacked up (page container + section + boxed group + card).
+ * On a 375px phone some cards were only 200-250px wide.
+ *
+ * Every rule is scoped to a class that only exists on the page it fixes,
+ * so it can be linked from each of those pages without affecting others.
+ */
+
+@media (max-width: 576px) {
+
+    /* ---- Resource articles (resources/*.html) ---------------------------
+       The white article box kept a 16px outer margin and 16-40px of
+       padding inside the page's own 12px gutter. */
+    .article-page > .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .article-page .article-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.25rem 1rem;
+    }
+
+    /* Boxed groups of cards inside an article */
+    .article-page .growth-tips,
+    .article-page .resources-section,
+    .article-page .harmony-section,
+    .article-page .programs-section {
+        padding: 1rem 0.85rem;
+    }
+
+    /* Card grids inside an article: one full-width column */
+    .article-page .tip-grid,
+    .article-page .resources-grid,
+    .article-page .harmony-grid,
+    .article-page .programs-grid,
+    .article-page .challenges-grid,
+    .article-page .resource-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.75rem;
+    }
+
+    .article-page .tip-item,
+    .article-page .resource-card,
+    .article-page .harmony-card,
+    .article-page .program-card {
+        padding: 1rem;
+    }
+
+    /* ---- Governance (aboutGovernance.html) ---------------------------- */
+    .governance-structure {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .governance-levels {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .governance-levels .governance-card {
+        padding: 1.25rem 1rem;
+    }
+
+    /* ---- Secretariat (aboutSecretariat.html) -------------------------- */
+    .about-content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .about-content .secretariat-section {
+        padding: 1.25rem 1rem;
+    }
+
+    .structure-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .structure-grid .structure-card {
+        padding: 1.25rem 1rem;
+    }
+
+    /* ---- Church Structure org chart (communityDelimitation.html) ------
+       Boxes had a 200px minimum and sat centred one per line. Stack them
+       full width instead. */
+    .org-chart .org-level {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .org-chart .org-item {
+        min-width: 0;
+        padding: 1rem 1.25rem;
+    }
+}
