@@ -684,6 +684,25 @@
             animation: fadeInUp 0.6s ease-out;
         }
 
+        /* Two-column timeline (desktop): centre each dot on the middle line.
+           Cards sit 30px from the line, so the 24px dot needs to move 42px
+           (30 + 12) past the card's inner edge. */
+        @media (min-width: 993px) {
+            .timeline-container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .timeline-dot {
+                right: -42px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -42px;
+                right: auto;
+            }
+        }
+
         /* Single-column timeline (tablets and phones). Placed last so it wins
            over the rules above: keeps the cards inside the screen with a
            margin, puts each dot on the line beside its card instead of over
@@ -694,7 +713,7 @@
             }
 
             .timeline-line {
-                left: 28px;              /* line centre at 30px */
+                left: 30px;              /* centred on 30px (translateX(-50%)) */
             }
 
             .timeline-item,
