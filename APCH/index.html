@@ -602,17 +602,24 @@
             background: var(--text-light);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 18px 40px rgba(28, 60, 38, 0.1);
             touch-action: pan-y;
+            /* All slides share one grid cell, so the card keeps the height
+               of the tallest quote and the page doesn't jump between slides. */
+            display: grid;
         }
 
         .elder-slide {
+            grid-area: 1 / 1;
             display: grid;
             grid-template-columns: 5fr 6fr;
             min-height: 400px;
             margin: 0;
         }
 
+        /* Hidden slides keep their space (invisible) so the card height stays
+           fixed; !important beats Bootstrap's [hidden] { display: none !important }. */
         .elder-slide[hidden] {
-            display: none;
+            display: grid !important;
+            visibility: hidden;
         }
 
         .elder-slide.is-active {
@@ -1528,24 +1535,42 @@
 
             .elder-slide {
                 grid-template-columns: minmax(0, 1fr);
+                grid-template-rows: auto 1fr;
                 min-height: 0;
             }
 
             .elder-image {
-                height: 240px;
+                height: 200px;
                 min-height: 0;
+                padding: 1rem;
+            }
+
+            .elder-image--emblem {
+                padding: 2rem;
             }
 
             .elder-body {
-                padding: 1.75rem 1.5rem 2rem;
+                justify-content: flex-start;
+                padding: 1.5rem 1.25rem 1.75rem;
             }
 
             .elder-body::before {
-                margin-bottom: 1.1rem;
+                margin-bottom: 1rem;
             }
 
             .elder-quote {
-                font-size: 1.05rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .elder-name {
+                font-size: 0.95rem;
+            }
+
+            .elder-controls {
+                gap: 0.5rem;
+                margin-top: 1.25rem;
             }
 
             .journey-intro {
