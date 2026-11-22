@@ -577,7 +577,13 @@
             width: 100%;
             height: 100%;
             min-height: 300px;
-            object-fit: cover;
+            object-fit: contain;
+            padding: 1.25rem;
+        }
+
+        .elder-image--emblem {
+            object-fit: contain;
+            padding: 3rem;
         }
 
         .elder-body {
@@ -601,8 +607,8 @@
             margin: 0 0 1.5rem;
             color: var(--dark-blue);
             font-family: 'Playfair Display', serif;
-            font-size: 1.65rem;
-            line-height: 1.45;
+            font-size: 1.3rem;
+            line-height: 1.55;
         }
 
         .elder-name {
@@ -1372,7 +1378,7 @@
             }
 
             .elder-quote {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
 
             .journey-wrapper {
@@ -1483,7 +1489,7 @@
             }
 
             .elder-quote {
-                font-size: 1.2rem;
+                font-size: 1.05rem;
             }
 
             .journey-intro {
@@ -2290,36 +2296,80 @@
 
                 <div class="elder-carousel" role="region" aria-roledescription="carousel" aria-label="Words from our elders">
                     <div class="elder-viewport" aria-live="off">
-                        <figure class="elder-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                        <figure class="elder-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 7">
                             <div class="elder-media">
-                                <img src="temple.jpeg"
-                                     alt="The Apostles' Church building among the trees" class="elder-image" loading="lazy">
+                                <img src="images/Prophet_Isaac_Chiumbu.png"
+                                     alt="Portrait of Prophet Isaac Kachada Chiumbu" class="elder-image" loading="lazy">
                             </div>
                             <div class="elder-body">
-                                <blockquote class="elder-quote">"Faith is not just believing—it's trusting God's plan even when you cannot see the path ahead."</blockquote>
-                                <figcaption class="elder-name">— Elder John</figcaption>
+                                <blockquote class="elder-quote">“Faith is not blindness; it is perception. Faith is not foolishness; it is provable knowledge. It does not spring from nothing, but from a deliberate process of engaging and examining the depths of the very source of all things, the Word of the living God.”</blockquote>
+                                <figcaption class="elder-name">— Prophet Isaac Kachada Chiumbu</figcaption>
                             </div>
                         </figure>
 
-                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="2 of 3" hidden>
+                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="2 of 7" hidden>
                             <div class="elder-media">
-                                <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=80"
-                                     alt="Members sitting together with open Bibles during a study" class="elder-image" loading="lazy">
+                                <img src="images/Prophetess_sophie_mwandiyamba.jpg"
+                                     alt="Portrait of Prophetess Sophia Mandihyamba" class="elder-image" loading="lazy">
                             </div>
                             <div class="elder-body">
-                                <blockquote class="elder-quote">"In prayer, we find strength; in community, we find support; in faith, we find peace."</blockquote>
-                                <figcaption class="elder-name">— Elder Mary</figcaption>
+                                <blockquote class="elder-quote">“We may lose everything, yet wherever we are, if it is truly God who sent us, we have lost nothing at all. He who began a good work in us never fails, He will always bring it to completion.”</blockquote>
+                                <figcaption class="elder-name">— Prophetess Sophia Mandihyamba</figcaption>
                             </div>
                         </figure>
 
-                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="3 of 3" hidden>
+                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="3 of 7" hidden>
                             <div class="elder-media">
-                                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=900&q=80"
-                                     alt="An open Bible resting among shelves of books" class="elder-image" loading="lazy">
+                                <img src="images/Bishop_josaiah_kantini.jpg"
+                                     alt="Portrait of Bishop Josiah Sibanda Kantini" class="elder-image" loading="lazy">
                             </div>
                             <div class="elder-body">
-                                <blockquote class="elder-quote">"God's Word is the compass that guides us through every storm of life."</blockquote>
-                                <figcaption class="elder-name">— Elder James</figcaption>
+                                <blockquote class="elder-quote">“When we testify of God’s choosing us and demonstrating His power in our lives, others can easily mistake our testimony for boasting. Yet we speak only of what we know, the One in whose knowledge we grow daily, and we testify to what we have seen and continue to see every day. There is only one God: the LORD Jesus Christ.”</blockquote>
+                                <figcaption class="elder-name">— Bishop Josiah Sibanda Kantini</figcaption>
+                            </div>
+                        </figure>
+
+                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="4 of 7" hidden>
+                            <div class="elder-media">
+                                <img src="APCH.png"
+                                     alt="The Apostles' Church emblem" class="elder-image elder-image--emblem" loading="lazy">
+                            </div>
+                            <div class="elder-body">
+                                <blockquote class="elder-quote">“When the LORD said, ‘Let the weeds and the wheat grow together,’ He certainly was not speaking of the Body of Christ, but of the world. For we, as believers, are judged now so that we will not be condemned along with the world on that final Day.”</blockquote>
+                                <figcaption class="elder-name">— Rev. Samson Sibanda Kantini</figcaption>
+                            </div>
+                        </figure>
+
+                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="5 of 7" hidden>
+                            <div class="elder-media">
+                                <img src="images/Prophetess_dorothy_kantini.png"
+                                     alt="Portrait of Prophetess Dorothy Nyangamire Nyirenda" class="elder-image" loading="lazy">
+                            </div>
+                            <div class="elder-body">
+                                <blockquote class="elder-quote">“When God chose to form a woman, He took one rib from Adam; not two, not three, but one rib, to fashion one woman for one man. He did not gather ribs from many men, nor from the beasts of the field, but from one man alone. And He declared: ‘The two shall become one’; not three, not four, but two united as one. Beyond this divine pattern, we have no other template for marriage.”</blockquote>
+                                <figcaption class="elder-name">— Prophetess Dorothy Nyangamire Nyirenda</figcaption>
+                            </div>
+                        </figure>
+
+                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="6 of 7" hidden>
+                            <div class="elder-media">
+                                <img src="images/Rev_elias_paradza.png"
+                                     alt="Portrait of Rev. Elias Paradza" class="elder-image" loading="lazy">
+                            </div>
+                            <div class="elder-body">
+                                <blockquote class="elder-quote">“When you see a brother or sister fall into apostasy today, today is not when they backslid, they had already fallen long ago. Therefore, today’s visible circumstances are never enough to explain their fall; you must look at their history. This is why Paul warns us to restore them gently and watch ourselves closely, lest we also fall.”</blockquote>
+                                <figcaption class="elder-name">— Rev. Elias Paradza</figcaption>
+                            </div>
+                        </figure>
+
+                        <figure class="elder-slide" role="group" aria-roledescription="slide" aria-label="7 of 7" hidden>
+                            <div class="elder-media">
+                                <img src="APCH.png"
+                                     alt="The Apostles' Church emblem" class="elder-image elder-image--emblem" loading="lazy">
+                            </div>
+                            <div class="elder-body">
+                                <blockquote class="elder-quote">“Educate your children, not only in the Holy Bible, but in the schools and professions of this world. They must understand the world to minister effectively to it. The day is coming when the world will neither listen to nor permit any minister of God’s Kingdom who lacks educational qualifications.”</blockquote>
+                                <figcaption class="elder-name">— Rev. Savvya Nyangamire Nyirenda</figcaption>
                             </div>
                         </figure>
                     </div>
@@ -2329,9 +2379,13 @@
                             <i class='bx bx-chevron-left' aria-hidden="true"></i>
                         </button>
                         <div class="elder-dots" role="group" aria-label="Choose an elder">
-                            <button type="button" class="elder-dot is-active" aria-label="Show elder 1 of 3" aria-current="true"></button>
-                            <button type="button" class="elder-dot" aria-label="Show elder 2 of 3"></button>
-                            <button type="button" class="elder-dot" aria-label="Show elder 3 of 3"></button>
+                            <button type="button" class="elder-dot is-active" aria-label="Show elder 1 of 7" aria-current="true"></button>
+                            <button type="button" class="elder-dot" aria-label="Show elder 2 of 7"></button>
+                            <button type="button" class="elder-dot" aria-label="Show elder 3 of 7"></button>
+                            <button type="button" class="elder-dot" aria-label="Show elder 4 of 7"></button>
+                            <button type="button" class="elder-dot" aria-label="Show elder 5 of 7"></button>
+                            <button type="button" class="elder-dot" aria-label="Show elder 6 of 7"></button>
+                            <button type="button" class="elder-dot" aria-label="Show elder 7 of 7"></button>
                         </div>
                         <button type="button" class="slider-btn next-btn" aria-label="Next elder">
                             <i class='bx bx-chevron-right' aria-hidden="true"></i>
