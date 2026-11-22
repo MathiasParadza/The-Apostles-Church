@@ -473,6 +473,62 @@
             background: linear-gradient(135deg, #ffb347 0%, var(--accent-gold) 100%);
         }
 
+        /* Hero on smaller screens. These come after the base hero rules
+           above so they win; the box grows with its content instead of
+           clipping it at a fixed height. */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                min-height: 0;
+                padding: 3rem 0;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.7;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                padding: 1.25rem;
+            }
+
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
         /* ==========================================================
            Home page sections: Elders, Journey, Resources, Topics,
            Get Involved
